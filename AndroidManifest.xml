@@ -82,6 +82,10 @@
                 android:value="com.android.settings.livedisplay.LiveDisplaySettings" />
         </activity>
 
+        <activity android:name=".password.ChooseLockPatternSize"
+            android:exported="false"
+            android:theme="@style/GlifTheme.Light" />
+
     </application>
 
 </manifest>

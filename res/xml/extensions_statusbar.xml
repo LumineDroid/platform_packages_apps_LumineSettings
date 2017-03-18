@@ -10,6 +10,19 @@
     android:title="@string/extensions_statusbar_title">
 
     <PreferenceCategory
+        android:key="status_bar_icons_category"
+        android:title="@string/status_bar_icons_category">
+
+        <!-- Bluetooth battery status -->
+        <org.luminedroid.preferences.SystemSettingSwitchPreference
+            android:key="bluetooth_show_battery"
+            android:title="@string/status_bar_bluetooth_battery_title"
+            android:summary="@string/status_bar_bluetooth_battery_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="status_bar_gestures_category"
         android:title="@string/status_bar_gestures_category">
 

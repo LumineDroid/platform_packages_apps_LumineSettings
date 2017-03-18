@@ -92,6 +92,7 @@
     <string name="monet_engine_color_source_preset">Preset</string>
 
     <!-- Status bar -->
+    <string name="status_bar_icons_category">Icons</string>
     <string name="status_bar_gestures_category">Gestures</string>
     <string name="status_bar_brightness_control_title">Brightness control</string>
     <string name="status_bar_brightness_control_summary">Adjust brightness by swiping across the status bar</string>
@@ -102,4 +103,6 @@
     <string name="status_bar_location_privacy_indicator_summary">Display an indicator when an app accesses your location</string>
     <string name="status_bar_projection_privacy_indicator_title">Screen projection</string>
     <string name="status_bar_projection_privacy_indicator_summary">Display an indicator when the screen is being projected</string>
+    <string name="status_bar_bluetooth_battery_title">Bluetooth battery status</string>
+    <string name="status_bar_bluetooth_battery_summary">Display battery status for the connected Bluetooth device, if available</string>
 </resources>

@@ -17,6 +17,13 @@
             android:summary="@string/icon_manager_summary">
             <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
         </Preference>
+
+        <!-- Bluetooth battery status -->
+        <org.luminedroid.support.preferences.SystemSettingSwitchPreference
+            android:key="bluetooth_show_battery"
+            android:title="@string/status_bar_bluetooth_battery_title"
+            android:summary="@string/status_bar_bluetooth_battery_summary"
+            android:defaultValue="true" />
     </PreferenceCategory>
 
 </PreferenceScreen>

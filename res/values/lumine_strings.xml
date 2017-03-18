@@ -46,4 +46,9 @@
     <!-- Status bar Icon Manager -->
     <string name="icon_manager_title">Icon manager</string>
     <string name="icon_manager_summary">Control visibility of status bar icons</string>
+
+    <!-- Bluetooth battery status -->
+    <string name="status_bar_bluetooth_battery_title">Bluetooth battery status</string>
+    <string name="status_bar_bluetooth_battery_summary">Display battery status for the connected Bluetooth device, if available</string>
+
 </resources>

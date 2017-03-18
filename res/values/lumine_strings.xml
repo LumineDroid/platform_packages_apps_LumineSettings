@@ -78,4 +78,8 @@
     <string name="keybox_toast_file_cleared">Keybox cleared</string>
     <string name="keybox_check_title">Private Keybox spoof</string>
     <string name="keybox_check_summary">Spoof the private key only if you have a valid Keybox for proper Strong Integrity.</string>
+
+    <!-- Bluetooth status -->
+    <string name="bluetooth_battery_title">Bluetooth battery status</string>
+    <string name="bluetooth_battery_summary">Display battery status for the connected bluetooth device, if available</string>
 </resources>

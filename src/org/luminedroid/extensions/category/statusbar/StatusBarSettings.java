@@ -173,6 +173,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     Settings.System.putIntForUser(
         resolver, Settings.System.STATUSBAR_COLORED_ICONS, 0, UserHandle.USER_CURRENT);
+    Settings.System.putIntForUser(
+        resolver, Settings.System.DATA_DISABLED_ICON, 1, UserHandle.USER_CURRENT);
   }
 
   private void enableStatusBarBatteryDependents(int batteryIconStyle) {

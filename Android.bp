@@ -36,7 +36,10 @@ java_defaults {
     name: "LumineSettings-defaults",
 
     srcs: [":LumineSettings-sources"],
-    resource_zips: [":LumineSettings-res"],
+    resource_zips: [
+        ":LumineSettings-res",
+        ":TouchGestures-res",
+    ],
     additional_manifests: [":LumineSettings-manifest"],
 
     static_libs: [

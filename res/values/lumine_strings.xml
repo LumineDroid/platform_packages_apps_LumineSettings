@@ -118,4 +118,8 @@
     <string name="assisted_gps">Use assisted GPS</string>
     <!-- Location settings screen, setting summary for Assisted GPS switch -->
     <string name="assisted_gps_summary">Download satellite assistance data from the internet which can greatly improve the GPS startup performance. For emergency calls, assisted GPS is always allowed.</string>
+
+    <!-- Black theme for dark mode -->
+    <string name="berry_black_theme_title">Pure black</string>
+    <string name="berry_black_theme_summary">Pure black background for dark theme</string>
 </resources>

@@ -8,6 +8,13 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/extensions_statusbar_title">
 
+    <Preference
+        android:key="icon_manager"
+        android:title="@string/icon_manager_title"
+        android:summary="@string/icon_manager_summary">
+        <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
+    </Preference>
+
     <org.luminedroid.preferences.SystemSettingSwitchPreference
         android:key="bluetooth_show_battery"
         android:title="@string/bluetooth_battery_title"

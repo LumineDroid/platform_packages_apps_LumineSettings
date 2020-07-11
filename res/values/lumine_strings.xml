@@ -12,6 +12,9 @@
     <string name="extensions_title">Extensions</string>
     <string name="extensions_summary">Additional customization</string>
 
+    <!-- Extensions category -->
+    <string name="extensions_statusbar_category">Status bar</string>
+
     <!-- Warning message for the sd card setup -->
     <string name="storage_warning_internal">Warning: This option may not work properly or lead to data loss and is therefore not recommended!</string>
 
@@ -39,4 +42,8 @@
     <string name="charging_control_target_time_summary">Battery will be fully charged by %s</string>
     <string name="charging_control_limit_title">Limit</string>
     <string name="reset">Reset</string>
+
+    <!-- Status bar Icon Manager -->
+    <string name="icon_manager_title">Icon manager</string>
+    <string name="icon_manager_summary">Control visibility of status bar icons</string>
 </resources>

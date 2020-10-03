@@ -38,4 +38,11 @@
         android:fragment="com.android.settings.gestures.SwipeToScreenshotGestureSettings"
         settings:controller="com.android.settings.gestures.SwipeToScreenshotPreferenceController" />
 
+    <Preference
+        android:key="display_cutout_force_fullscreen_settings"
+        android:title="@string/display_cutout_force_fullscreen_title"
+        android:summary="@string/display_cutout_force_fullscreen_summary"
+        android:fragment="com.android.settings.display.DisplayCutoutForceFullscreenSettings"
+        settings:controller="com.android.settings.display.DisplayCutoutForceFullscreenPreferenceController" />
+
 </PreferenceScreen>

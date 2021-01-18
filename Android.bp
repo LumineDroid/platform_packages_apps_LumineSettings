@@ -44,5 +44,6 @@ java_defaults {
 
     static_libs: [
         "lumine-preference",
+        "vendor.lineage.fastcharge-V1.0-java",
     ],
 }

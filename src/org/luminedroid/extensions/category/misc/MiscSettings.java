@@ -33,6 +33,7 @@ public class MiscSettings extends SettingsPreferenceFragment
     implements Preference.OnPreferenceChangeListener, Indexable {
 
   private static final String TAG = "Miscellaneous";
+  private static final String SYS_PHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,10 @@ public class MiscSettings extends SettingsPreferenceFragment
   @Override
   public boolean onPreferenceChange(Preference preference, Object newValue) {
     return false;
+  }
+
+  public static void reset(Context mContext) {
+    SystemProperties.set(SYS_PHOTOS_SPOOF, "true");
   }
 
   @Override

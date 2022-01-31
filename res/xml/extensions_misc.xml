@@ -9,6 +9,18 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/extensions_misc_title">
 
+    <PreferenceCategory
+        android:key="miscellaneous_spoofing_category"
+        android:title="@string/miscellaneous_spoofing_category">
+
+        <!-- Unlimited google photos storage -->
+        <org.luminedroid.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pixelprops.gphotos"
+            android:title="@string/miscellaneous_photos_spoof_title"
+            android:summary="@string/miscellaneous_photos_spoof_summary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
     <!-- GameSpace -->
     <Preference
         android:key="game_settings"

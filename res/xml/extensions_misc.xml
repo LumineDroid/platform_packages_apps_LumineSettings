@@ -13,6 +13,12 @@
         android:key="miscellaneous_spoofing_category"
         android:title="@string/miscellaneous_spoofing_category">
 
+        <!-- Unlock FPS for specific games -->
+        <org.luminedroid.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pixelprops.games"
+            android:title="@string/miscellaneous_games_spoof_title"
+            android:summary="@string/miscellaneous_games_spoof_summary" />
+
         <!-- Unlimited google photos storage -->
         <org.luminedroid.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pixelprops.gphotos"

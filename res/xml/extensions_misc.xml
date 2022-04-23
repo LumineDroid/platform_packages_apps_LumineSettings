@@ -22,6 +22,12 @@
         android:fragment="com.android.settings.security.HideDeveloperStatusSettings"
         settings:controller="com.android.settings.security.HideDeveloperStatusPreferenceController" />
 
+    <org.luminedroid.framework.preference.GlobalSettingSwitchPreference
+        android:key="pm_downgrade_allowed"
+        android:title="@string/app_downgrade_title"
+        android:summary="@string/app_downgrade_summary"
+        android:defaultValue="false"/>
+
     <org.luminedroid.framework.preference.SystemSettingSwitchPreference
         android:key="advanced_reboot"
         android:title="@string/global_actions_advanced_reboot_title"

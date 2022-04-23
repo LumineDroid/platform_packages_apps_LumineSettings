@@ -30,4 +30,11 @@
             android:targetPackage="com.libremobileos.sidebar"
             android:targetClass="com.libremobileos.sidebar.ui.sidebar.SidebarSettingsActivity" />
     </Preference>
+
+    <org.luminedroid.preferences.SecureSettingSwitchPreference
+        android:key="window_ignore_secure"
+        android:title="@string/ignore_window_secure_title"
+        android:summary="@string/ignore_window_secure_summary"
+        android:defaultValue="false"/>
+
 </PreferenceScreen>

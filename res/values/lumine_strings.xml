@@ -131,4 +131,11 @@
     <!-- Ignore window secure -->
     <string name="ignore_window_secure_title">Ignore window secure flags</string>
     <string name="ignore_window_secure_summary">Remove screenshot and screenrecord limits for all apps. This can be convenient in some cases but may lead to privacy leaks.</string>
+
+    <!-- Miscellaneous Category -->
+    <string name="miscellaneous_developer_options_category">Developer options</string>
+
+    <!-- Allow application downgrade -->
+    <string name="miscellaneous_app_downgrade_title">Allow application downgrade</string>
+    <string name="miscellaneous_app_downgrade_summary">Allow downgrading system applications, which may result in crashes and data loss</string>
 </resources>

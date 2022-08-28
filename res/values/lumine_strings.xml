@@ -366,4 +366,8 @@
     <string name="pulse_color_lavalamp">Lavalamp</string>
     <string name="pulse_color_album">Album art</string>
     <string name="pulse_color_accent">Accent color</string>
+
+    <!-- Game space -->
+    <string name="game_space_title">Game Space</string>
+    <string name="game_space_summary">Enhance your gaming experience</string>
 </resources>

@@ -61,4 +61,10 @@
         android:title="@string/lock_screen_fingerprint_ripple_title"
         android:summary="@string/lock_screen_fingerprint_ripple_summary"
         android:defaultValue="true" />
+
+    <org.luminedroid.preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_enable_power_menu"
+        android:title="@string/lockscreen_enable_power_menu_title"
+        android:summary="@string/lockscreen_enable_power_menu_summary"
+        android:defaultValue="true" />
 </PreferenceScreen>

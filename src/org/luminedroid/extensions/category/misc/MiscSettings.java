@@ -35,6 +35,7 @@ public class MiscSettings extends SettingsPreferenceFragment
   private static final String TAG = "Miscellaneous";
   private static final String SYS_GAMES_SPOOF = "persist.sys.pixelprops.games";
   private static final String SYS_PHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
+  private static final String SYS_NETFLIX_SPOOF = "persist.sys.pixelprops.netflix";
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class MiscSettings extends SettingsPreferenceFragment
   public static void reset(Context mContext) {
     SystemProperties.set(SYS_GAMES_SPOOF, "false");
     SystemProperties.set(SYS_PHOTOS_SPOOF, "true");
+    SystemProperties.set(SYS_NETFLIX_SPOOF, "false");
   }
 
   @Override

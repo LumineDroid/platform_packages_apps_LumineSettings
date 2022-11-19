@@ -245,6 +245,8 @@
     <string name="miscellaneous_photos_spoof_summary">Spoof your device as Pixel XL for Google Photos app only to provide unlimited storage for backup</string>
     <string name="miscellaneous_games_spoof_title">Unlock higher FPS in games</string>
     <string name="miscellaneous_games_spoof_summary">Spoof your device as different model for specific games to unlock higher FPS</string>
+    <string name="miscellaneous_netflix_spoof_title">Netflix spoof</string>
+    <string name="miscellaneous_netflix_spoof_summary">Spoof your device as different model for Netflix</string>
     <string name="miscellaneous_ignore_window_secure_title">Ignore window secure flags</string>
     <string name="miscellaneous_ignore_window_secure_summary">Remove restrictions on screenshots and screen recordings for all applications, potentially risking privacy leaks</string>
 

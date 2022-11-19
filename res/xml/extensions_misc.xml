@@ -25,6 +25,13 @@
             android:title="@string/miscellaneous_photos_spoof_title"
             android:summary="@string/miscellaneous_photos_spoof_summary"
             android:defaultValue="true" />
+
+        <!-- Netflix -->
+        <org.luminedroid.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pixelprops.netflix"
+            android:title="@string/miscellaneous_netflix_spoof_title"
+            android:summary="@string/miscellaneous_netflix_spoof_summary"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <!-- GameSpace -->

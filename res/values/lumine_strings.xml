@@ -23,4 +23,7 @@
     <string name="extensions_quicksettings_summary">Modify the layout and functionality of Quick Settings tiles</string>
     <string name="extensions_statusbar_title">Status bar</string>
     <string name="extensions_statusbar_summary">Tweak icons and layout in the status bar</string>
+
+    <!-- Warning message for the sd card setup -->
+    <string name="storage_warning_internal">Warning: This option may not work properly or lead to data loss and is therefore not recommended!</string>
 </resources>

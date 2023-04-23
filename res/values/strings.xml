@@ -764,4 +764,11 @@
     <string name="battery_maximum_capacity">Maximum capacity</string>
     <string name="battery_maximum_capacity_summary">%1$d mAh (%2$d%%)</string>
     <string name="battery_maximum_capacity_not_available" translatable="false">@string/battery_cycle_count_not_available</string>
+
+    <!-- Prevent pointer accleration -->
+    <string name="prevent_pointer_acceleration_title">Pointer acceleration</string>
+    <string name="prevent_pointer_acceleration_full">Full (Pointer + Wheel)</string>
+    <string name="prevent_pointer_acceleration_wheel">Wheel only</string>
+    <string name="prevent_pointer_acceleration_pointer">Pointer only</string>
+    <string name="prevent_pointer_acceleration_none">None</string>
 </resources>

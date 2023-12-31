@@ -1,0 +1,42 @@
+//
+// SPDX-FileCopyrightText: 2025 LumineDroid
+// SPDX-License-Identifier: Apache-2.0
+//
+
+filegroup {
+    name: "LumineSettings-sources",
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.kt",
+    ],
+
+    visibility: ["//packages/apps/Settings"],
+}
+
+genrule {
+   name: "LumineSettings-res",
+   tools: ["soong_zip"],
+   srcs: [
+       "res/**/*"
+   ],
+   out: ["LumineSettings-res.zip"],
+   cmd: "INPUTS=($(in)) && "
+       + "RES_DIR=$$(dirname $$(dirname $${INPUTS[0]})) && "
+       + "$(location soong_zip) -o $(out) -C $$RES_DIR -D $$RES_DIR"
+}
+
+filegroup {
+    name: "LumineSettings-manifest",
+    srcs: [
+        "AndroidManifest.xml",
+    ],
+}
+
+java_defaults {
+    name: "LumineSettings-defaults",
+
+    srcs: [":LumineSettings-sources"],
+    resource_zips: [":LumineSettings-res"],
+    additional_manifests: [":LumineSettings-manifest"],
+
+}

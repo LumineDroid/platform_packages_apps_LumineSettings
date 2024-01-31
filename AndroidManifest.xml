@@ -9,6 +9,27 @@
 
     <application>
 
+       <!-- Extensions -->
+        <activity android:name="Settings$ExtensionsActivity"
+             android:label="@string/extensions_title"
+             android:icon="@drawable/ic_extensions"
+             android:exported="true"
+             android:taskAffinity="com.android.settings"
+             android:parentActivityName="Settings">
+             <intent-filter>
+                 <action android:name="com.android.settings.action.SETTINGS" />
+                 <category android:name="android.intent.category.DEFAULT" />
+             </intent-filter>
+             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                 android:value="org.luminedroid.extensions.Extensions" />
+             <meta-data android:name="com.android.settings.title"
+                        android:resource="@string/extensions_title" />
+             <meta-data android:name="com.android.settings.summary"
+                        android:resource="@string/extensions_summary"/>
+             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                        android:value="true" />
+         </activity>
+
     </application>
 
 </manifest>

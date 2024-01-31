@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2025 LumineDroid
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/extensions_title">
+
+    <!-- Status Bar -->
+    <Preference
+        android:key="extensions_statusbar"
+        android:title="@string/extensions_statusbar_title"
+        android:fragment="org.luminedroid.extensions.category.statusbar.StatusBarSettings"
+        android:icon="@drawable/ic_statusbar"/>
+
+    <!-- Quick Settings -->
+    <Preference
+        android:key="extensions_quicksettings"
+        android:title="@string/extensions_quicksettings_title"
+        android:fragment="org.luminedroid.extensions.category.qs.QuickSettings"
+        android:icon="@drawable/ic_quicksettings"/>
+
+    <!-- Navigation -->
+    <Preference
+        android:key="extensions_navigation"
+        android:title="@string/extensions_navigation_title"
+        android:fragment="org.luminedroid.extensions.category.navbar.NavbarSettings"
+        android:icon="@drawable/ic_navigation"/>
+
+    <!-- Lockscreen -->
+    <Preference
+        android:key="extensions_lockscreen"
+        android:title="@string/extensions_lockscreen_title"
+        android:fragment="org.luminedroid.extensions.category.lockscreen.LockScreenSettings"
+        android:icon="@drawable/ic_lockscreen"/>
+
+    <!-- Misc -->
+    <Preference
+        android:key="extensions_misc"
+        android:title="@string/extensions_misc_title"
+        android:fragment="org.luminedroid.extensions.category.misc.MiscSettings"
+        android:icon="@drawable/ic_misc"/>
+
+</PreferenceScreen>

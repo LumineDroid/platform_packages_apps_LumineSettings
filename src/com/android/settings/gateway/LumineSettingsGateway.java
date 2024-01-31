@@ -21,6 +21,8 @@ import com.android.settings.luminedroid.buttons.ButtonSettings;
 import com.android.settings.luminedroid.health.ChargingControlSettings;
 import com.android.settings.luminedroid.statusbar.StatusBarSettings;
 
+import org.luminedroid.extensions.Extensions;
+
 public class LumineSettingsGateway {
 
     /**
@@ -30,6 +32,7 @@ public class LumineSettingsGateway {
     public static final String[] ENTRY_FRAGMENTS = {
         ButtonSettings.class.getName(),
         ChargingControlSettings.class.getName(),
+        Extensions.class.getName(),
         RefreshRateSettings.class.getName(),
         StatusBarSettings.class.getName()
     };

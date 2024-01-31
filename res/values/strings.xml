@@ -205,6 +205,18 @@
     <string name="status_bar_double_tap_to_sleep_lockscreen_title">Tap to sleep</string>
     <string name="status_bar_double_tap_to_sleep_lockscreen_summary">Double-tap on the status bar or lockscreen to turn off the display</string>
 
+    <!-- Extensions -->
+    <string name="extensions_title">Extensions</string>
+    <string name="extensions_summary">Add powerful features to customize and enhance your Android experience.</string>
+
+    <!-- Extensions - Categories -->
+    <string name="extensions_lockscreen_title">Lock screen</string>
+    <string name="extensions_misc_title">Miscellaneous</string>
+    <string name="extensions_navigation_title">Navigation bar</string>
+    <string name="extensions_quicksettings_title">Quick Settings</string>
+    <string name="extensions_statusbar_title">Status bar</string>
+    <string name="extensions_quicksettings_summary">Quick Settings customization</string>
+
     <!-- Fingerprint enroll -->
     <!-- Message shown in fingerprint enrollment dialog to locate the sensor -->
     <string name="fingerprint_enroll_find_sensor_message_front" product="tablet">Locate the fingerprint sensor on the front of your tablet.</string>

@@ -7,4 +7,15 @@
 
     <!-- LumineDroid version -->
     <string name="lumine_version_title">LumineDroid version</string>
+
+    <!-- Extensions -->
+    <string name="extensions_title">Extensions</string>
+    <string name="extensions_summary">Additional customization</string>
+
+    <!-- Categories -->
+    <string name="extensions_lockscreen_title">Lock screen</string>
+    <string name="extensions_misc_title">Miscellaneous</string>
+    <string name="extensions_button_title">Button</string>
+    <string name="extensions_quicksettings_title">Quick Settings</string>
+    <string name="extensions_statusbar_title">Status bar</string>
 </resources>

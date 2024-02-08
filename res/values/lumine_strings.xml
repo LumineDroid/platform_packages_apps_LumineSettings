@@ -317,4 +317,8 @@
     <string name="app_downgrade_title">Allow application downgrade</string>
     <string name="app_downgrade_summary">Permit to downgrading applications. May lead to crashes and data corruption.</string>
 
+    <!-- Spoof storage encryption status -->
+    <string name="spoof_storage_encryption_status_title">Disable storage encryption status</string>
+    <string name="spoof_storage_encryption_status_summary">Prevent apps from not operating due to unencrypted storage</string>
+
 </resources>

@@ -28,6 +28,12 @@
         android:summary="@string/app_downgrade_summary"
         android:defaultValue="false"/>
 
+    <org.luminedroid.framework.preference.GlobalSettingSwitchPreference
+        android:key="spoof_storage_encryption_status"
+        android:title="@string/spoof_storage_encryption_status_title"
+        android:summary="@string/spoof_storage_encryption_status_summary"
+        android:defaultValue="false"/>
+
     <org.luminedroid.framework.preference.SystemSettingSwitchPreference
         android:key="advanced_reboot"
         android:title="@string/global_actions_advanced_reboot_title"

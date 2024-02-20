@@ -5,6 +5,33 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- About info -->
+    <string name="lumine_head_title">What is LumineDroid?</string>
+    <string name="lumine_head_summary">An open-source custom Android based on LineageOS with additional features</string>
+    <string name="lumine_about_info">Visit us</string>
+    <string name="lumine_website_title" translatable="false">Website</string>
+    <string name="lumine_website_summary">Visit our official website</string>
+    <string name="lumine_telegram_title" translatable="false">Telegram</string>
+    <string name="lumine_telegram_summary">Join our community chat</string>
+    <string name="lumine_github_title" translatable="false">GitHub</string>
+    <string name="lumine_github_summary">Check out our GitHub</string>
+
+    <!-- About Team -->
+    <string name="lumine_about_dev">Developer</string>
+    <string name="lumine_about_con">Contributor</string>
+    <string name="lumine_about_geeky" translatable="false">Geeky</string>
+    <string name="lumine_about_geeky_summary">Founder / Lead Developer</string>
+    <string name="lumine_about_luigiee" translatable="false">Luigiee</string>
+    <string name="lumine_about_luigiee_summary">Co Founder / Lead Developer</string>
+    <string name="lumine_about_mikazu" translatable="false">Mikazuuu07</string>
+    <string name="lumine_about_mikazu_summary">Lead Developer</string>
+    <string name="lumine_about_ramadhani" translatable="false">Ramadhani</string>
+    <string name="lumine_about_ramadhani_summary">Lead Developer</string>
+    <string name="lumine_about_piyyy" translatable="false">Piyyy</string>
+    <string name="lumine_about_piyyy_summary">Core Contributor</string>
+    <string name="lumine_about_soni" translatable="false">Soni Dharma</string>
+    <string name="lumine_about_soni_summary">Core Contributor</string>
+
     <!-- LumineDroid version -->
     <string name="lumine_version_title">LumineDroid version</string>
 
@@ -13,6 +40,8 @@
     <string name="extensions_summary">Add powerful features to customize and enhance your Android experience.</string>
 
     <!-- Categories -->
+    <string name="extensions_about_title">About us</string>
+    <string name="extensions_about_summary">Tap here to know more about us</string>
     <string name="extensions_lockscreen_title">Lock screen</string>
     <string name="extensions_lockscreen_summary">Customize the appearance and behavior of the lock screen</string>
     <string name="extensions_misc_title">Miscellaneous</string>

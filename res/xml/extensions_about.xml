@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2025 LumineDroid
+     SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/extensions_about_title" >
+
+    <Preference
+        android:key="lumine_about_header"
+        android:layout="@layout/lumine_about_header"
+        android:selectable="false"/>
+
+    <PreferenceCategory
+        android:key="lumine_about_info"
+        android:title="@string/lumine_about_info" />
+
+        <Preference
+            android:title="@string/lumine_website_title"
+            android:summary="@string/lumine_website_summary"
+            settings:layout="@layout/lumine_about_card"
+            android:icon="@drawable/ic_website">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://luminedroid.org" />
+        </Preference>
+
+        <Preference
+            android:title="@string/lumine_telegram_title"
+            android:summary="@string/lumine_telegram_summary"
+            settings:layout="@layout/lumine_about_card"
+            android:icon="@drawable/ic_telegram">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/LumineDroidChat" />
+        </Preference>
+
+        <Preference
+            android:title="@string/lumine_github_title"
+            android:summary="@string/lumine_github_summary"
+            settings:layout="@layout/lumine_about_card"
+            android:icon="@drawable/ic_github">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/LumineDroid" />
+        </Preference>
+
+    <PreferenceCategory
+        android:key="about_developer"
+        android:title="@string/lumine_about_dev" >
+
+        <Preference
+            android:title="@string/lumine_about_geeky"
+            android:summary="@string/lumine_about_geeky_summary"
+            settings:layout="@layout/lumine_about_card"
+            android:icon="@drawable/geeky">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/Kizziama" />
+        </Preference>
+
+        <Preference
+            android:title="@string/lumine_about_luigiee"
+            android:summary="@string/lumine_about_luigiee_summary"
+            settings:layout="@layout/lumine_about_card"
+            android:icon="@drawable/luigiee">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/Luigiee" />
+        </Preference>
+
+        <Preference
+            android:title="@string/lumine_about_mikazu"
+            android:summary="@string/lumine_about_mikazu_summary"
+            settings:layout="@layout/lumine_about_card"
+            android:icon="@drawable/mikazu">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/Mikazuuu07" />
+        </Preference>
+
+        <Preference
+            android:title="@string/lumine_about_ramadhani"
+            android:summary="@string/lumine_about_ramadhani_summary"
+            settings:layout="@layout/lumine_about_card"
+            android:icon="@drawable/rmdni">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/ramaadni" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="about_contributor"
+        android:title="@string/lumine_about_con" >
+
+        <Preference
+            android:title="@string/lumine_about_piyyy"
+            android:summary="@string/lumine_about_piyyy_summary"
+            settings:layout="@layout/lumine_about_card"
+            android:icon="@drawable/piyyy">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/piyskrrt" />
+        </Preference>
+
+        <Preference
+            android:title="@string/lumine_about_soni"
+            android:summary="@string/lumine_about_soni_summary"
+            settings:layout="@layout/lumine_about_card"
+            android:icon="@drawable/soni">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://t.me/StartTrueDreams" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

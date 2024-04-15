@@ -43,4 +43,14 @@
     <string name="spoofing_pif_json_select_summary">Download and load the PIF JSON file from official PIF repo for passing play integrity</string>
     <string name="spoofing_pif_json_select_success">Successfully updated fingerprints. Now reboot to take effect.</string>
     <string name="spoofing_pif_json_select_failure">Failed to complete the operation.</string>
+
+    <!-- Themes -->
+    <string name="themes_fonts_category">Fonts</string>
+    <string name="themes_system_font_title">System font</string>
+    <string name="themes_system_font_summary">Set system font style</string>
+    <string name="themes_icons_category">Icons</string>
+    <string name="themes_system_icons_title">System Icons</string>
+    <string name="themes_system_icons_summary">Set system icon style</string>
+    <string name="themes_icon_shape_title">Icon shape</string>
+    <string name="themes_icon_shape_summary">Set system icon shape</string>
 </resources>

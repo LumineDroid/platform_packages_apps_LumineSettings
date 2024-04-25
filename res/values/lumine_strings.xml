@@ -90,4 +90,9 @@
     <string name="monet_engine_color_source_home">Home wallpaper</string>
     <string name="monet_engine_color_source_lock">Lock wallpaper</string>
     <string name="monet_engine_color_source_preset">Preset</string>
+
+    <!-- Status bar -->
+    <string name="status_bar_gestures_category">Gestures</string>
+    <string name="status_bar_brightness_control_title">Brightness control</string>
+    <string name="status_bar_brightness_control_summary">Adjust brightness by swiping across the status bar</string>
 </resources>

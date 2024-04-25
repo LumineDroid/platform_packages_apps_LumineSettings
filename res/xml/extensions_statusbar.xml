@@ -34,4 +34,10 @@
         android:summary="@string/status_bar_double_tap_to_sleep_summary"
         android:defaultValue="false" />
 
+    <!-- Notification counter -->
+    <org.luminedroid.preferences.SystemSettingSwitchPreference
+        android:key="statusbar_notif_count"
+        android:title="@string/status_bar_notif_count_title"
+        android:summary="@string/status_bar_notif_count_summary"
+        android:defaultValue="false" />
 </PreferenceScreen>

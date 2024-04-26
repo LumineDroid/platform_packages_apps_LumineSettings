@@ -6,8 +6,11 @@
 package org.luminedroid.extensions.category.lockscreen;
 
 import android.content.Context;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -20,10 +23,26 @@ import java.util.List;
 public class LockScreenSettings extends SettingsPreferenceFragment
     implements Preference.OnPreferenceChangeListener, Indexable {
 
+  private static final String KEY_FINGERPRINT_CATEGORY = "lock_screen_fingerprint_category";
+  private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
+
+  private PreferenceCategory mFingerprintCategory;
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     addPreferencesFromResource(R.xml.extensions_lockscreen);
+
+    final PreferenceScreen prefScreen = getPreferenceScreen();
+
+    mFingerprintCategory = (PreferenceCategory) findPreference(KEY_FINGERPRINT_CATEGORY);
+
+    FingerprintManager fingerprintManager =
+        (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+
+    if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+      prefScreen.removePreference(mFingerprintCategory);
+    }
   }
 
   @Override
@@ -41,6 +60,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment
         @Override
         public List<String> getNonIndexableKeys(Context context) {
           List<String> keys = super.getNonIndexableKeys(context);
+          FingerprintManager fingerprintManager =
+              (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+
+          if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
+            keys.add(KEY_RIPPLE_EFFECT);
+          }
           return keys;
         }
       };

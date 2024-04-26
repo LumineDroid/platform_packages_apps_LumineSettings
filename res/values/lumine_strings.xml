@@ -248,4 +248,9 @@
     <!-- Misc -->
     <string name="miscellaneous_ignore_window_secure_title">Ignore window secure flags</string>
     <string name="miscellaneous_ignore_window_secure_summary">Remove restrictions on screenshots and screen recordings for all applications, potentially risking privacy leaks</string>
+
+    <!-- Lockscreen -->
+    <string name="lock_screen_fingerprint_category">Fingerprint</string>
+    <string name="lock_screen_fingerprint_ripple_title">Ripple animation</string>
+    <string name="lock_screen_fingerprint_ripple_summary">Show ripple animation when unlocked with fingerprint</string>
 </resources>

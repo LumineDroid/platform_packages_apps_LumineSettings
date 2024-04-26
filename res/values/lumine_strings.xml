@@ -243,4 +243,9 @@
     <!-- Ignore window secure -->
     <string name="ignore_window_secure_title">Ignore window secure flags</string>
     <string name="ignore_window_secure_summary">Remove screenshot and screenrecord limits for all apps. This can be convenient in some cases but may lead to privacy leaks.</string>
+
+    <!-- Quick settings -->
+    <string name="quick_settings_lock_screen_category">Lock screen</string>
+    <string name="quick_settings_secure_lock_screen_title">Hide on secure lock screen</string>
+    <string name="quick_settings_secure_lock_screen_summary">Hide all quick settings in the notification shade while the device is locked</string>
 </resources>

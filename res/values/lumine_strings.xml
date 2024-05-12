@@ -118,6 +118,8 @@
     <string name="status_bar_network_traffic_settings_summary">Display and customize current network traffic levels</string>
     <string name="status_bar_data_disabled_icon_title">Data disabled indicator</string>
     <string name="status_bar_data_disabled_icon_summary">Display an indicator next to signal icon when data is disabled</string>
+    <string name="status_bar_4g_icon_title">4G icon</string>
+    <string name="status_bar_4g_icon_summary">Replace \'LTE\' icon with \'4G\'</string>
 
     <!-- Status bar/Network traffic -->
     <string name="network_traffic_location_title">Location</string>

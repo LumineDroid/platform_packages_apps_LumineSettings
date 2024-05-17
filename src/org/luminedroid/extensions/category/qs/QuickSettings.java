@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.provider.Settings;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -22,6 +23,7 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.List;
 import lineageos.preference.LineageSecureSettingSwitchPreference;
 import lineageos.providers.LineageSettings;
+import org.luminedroid.preferences.SystemSettingListPreference;
 import org.luminedroid.preferences.SystemSettingSwitchPreference;
 
 @SearchIndexable
@@ -33,12 +35,20 @@ public class QuickSettings extends SettingsPreferenceFragment
   private static final String KEY_INTERFACE_CATEGORY = "quick_settings_interface_category";
   private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
   private static final String KEY_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
+  private static final String KEY_BATTERY_PERCENT = "qs_show_battery_percent";
+  private static final String KEY_BATTERY_STYLE = "qs_battery_style";
+
+  private static final int BATTERY_STYLE_PORTRAIT = 0;
+  private static final int BATTERY_STYLE_TEXT = 4;
+  private static final int BATTERY_STYLE_HIDDEN = 5;
 
   private PreferenceCategory mInterfaceCategory;
   private ListPreference mShowBrightnessSlider;
   private ListPreference mBrightnessSliderPosition;
   private LineageSecureSettingSwitchPreference mShowAutoBrightness;
   private SystemSettingSwitchPreference mBrightnessSliderHaptic;
+  private SystemSettingListPreference mBatteryStyle;
+  private SystemSettingListPreference mBatteryPercent;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -49,6 +59,21 @@ public class QuickSettings extends SettingsPreferenceFragment
     final ContentResolver resolver = mContext.getContentResolver();
     final PreferenceScreen prefScreen = getPreferenceScreen();
     final Resources resources = mContext.getResources();
+
+    mBatteryStyle = (SystemSettingListPreference) findPreference(KEY_BATTERY_STYLE);
+    mBatteryPercent = (SystemSettingListPreference) findPreference(KEY_BATTERY_PERCENT);
+
+    int batterystyle =
+        Settings.System.getIntForUser(
+            resolver,
+            Settings.System.QS_BATTERY_STYLE,
+            BATTERY_STYLE_PORTRAIT,
+            UserHandle.USER_CURRENT);
+
+    mBatteryStyle.setOnPreferenceChangeListener(this);
+
+    mBatteryPercent.setEnabled(
+        batterystyle != BATTERY_STYLE_TEXT && batterystyle != BATTERY_STYLE_HIDDEN);
 
     mShowBrightnessSlider = findPreference(KEY_SHOW_BRIGHTNESS_SLIDER);
     mShowBrightnessSlider.setOnPreferenceChangeListener(this);
@@ -85,6 +110,10 @@ public class QuickSettings extends SettingsPreferenceFragment
       mBrightnessSliderPosition.setEnabled(value > 0);
       mBrightnessSliderHaptic.setEnabled(value > 0);
       if (mShowAutoBrightness != null) mShowAutoBrightness.setEnabled(value > 0);
+      return true;
+    } else if (preference == mBatteryStyle) {
+      int value = Integer.parseInt((String) newValue);
+      mBatteryPercent.setEnabled(value != BATTERY_STYLE_TEXT && value != BATTERY_STYLE_HIDDEN);
       return true;
     }
     return false;

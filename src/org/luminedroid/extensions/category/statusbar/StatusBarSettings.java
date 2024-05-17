@@ -1,15 +1,15 @@
 /*
  * Copyright (C) 2025 LumineDroid
- * Copyright (C} 2017-2024 The LineageOS Project
+ * Copyright (C) 2017-2024 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
 package org.luminedroid.extensions.category.statusbar;
 
+import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
-import android.os.BatteryManager;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -20,11 +20,11 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settingslib.fuelgauge.BatteryUtils;
 import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 import java.util.List;
 import lineageos.preference.LineageSystemSettingListPreference;
+import org.luminedroid.preferences.SystemSettingListPreference;
 import org.luminedroid.preferences.SystemSettingSwitchPreference;
 import org.luminedroid.utils.DeviceUtils;
 
@@ -32,7 +32,6 @@ import org.luminedroid.utils.DeviceUtils;
 public class StatusBarSettings extends SettingsPreferenceFragment
     implements Preference.OnPreferenceChangeListener, Indexable {
 
-  private static final String CATEGORY_BATTERY = "status_bar_battery_key";
   private static final String CATEGORY_CLOCK = "status_bar_clock_key";
 
   private static final String ICON_BLACKLIST = "icon_blacklist";
@@ -43,11 +42,16 @@ public class StatusBarSettings extends SettingsPreferenceFragment
   private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
   private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
 
+  private static final String KEY_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
+
   private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 2;
 
   private static final int PULLDOWN_DIR_NONE = 0;
   private static final int PULLDOWN_DIR_RIGHT = 1;
   private static final int PULLDOWN_DIR_LEFT = 2;
+  private static final int BATTERY_STYLE_PORTRAIT = 0;
+  private static final int BATTERY_STYLE_TEXT = 4;
+  private static final int BATTERY_STYLE_HIDDEN = 5;
 
   private static final String KEY_ICONS_CATEGORY = "status_bar_icons_category";
   private static final String KEY_DATA_DISABLED_ICON = "data_disabled_icon";
@@ -55,6 +59,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment
   private static final String KEY_FOUR_G_ICON = "show_fourg_icon";
 
   private PreferenceCategory mIconsCategory;
+  private SystemSettingListPreference mBatteryPercent;
+  private SystemSettingListPreference mBatteryStyle;
+  private SystemSettingSwitchPreference mBatteryTextCharging;
   private SystemSettingSwitchPreference mDataDisabledIcon;
   private SystemSettingSwitchPreference mFourgIcon;
   private SystemSettingSwitchPreference mBluetoothBatteryStatus;
@@ -62,12 +69,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
   private LineageSystemSettingListPreference mQuickPulldown;
   private LineageSystemSettingListPreference mStatusBarClock;
   private LineageSystemSettingListPreference mStatusBarAmPm;
-  private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
 
-  private PreferenceCategory mStatusBarBatteryCategory;
   private PreferenceCategory mStatusBarClockCategory;
-
-  private boolean mBatteryPresent;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +78,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     addPreferencesFromResource(R.xml.extensions_statusbar);
 
     final Context context = getContext();
+    final ContentResolver resolver = context.getContentResolver();
 
     mStatusBarAmPm = findPreference(STATUS_BAR_AM_PM);
     mStatusBarClock = findPreference(STATUS_BAR_CLOCK_STYLE);
@@ -82,26 +86,34 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     mStatusBarClockCategory = getPreferenceScreen().findPreference(CATEGORY_CLOCK);
 
-    mStatusBarBatteryShowPercent = findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
-    LineageSystemSettingListPreference statusBarBattery = findPreference(STATUS_BAR_BATTERY_STYLE);
-    statusBarBattery.setOnPreferenceChangeListener(this);
-    enableStatusBarBatteryDependents(statusBarBattery.getIntValue(2));
-
-    Intent intent = BatteryUtils.getBatteryIntent(getContext());
-    if (intent != null) {
-      mBatteryPresent = intent.getBooleanExtra(BatteryManager.EXTRA_PRESENT, true);
-    }
-    mStatusBarBatteryCategory = getPreferenceScreen().findPreference(CATEGORY_BATTERY);
-
     mQuickPulldown = findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
     mQuickPulldown.setOnPreferenceChangeListener(this);
     updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
 
-    mIconsCategory = (PreferenceCategory) findPreference(KEY_ICONS_CATEGORY);
-    mDataDisabledIcon = (SystemSettingSwitchPreference) findPreference(KEY_DATA_DISABLED_ICON);
-    mFourgIcon = (SystemSettingSwitchPreference) findPreference(KEY_FOUR_G_ICON);
-    mBluetoothBatteryStatus =
-        (SystemSettingSwitchPreference) findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
+    mIconsCategory = findPreference(KEY_ICONS_CATEGORY);
+    mBatteryStyle = findPreference(STATUS_BAR_BATTERY_STYLE);
+    mBatteryPercent = findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
+    mBatteryTextCharging = findPreference(KEY_BATTERY_TEXT_CHARGING);
+    mBluetoothBatteryStatus = findPreference(KEY_BLUETOOTH_BATTERY_STATUS);
+    mDataDisabledIcon = findPreference(KEY_DATA_DISABLED_ICON);
+    mFourgIcon = findPreference(KEY_FOUR_G_ICON);
+
+    int batteryStyle =
+        Settings.System.getIntForUser(
+            resolver, STATUS_BAR_BATTERY_STYLE, BATTERY_STYLE_PORTRAIT, UserHandle.USER_CURRENT);
+
+    int batteryPercent =
+        Settings.System.getIntForUser(
+            resolver, STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
+
+    mBatteryStyle.setOnPreferenceChangeListener(this);
+    mBatteryPercent.setEnabled(
+        batteryStyle != BATTERY_STYLE_TEXT && batteryStyle != BATTERY_STYLE_HIDDEN);
+    mBatteryPercent.setOnPreferenceChangeListener(this);
+
+    mBatteryTextCharging.setEnabled(
+        batteryStyle == BATTERY_STYLE_HIDDEN
+            || (batteryStyle != BATTERY_STYLE_TEXT && batteryPercent != 2));
 
     if (!DeviceUtils.deviceSupportsMobileData(context)) {
       mIconsCategory.removePreference(mDataDisabledIcon);
@@ -117,19 +129,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment
   public void onResume() {
     super.onResume();
 
-    final String curIconBlacklist =
-        Settings.Secure.getString(getContext().getContentResolver(), ICON_BLACKLIST);
+    final ContentResolver resolver = getContext().getContentResolver();
+    final String curIconBlacklist = Settings.Secure.getString(resolver, ICON_BLACKLIST);
 
     if (TextUtils.delimitedStringContains(curIconBlacklist, ',', "clock")) {
       getPreferenceScreen().removePreference(mStatusBarClockCategory);
     } else {
       getPreferenceScreen().addPreference(mStatusBarClockCategory);
-    }
-
-    if (!mBatteryPresent || TextUtils.delimitedStringContains(curIconBlacklist, ',', "battery")) {
-      getPreferenceScreen().removePreference(mStatusBarBatteryCategory);
-    } else {
-      getPreferenceScreen().addPreference(mStatusBarBatteryCategory);
     }
 
     if (DateFormat.is24HourFormat(getActivity())) {
@@ -139,7 +145,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     final boolean disallowCenteredClock = DeviceUtils.hasCenteredCutout(getActivity());
 
-    // Adjust status bar preferences for RTL
     if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
       if (disallowCenteredClock) {
         mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch_rtl);
@@ -163,23 +168,45 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
   @Override
   public boolean onPreferenceChange(Preference preference, Object newValue) {
+    final ContentResolver resolver = getContext().getContentResolver();
     int value = Integer.parseInt((String) newValue);
     String key = preference.getKey();
+
     switch (key) {
       case STATUS_BAR_QUICK_QS_PULLDOWN:
         updateQuickPulldownSummary(value);
         break;
+
       case STATUS_BAR_CLOCK_STYLE:
         break;
+
       case STATUS_BAR_BATTERY_STYLE:
-        enableStatusBarBatteryDependents(value);
-        break;
+        int batteryPercent =
+            Settings.System.getIntForUser(
+                resolver, STATUS_BAR_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT);
+        updateBatteryPreferences(value, batteryPercent);
+        return true;
+
+      case STATUS_BAR_SHOW_BATTERY_PERCENT:
+        int batteryStyle =
+            Settings.System.getIntForUser(
+                resolver,
+                STATUS_BAR_BATTERY_STYLE,
+                BATTERY_STYLE_PORTRAIT,
+                UserHandle.USER_CURRENT);
+        updateBatteryPreferences(batteryStyle, value);
+        return true;
     }
-    return true;
+
+    return false;
   }
 
-  private void enableStatusBarBatteryDependents(int batteryIconStyle) {
-    mStatusBarBatteryShowPercent.setEnabled(batteryIconStyle != STATUS_BAR_BATTERY_STYLE_TEXT);
+  private void updateBatteryPreferences(int batteryStyle, int batteryPercent) {
+    mBatteryPercent.setEnabled(
+        batteryStyle != BATTERY_STYLE_TEXT && batteryStyle != BATTERY_STYLE_HIDDEN);
+    mBatteryTextCharging.setEnabled(
+        batteryStyle == BATTERY_STYLE_HIDDEN
+            || (batteryStyle != BATTERY_STYLE_TEXT && batteryPercent != 2));
   }
 
   private void updateQuickPulldownSummary(int value) {
@@ -191,15 +218,15 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
       case PULLDOWN_DIR_LEFT:
       case PULLDOWN_DIR_RIGHT:
+        boolean isRtl =
+            getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
         summary =
             getResources()
                 .getString(
                     R.string.status_bar_quick_qs_pulldown_summary,
                     getResources()
                         .getString(
-                            (value == PULLDOWN_DIR_LEFT)
-                                    ^ (getResources().getConfiguration().getLayoutDirection()
-                                        == View.LAYOUT_DIRECTION_RTL)
+                            (value == PULLDOWN_DIR_LEFT) ^ isRtl
                                 ? R.string.status_bar_quick_qs_pulldown_summary_left
                                 : R.string.status_bar_quick_qs_pulldown_summary_right));
         break;

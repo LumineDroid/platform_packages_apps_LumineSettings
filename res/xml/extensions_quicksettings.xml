@@ -44,4 +44,25 @@
             android:defaultValue="true" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="quick_settings_interface_category"
+        android:title="@string/quick_settings_interface_category">
+
+        <!-- Battery styles -->
+        <org.luminedroid.preferences.SystemSettingListPreference
+            android:key="qs_battery_style"
+            android:title="@string/status_bar_battery_style_title"
+            android:entries="@array/qs_battery_style_entries"
+            android:entryValues="@array/qs_battery_style_values"
+            android:defaultValue="-1" />
+
+        <!-- Battery percent -->
+        <org.luminedroid.preferences.SystemSettingListPreference
+            android:key="qs_show_battery_percent"
+            android:title="@string/status_bar_battery_percentage_title"
+            android:entries="@array/status_bar_battery_percentage_entries"
+            android:entryValues="@array/status_bar_battery_percentage_values"
+            android:defaultValue="2" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

@@ -16,7 +16,6 @@
 
 package org.luminedroid.extensions.category.themes;
 
-
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;

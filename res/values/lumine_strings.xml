@@ -302,4 +302,8 @@
     <string name="spoofing_pif_json_select_summary">Download and load the PIF JSON file from official PIF repo for passing play integrity</string>
     <string name="spoofing_pif_json_select_success">Successfully updated fingerprints. Now reboot to take effect.</string>
     <string name="spoofing_pif_json_select_failure">Failed to complete the operation.</string>
+
+    <!-- Data usage -->
+    <string name="quick_settings_data_usage_title">Data usage</string>
+    <string name="quick_settings_data_usage_summary">Display data usage summary in quick settings footer</string>
 </resources>

@@ -321,4 +321,8 @@
     <string name="spoof_storage_encryption_status_title">Disable storage encryption status</string>
     <string name="spoof_storage_encryption_status_summary">Prevent apps from not operating due to unencrypted storage</string>
 
+    <!-- Hide screen capture status -->
+    <string name="hide_screen_capture_status_title">Hide screen capture status</string>
+    <string name="hide_screen_capture_status_summary">Hide screen capture and screen record status from all applications. Can be convenient in some cases but may lead to privacy leaks. Need to restart applications for the change to take effect.</string>
+
 </resources>

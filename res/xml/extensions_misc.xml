@@ -34,6 +34,12 @@
         android:summary="@string/spoof_storage_encryption_status_summary"
         android:defaultValue="false"/>
 
+    <org.luminedroid.framework.preference.GlobalSettingSwitchPreference
+        android:key="hide_screen_capture_status"
+        android:title="@string/hide_screen_capture_status_title"
+        android:summary="@string/hide_screen_capture_status_summary"
+        android:defaultValue="false"/>
+
     <org.luminedroid.framework.preference.SystemSettingSwitchPreference
         android:key="advanced_reboot"
         android:title="@string/global_actions_advanced_reboot_title"

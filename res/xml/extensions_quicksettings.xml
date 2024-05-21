@@ -8,6 +8,13 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/extensions_quicksettings_title">
 
+    <!-- Data usage -->
+    <org.luminedroid.preferences.SystemSettingSwitchPreference
+        android:key="qs_show_data_usage"
+        android:title="@string/quick_settings_data_usage_title"
+        android:summary="@string/quick_settings_data_usage_summary"
+        android:defaultValue="false" />
+
     <PreferenceCategory
         android:key="quick_settings_lock_screen_category"
         android:title="@string/quick_settings_lock_screen_category">

@@ -302,4 +302,13 @@
     <string name="hide_applist_summary">Prevent apps from checking selected apps from appslist</string>
     <string name="menu_show_overlay">Show overlay</string>
     <string name="menu_hide_overlay">Hide overlay</string>
+
+    <!-- Lockscreen category -->
+    <string name="lock_screen_fingerprint_category">Fingerprint</string>
+
+    <!-- Fingerprint authentication vibration -->
+    <string name="lock_screen_fingerprint_success_vibration_title">Authentication success vibration</string>
+    <string name="lock_screen_fingerprint_success_vibration_summary">Vibrate when fingerprint authentication is successful</string>
+    <string name="lock_screen_fingerprint_error_vibration_title">Authentication error vibration</string>
+    <string name="lock_screen_fingerprint_error_vibration_summary">Vibrate when fingerprint authentication fails</string>
 </resources>

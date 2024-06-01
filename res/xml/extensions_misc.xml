@@ -40,6 +40,12 @@
         android:summary="@string/hide_screen_capture_status_summary"
         android:defaultValue="false"/>
 
+    <org.luminedroid.framework.preference.GlobalSettingSwitchPreference
+        android:key="no_storage_restrict"
+        android:title="@string/no_storage_restrict_title"
+        android:summary="@string/no_storage_restrict_summary"
+        android:defaultValue="false"/>
+
     <org.luminedroid.framework.preference.SystemSettingSwitchPreference
         android:key="advanced_reboot"
         android:title="@string/global_actions_advanced_reboot_title"

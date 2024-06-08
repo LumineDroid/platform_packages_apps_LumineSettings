@@ -32,10 +32,10 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.android.settingslib.applications.ApplicationsState;
+import com.google.android.material.materialswitch.MaterialSwitch;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.libremobileos.applications.LongScreen;
@@ -304,13 +304,13 @@ public class LongScreenSettings extends SettingsPreferenceFragment
     private static class ViewHolder {
         private TextView title;
         private ImageView icon;
-        private Switch state;
+        private MaterialSwitch state;
         private View rootView;
 
         private ViewHolder(View view) {
             this.title = (TextView) view.findViewById(R.id.app_name);
             this.icon = (ImageView) view.findViewById(R.id.app_icon);
-            this.state = (Switch) view.findViewById(R.id.state);
+            this.state = (MaterialSwitch) view.findViewById(R.id.state);
             this.rootView = view;
 
             view.setTag(this);

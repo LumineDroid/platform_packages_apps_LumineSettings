@@ -15,7 +15,7 @@
         android:summary="@string/global_actions_advanced_reboot_summary"
         android:defaultValue="false" />
 
-    <org.luminedroid.framework.preference.SecureSettingSwitchPreference
+    <org.luminedroid.framework.preference.GlobalSettingSwitchPreference
         android:key="window_ignore_secure"
         android:title="@string/ignore_window_secure_title"
         android:summary="@string/ignore_window_secure_summary"

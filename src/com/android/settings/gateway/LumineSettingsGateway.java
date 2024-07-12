@@ -18,6 +18,7 @@ package com.android.settings.core.gateway;
 
 import com.android.settings.Settings;
 
+import com.android.settings.display.RefreshRateSettings;
 import org.luminedroid.extensions.Extensions;
 import org.luminedroid.extensions.category.about.AboutLumineDroidFragment;
 import org.luminedroid.extensions.category.statusbar.StatusBarSettings;
@@ -35,6 +36,7 @@ public class LumineSettingsGateway {
    */
   public static final String[] ENTRY_FRAGMENTS = {
           Extensions.class.getName(),
+          RefreshRateSettings.class.getName(),
           StatusBarSettings.class.getName(),
           QuickSettings.class.getName(),
           ButtonSettings.class.getName(),

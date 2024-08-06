@@ -13,6 +13,13 @@
         android:key="miscellaneous_spoofing_category"
         android:title="@string/miscellaneous_spoofing_category">
 
+        <!-- Google Play Integrity -->
+        <org.luminedroid.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.pixelprops.pi"
+            android:title="@string/miscellaneous_pi_spoof_title"
+            android:summary="@string/miscellaneous_pi_spoof_summary"
+            android:defaultValue="true" />
+
         <!-- Unlock FPS for specific games -->
         <org.luminedroid.preferences.SystemPropertySwitchPreference
             android:key="persist.sys.pixelprops.games"

@@ -9,6 +9,12 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/extensions_misc_title">
 
+    <!-- Play Integrity Fix - JSON select -->
+    <Preference
+        android:key="pif_json_file_preference"
+        android:title="@string/spoofing_pif_json_select_title"
+        android:summary="@string/spoofing_pif_json_select_summary"/>
+
     <org.luminedroid.framework.preference.SystemSettingSwitchPreference
         android:key="advanced_reboot"
         android:title="@string/global_actions_advanced_reboot_title"

@@ -296,4 +296,8 @@
     <string name="show_qs_on_secure_keyguard_title">Quick settings</string>
     <string name="show_qs_on_secure_keyguard_summary">Allow toggling quick settings on secure lockscreen</string>
 
+    <!-- JSON based PIF spoofing -->
+    <string name="spoofing_pif_json_select_title">Select PIF JSON File</string>
+    <string name="spoofing_pif_json_select_summary">Pick PIF JSON file to be used for spoofing play integrity</string>
+    <string name="spoofing_pif_json_select_success">Successfully updated fingerprints. Now reboot to take effect.</string>
 </resources>

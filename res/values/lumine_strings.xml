@@ -247,4 +247,11 @@
     <!-- Power menu on secure lockscreen -->
     <string name="lockscreen_enable_power_menu_title">Power menu</string>
     <string name="lockscreen_enable_power_menu_summary">Allow accessing power menu on secure lockscreen</string>
+
+    <!-- SystemUI restart dialog -->
+     <string name="systemui_restart_title">SystemUI restart required</string>
+     <string name="systemui_restart_message">For changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
+     <string name="systemui_restart_yes">Yes</string>
+     <string name="systemui_restart_not_now">Not now</string>
+     <string name="systemui_restart_process">Restarting SystemUI to apply changes...</string>
 </resources>

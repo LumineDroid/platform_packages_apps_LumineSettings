@@ -16,6 +16,11 @@
     </Preference>
 
     <Preference
+        android:key="battery_bar_category"
+        android:fragment="org.luminedroid.extensions.statusbar.BatterySettings"
+        android:title="@string/battery_settings_title" />
+
+    <Preference
         android:key="clock"
         android:title="@string/status_bar_clock_title"
         android:summary="@string/status_bar_clock_summary"

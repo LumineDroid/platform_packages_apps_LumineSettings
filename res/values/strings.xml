@@ -804,4 +804,9 @@
     <!-- Force ongoing notifications to be non dismissible -->
     <string name="notification_force_non_dismissible_title">Force ongoing notifications to be non-dismissible</string>
     <string name="notification_force_non_dismissible_summary">This prevents you to swipe away notifications that cannot be cleared by "clear all". Useful if you tend to accidentally swipe those notifications away.</string>
+
+    <!-- Factory reset battery low dialog -->
+    <string name="factory_reset_battery_low_dialog_title">Battery low</string>
+    <string name="factory_reset_battery_low_dialog_message">To perform a factory reset, the battery level must be at least 15%.\n\nPlease connect your charger to continue.</string>
+    <string name="factory_reset_battery_low_dialog_button_text">Got it</string>
 </resources>

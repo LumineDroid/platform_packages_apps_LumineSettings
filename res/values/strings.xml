@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2017-2021 The LineageOS Project
-     Copyright (C) 2020-2022 The LibreMobileOS Foundation
+     Copyright (C) 2020-2024 The LibreMobileOS Foundation
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -580,6 +580,7 @@
     <string name="top_level_personalize">Personalize</string>
     <string name="top_level_security" translatable="false">@string/security_settings_title</string>
     <string name="top_level_system">System</string>
+    <string name="top_level_info">Information</string>
 
     <!-- Timeout entries -->
     <string name="timeout_summary_never">Never</string>

@@ -17,7 +17,10 @@
 package com.android.settings.backup.transport;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.FragmentActivity;
+
+import com.android.settings.utils.InsetUtils;
 
 /**
  * Activity to allow the user to choose the {@link android.app.backup.BackupTransport}.
@@ -30,6 +33,8 @@ public class TransportActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        InsetUtils.applyWindowInsetsListener(findViewById(android.R.id.content));
 
         getSupportFragmentManager().beginTransaction()
             .replace(android.R.id.content, new TransportFragment())

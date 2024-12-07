@@ -76,6 +76,13 @@
             android:summary="@string/hide_developer_status_summary"
             android:fragment="org.luminedroid.extensions.misc.HideDeveloperStatusSettings"
             settings:controller="org.luminedroid.extensions.misc.HideDeveloperStatusPreferenceController" />
+
+        <!-- Hide applist -->
+        <Preference
+            android:key="hide_applist_setting"
+            android:title="@string/hide_applist_title"
+            android:summary="@string/hide_applist_summary"
+            android:fragment="org.luminedroid.extensions.misc.HideAppListSettings" />
     </PreferenceCategory>
 
 </PreferenceScreen>

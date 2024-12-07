@@ -357,4 +357,10 @@
     <string name="clipboard_timeout_entries_default">1 hour</string>
     <string name="clipboard_auto_clear_timeout_title">Clipboard auto clear timeout</string>
 
+    <!-- Hide applist -->
+    <string name="hide_applist_title">Hide applist</string>
+    <string name="hide_applist_summary">Prevent apps from checking selected apps from appslist</string>
+    <string name="menu_show_overlay">Show overlay</string>
+    <string name="menu_hide_overlay">Hide overlay</string>
+
 </resources>

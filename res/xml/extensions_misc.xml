@@ -52,6 +52,12 @@
         android:summary="@string/clipboard_auto_clear_summary"
         android:fragment="com.android.settings.custom.privacy.ClipboardAutoClearFragment" />
 
+    <Preference
+        android:key="hide_applist_setting"
+        android:title="@string/hide_applist_title"
+        android:summary="@string/hide_applist_summary"
+        android:fragment="com.android.settings.custom.privacy.HideAppListSettings" />
+
     <org.luminedroid.framework.preference.SystemSettingSwitchPreference
         android:key="advanced_reboot"
         android:title="@string/global_actions_advanced_reboot_title"

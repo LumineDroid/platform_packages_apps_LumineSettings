@@ -54,7 +54,7 @@ java_defaults {
     ],
 
     libs: [
-        "framework-lmodroid",
+        "framework-lmodroid.impl",
     ],
     static_libs: [
         "androidx.fragment_fragment",

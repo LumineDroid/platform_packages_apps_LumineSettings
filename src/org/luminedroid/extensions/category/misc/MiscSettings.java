@@ -26,6 +26,8 @@ import java.util.List;
 public class MiscSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String TAG = "Miscellaneous";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

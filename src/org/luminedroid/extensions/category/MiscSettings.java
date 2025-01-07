@@ -40,6 +40,8 @@ import org.json.JSONObject;
 public class MiscSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String TAG = "Miscellaneous";
+
     private static final String KEY_PIF_JSON_MANAGE_PREFERENCE = "pif_json_manage_preference";
     private Preference mPifJsonManagePreference;
     private Handler mHandler;

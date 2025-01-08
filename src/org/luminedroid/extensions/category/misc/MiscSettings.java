@@ -64,6 +64,10 @@ public class MiscSettings extends SettingsPreferenceFragment
         mHandler = new Handler();
 
         mPifJsonManagePreference = findPreference(KEY_PIF_JSON_MANAGE_PREFERENCE);
+
+        if (mPifJsonManagePreference != null) {
+            mPifJsonManagePreference.setOnPreferenceChangeListener(this);
+        }
     }
 
     @Override

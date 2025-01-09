@@ -145,6 +145,11 @@ public class MiscSettings extends SettingsPreferenceFragment
                 }
             } catch (Exception e) {
                 Log.e(TAG, "Error reading JSON or setting properties", e);
+                Toast.makeText(
+                        getContext(),
+                        getContext().getResources().getString(R.string.spoofing_pif_json_select_failure),
+                        Toast.LENGTH_LONG
+                    ).show();
             }
         }
     }

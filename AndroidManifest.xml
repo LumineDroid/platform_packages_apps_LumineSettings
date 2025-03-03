@@ -29,6 +29,12 @@
     <uses-permission android:name="com.android.permission.MANAGE_APP_LOCK" />
 
     <application>
+        <activity android:name="Settings$LMOSettingsActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:taskAffinity="com.android.settings"
+            android:parentActivityName="Settings" />
+
         <activity android:name=".backup.transport.TransportActivity"
                   android:label="@string/backup_transport_title"
                   android:icon="@drawable/ic_settings_backup"

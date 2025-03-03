@@ -16,6 +16,8 @@
 
 package com.android.settings.core.gateway;
 
+import com.android.settings.display.RefreshRateSettings;
+
 public class LMOSettingsGateway {
 
     /**
@@ -23,7 +25,7 @@ public class LMOSettingsGateway {
      * security exception if the fragment it needs to display is not in this list.
      */
     public static final String[] ENTRY_FRAGMENTS = {
-        // Add here
+        RefreshRateSettings.class.getName()
     };
 
 }

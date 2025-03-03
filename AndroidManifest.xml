@@ -93,6 +93,18 @@
                 android:value="true" />
         </activity-alias>
 
+        <activity-alias
+            android:name=".libremobileos.health.ChargingControlSettings"
+            android:exported="true"
+            android:label="@string/charging_control_title"
+            android:targetActivity="Settings$LMOSettingsActivity">
+            <intent-filter>
+                <action android:name="com.android.settings.libremobileos.health.CHARGING_CONTROL_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.libremobileos.health.ChargingControlSettings" />
+        </activity-alias>
     </application>
 
 </manifest>

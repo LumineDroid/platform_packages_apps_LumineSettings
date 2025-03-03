@@ -17,6 +17,7 @@
 package com.android.settings.core.gateway;
 
 import com.android.settings.display.RefreshRateSettings;
+import com.android.settings.libremobileos.health.ChargingControlSettings;
 
 public class LMOSettingsGateway {
 
@@ -25,6 +26,7 @@ public class LMOSettingsGateway {
      * security exception if the fragment it needs to display is not in this list.
      */
     public static final String[] ENTRY_FRAGMENTS = {
+        ChargingControlSettings.class.getName(),
         RefreshRateSettings.class.getName()
     };
 

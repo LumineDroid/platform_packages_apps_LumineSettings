@@ -19,6 +19,7 @@ package com.android.settings.core.gateway;
 import com.android.settings.display.RefreshRateSettings;
 import com.android.settings.libremobileos.buttons.ButtonSettings;
 import com.android.settings.libremobileos.health.ChargingControlSettings;
+import com.android.settings.libremobileos.statusbar.StatusBarSettings;
 
 public class LMOSettingsGateway {
 
@@ -29,7 +30,8 @@ public class LMOSettingsGateway {
     public static final String[] ENTRY_FRAGMENTS = {
         ButtonSettings.class.getName(),
         ChargingControlSettings.class.getName(),
-        RefreshRateSettings.class.getName()
+        RefreshRateSettings.class.getName(),
+        StatusBarSettings.class.getName()
     };
 
 }

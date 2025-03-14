@@ -105,6 +105,19 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.libremobileos.health.ChargingControlSettings" />
         </activity-alias>
+
+        <activity-alias
+            android:name=".libremobileos.buttons.ButtonSettings"
+            android:exported="true"
+            android:label="@string/button_pref_title"
+            android:targetActivity="Settings$LMOSettingsActivity">
+            <intent-filter>
+                <action android:name="com.android.settings.libremobileos.BUTTON_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.libremobileos.buttons.ButtonSettings" />
+        </activity-alias>
     </application>
 
 </manifest>

@@ -13,11 +13,15 @@
     <string name="extensions_summary">Add powerful features to customize and enhance your Android experience.</string>
 
     <!-- Categories -->
+    <string name="extensions_about_lumine_title">About LumineDroid</string>
     <string name="extensions_lockscreen_title">Lock screen</string>
     <string name="extensions_misc_title">Miscellaneous</string>
     <string name="extensions_quicksettings_title">Quick Settings</string>
     <string name="extensions_statusbar_title">Status bar</string>
     <string name="extensions_quicksettings_summary">Quick Settings customization</string>
+
+    <!-- About -->
+    <string name="lumine_team_title">LumineDroid Team</string>
 
     <!-- Warning message for the sd card setup -->
     <string name="storage_warning_internal">Warning: This option may not work properly or lead to data loss and is therefore not recommended!</string>

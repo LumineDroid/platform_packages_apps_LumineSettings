@@ -1,0 +1,44 @@
+{
+    "lumine_github": "https://github.com/LumineDroid",
+    "lumine_telegram": "https://t.me/LumineDroidNews",
+    "team": [
+      {
+        "name": "Geeky",
+        "role": "Founder / Lead Developer",
+        "avatar": "https://github.com/Kizziama.png",
+        "telegram_link": "https://t.me/Kizziama"
+      },
+      {
+        "name": "Luigiee",
+        "role": "Co Founder / Co Developer",
+        "avatar": "https://github.com/fourninesix.png",
+        "telegram_link": "https://t.me/Luigiee"
+      },
+      {
+        "name": "Mikazuuu07",
+        "role": "UI / UX Designer",
+        "avatar": "https://github.com/Mikazuuu07.png",
+        "telegram_link": "https://t.me/Mikazuuu07"
+      },
+      {
+        "name": "Ramadhani",
+        "role": "UI / UX Designer",
+        "avatar": "https://github.com/ramaadni.png",
+        "telegram_link": "https://t.me/ramaadni"
+      },
+      {
+        "name": "Piyyy",
+        "role": "Core Contributor",
+        "avatar": "https://github.com/Piyyy.png",
+        "telegram_link": "https://t.me/piyskrrt"
+      },
+      {
+        "name": "Soni Dharma",
+        "role": "Core Contributor",
+        "avatar": "https://github.com/Hikari-Soni.png",
+        "telegram_link": "https://t.me/StartTrueDreams"
+      },
+    ],
+    "maintainers": []
+  }
+  

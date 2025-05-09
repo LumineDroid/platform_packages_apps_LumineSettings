@@ -8,6 +8,13 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/extensions_title">
 
+    <!-- About -->
+    <Preference
+        android:fragment="org.luminedroid.extensions.category.AboutLumine"
+        android:icon="@drawable/ic_about"
+        android:key="extensions_about"
+        android:title="@string/extensions_about_lumine_title" />
+
     <!-- Status Bar -->
     <Preference
         android:key="extensions_statusbar"

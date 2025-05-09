@@ -22,13 +22,6 @@
         android:fragment="org.luminedroid.extensions.category.QuickSettings"
         android:icon="@drawable/ic_quicksettings"/>
 
-    <!-- Navigation -->
-    <Preference
-        android:key="extensions_navigation"
-        android:title="@string/extensions_navigation_title"
-        android:fragment="org.luminedroid.extensions.category.NavbarSettings"
-        android:icon="@drawable/ic_navigation"/>
-
     <!-- Lockscreen -->
     <Preference
         android:key="extensions_lockscreen"

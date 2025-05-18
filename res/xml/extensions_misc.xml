@@ -61,6 +61,13 @@
             android:title="@string/no_storage_restrict_title"
             android:summary="@string/no_storage_restrict_summary"
             android:defaultValue="false"/>
+
+        <!-- Spoof current storage encryption status -->
+        <org.luminedroid.preferences.SystemSettingSwitchPreference
+            android:key="spoof_storage_encryption_status"
+            android:title="@string/spoof_storage_encryption_status_title"
+            android:summary="@string/spoof_storage_encryption_status_summary"
+            android:defaultValue="false"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

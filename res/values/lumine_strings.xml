@@ -288,4 +288,8 @@
     <!-- No storage restrict -->
     <string name="no_storage_restrict_title">No storage restrict</string>
     <string name="no_storage_restrict_summary">Remove the restriction when selecting folders through Storage Access Framework. Can be convenient in some cases but may lead to privacy leaks.</string>
+
+    <!-- Spoof storage encryption status -->
+    <string name="spoof_storage_encryption_status_title">Disable storage encryption status</string>
+    <string name="spoof_storage_encryption_status_summary">Prevent apps from not operating due to unencrypted storage</string>
 </resources>

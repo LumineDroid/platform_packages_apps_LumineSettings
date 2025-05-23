@@ -21,7 +21,7 @@ import android.content.SharedPreferences;
 import android.provider.Settings;
 import android.text.TextUtils;
 
-import com.libremobileos.providers.LMOSettings;
+import org.luminedroid.providers.LumineSettings;
 
 public class SwipeToScreenshotPreferenceController extends GesturePreferenceController {
 
@@ -51,12 +51,12 @@ public class SwipeToScreenshotPreferenceController extends GesturePreferenceCont
 
     @Override
     public boolean setChecked(boolean isChecked) {
-        return Settings.System.putInt(mContext.getContentResolver(), LMOSettings.System.THREE_FINGER_GESTURE,
+        return Settings.System.putInt(mContext.getContentResolver(), LumineSettings.System.THREE_FINGER_GESTURE,
                 isChecked ? ON : OFF);
     }
 
     @Override
     public boolean isChecked() {
-        return Settings.System.getInt(mContext.getContentResolver(), LMOSettings.System.THREE_FINGER_GESTURE, 0) != 0;
+        return Settings.System.getInt(mContext.getContentResolver(), LumineSettings.System.THREE_FINGER_GESTURE, 0) != 0;
     }
 }

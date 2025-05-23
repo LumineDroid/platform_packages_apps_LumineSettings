@@ -15,7 +15,7 @@
 //
 
 filegroup {
-    name: "LMOSettings-sources",
+    name: "LumineSettings-sources",
     srcs: [
         "src/**/*.java",
         "src/**/*.kt",
@@ -25,44 +25,44 @@ filegroup {
 }
 
 genrule {
-   name: "LMOSettings-res",
+   name: "LumineSettings-res",
    tools: ["soong_zip"],
    srcs: [
        "res/**/*"
    ],
-   out: ["LMOSettings-res.zip"],
+   out: ["LumineSettings-res.zip"],
    cmd: "INPUTS=($(in)) && "
        + "RES_DIR=$$(dirname $$(dirname $${INPUTS[0]})) && "
        + "$(location soong_zip) -o $(out) -C $$RES_DIR -D $$RES_DIR"
 }
 
 filegroup {
-    name: "LMOSettings-manifest",
+    name: "LumineSettings-manifest",
     srcs: [
         "AndroidManifest.xml",
     ],
 }
 
 java_defaults {
-    name: "LMOSettings-defaults",
+    name: "LumineSettings-defaults",
 
-    additional_manifests: [":LMOSettings-manifest"],
-    srcs: [":LMOSettings-sources"],
+    additional_manifests: [":LumineSettings-manifest"],
+    srcs: [":LumineSettings-sources"],
     resource_zips: [
-        ":LMOSettings-res",
+        ":LumineSettings-res",
         ":TouchGestures-res",
     ],
 
     libs: [
-        "framework-lmodroid.impl",
+        "framework-luminedroid.impl",
     ],
     static_libs: [
         "androidx.fragment_fragment",
         "androidx.fragment_fragment-ktx",
         "androidx.preference_preference-ktx",
         "kotlinx_coroutines_android",
+        "lumine-preference",
         "SystemUISharedLib",
-        "VendorSupport-preference",
         "vendor.lineage.fastcharge-V1.0-java",
     ],
 }

@@ -22,7 +22,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.Preference
 import androidx.preference.PreferenceScreen
 
-import com.libremobileos.applock.AppLockManager
+import org.luminedroid.applock.AppLockManager
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

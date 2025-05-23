@@ -24,7 +24,7 @@ import android.hardware.biometrics.BiometricManager.Authenticators.BIOMETRIC_WEA
 import androidx.preference.Preference
 import androidx.preference.PreferenceScreen
 
-import com.libremobileos.applock.AppLockManager
+import org.luminedroid.applock.AppLockManager
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

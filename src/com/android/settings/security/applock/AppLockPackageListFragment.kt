@@ -36,7 +36,7 @@ import com.android.settings.dashboard.DashboardFragment
 import com.android.settingslib.PrimarySwitchPreference
 import com.android.settingslib.widget.TwoTargetPreference.ICON_SIZE_SMALL
 
-import com.libremobileos.applock.AppLockManager
+import org.luminedroid.applock.AppLockManager
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -138,7 +138,7 @@ class AppLockPackageListFragment : DashboardFragment() {
         }
     }
 
-    override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.LMODROID
+    override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.LUMINEDROID
 
     override protected fun getPreferenceScreenResId() = R.xml.app_lock_package_list_settings
 

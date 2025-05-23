@@ -38,7 +38,7 @@ import androidx.preference.PreferenceViewHolder;
 
 import com.android.settings.R;
 
-import com.libremobileos.providers.LMOSettings;
+import org.luminedroid.providers.LumineSettings;
 
 public class IncreasingRingVolumePreference extends Preference
         implements Handler.Callback, SeekBar.OnSeekBarChangeListener {
@@ -136,9 +136,9 @@ public class IncreasingRingVolumePreference extends Preference
 
         final ContentResolver cr = getContext().getContentResolver();
         float startVolume = Settings.System.getFloat(cr,
-                LMOSettings.System.INCREASING_RING_START_VOLUME, 0.1f);
+                LumineSettings.System.INCREASING_RING_START_VOLUME, 0.1f);
         int rampUpTime = Settings.System.getInt(cr,
-                LMOSettings.System.INCREASING_RING_RAMP_UP_TIME, 10);
+                LumineSettings.System.INCREASING_RING_RAMP_UP_TIME, 10);
 
         mStartVolumeSeekBar.setProgress(Math.round(startVolume * 1000F));
         mStartVolumeSeekBar.setOnSeekBarChangeListener(this);
@@ -164,14 +164,14 @@ public class IncreasingRingVolumePreference extends Preference
         ContentResolver cr = getContext().getContentResolver();
         if (fromTouch && seekBar == mStartVolumeSeekBar) {
             Settings.System.putFloat(cr,
-                    LMOSettings.System.INCREASING_RING_START_VOLUME, (float) progress / 1000F);
+                    LumineSettings.System.INCREASING_RING_START_VOLUME, (float) progress / 1000F);
         } else if (seekBar == mRampUpTimeSeekBar) {
             int seconds = (progress + 1) * 5;
             mRampUpTimeValue.setText(
                     Formatter.formatShortElapsedTime(getContext(), seconds * 1000));
             if (fromTouch) {
                 Settings.System.putInt(cr,
-                        LMOSettings.System.INCREASING_RING_RAMP_UP_TIME, seconds);
+                        LumineSettings.System.INCREASING_RING_RAMP_UP_TIME, seconds);
             }
         }
     }

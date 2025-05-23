@@ -22,7 +22,7 @@
         android:summary="@string/swap_capacitive_keys_summary"
         android:defaultValue="false" />
 
-    <com.android.settings.libremobileos.buttons.preference.ButtonBacklightBrightness
+    <com.android.settings.luminedroid.buttons.preference.ButtonBacklightBrightness
         android:key="button_backlight"
         android:title="@string/button_backlight_title"
         android:dialogTitle="@string/button_backlight_title"
@@ -36,13 +36,13 @@
                 android:key="enable_taskbar"
                 android:title="@string/navigation_bar_enable_taskbar_title" />
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
                 android:key="navigation_bar_menu_arrow_keys"
                 android:title="@string/navigation_bar_arrow_keys_title"
                 android:summary="@string/navigation_bar_arrow_keys_summary"
                 android:defaultValue="false" />
 
-        <com.libremobileos.support.preferences.SecureSettingSwitchPreference
+        <org.luminedroid.framework.preference.SecureSettingSwitchPreference
                 android:key="sysui_nav_bar_inverse"
                 android:title="@string/navigation_bar_invert_layout_title"
                 android:summary="@string/navigation_bar_invert_layout_summary"
@@ -97,7 +97,7 @@
         <Preference
             android:key="power_menu"
             android:title="@string/power_menu_title"
-            android:fragment="com.android.settings.libremobileos.buttons.PowerMenuActions" />
+            android:fragment="com.android.settings.luminedroid.buttons.PowerMenuActions" />
 
         <SwitchPreferenceCompat
             android:key="power_end_call"
@@ -105,12 +105,12 @@
             android:summary="@string/power_end_call_summary"
             android:persistent="false"/>
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="torch_long_press_power_gesture"
             android:title="@string/torch_long_press_power_gesture_title"
             android:summary="@string/torch_long_press_power_gesture_desc"
             android:defaultValue="false"
-            settings:controller="com.android.settings.libremobileos.buttons.TorchLongPressController" />
+            settings:controller="com.android.settings.luminedroid.buttons.TorchLongPressController" />
 
         <ListPreference
             android:key="torch_long_press_power_timeout"
@@ -127,7 +127,7 @@
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="home_wake_screen"
             android:title="@string/button_wake_title"
             android:defaultValue="true" />
@@ -160,7 +160,7 @@
         android:key="back_key"
         android:title="@string/hardware_keys_back_key_title" >
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="back_wake_screen"
             android:title="@string/button_wake_title"
             android:defaultValue="false" />
@@ -179,7 +179,7 @@
         android:key="menu_key"
         android:title="@string/hardware_keys_menu_key_title" >
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="menu_wake_screen"
             android:title="@string/button_wake_title"
             android:defaultValue="false" />
@@ -206,7 +206,7 @@
         android:key="assist_key"
         android:title="@string/hardware_keys_assist_key_title" >
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="assist_wake_screen"
             android:title="@string/button_wake_title"
             android:defaultValue="false" />
@@ -233,7 +233,7 @@
         android:key="app_switch_key"
         android:title="@string/hardware_keys_appswitch_key_title" >
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="app_switch_wake_screen"
             android:title="@string/button_wake_title"
             android:defaultValue="false" />
@@ -260,18 +260,18 @@
         android:key="camera_key"
         android:title="@string/hardware_keys_camera_key_title">
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="camera_wake_screen"
             android:title="@string/button_wake_title"
             android:defaultValue="false" />
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="camera_sleep_on_release"
             android:title="@string/camera_sleep_on_release_title"
             android:summary="@string/camera_sleep_on_release_summary"
             android:defaultValue="false" />
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="camera_launch"
             android:title="@string/camera_launch_title"
             android:summary="@string/camera_launch_summary"
@@ -283,18 +283,18 @@
         android:key="volume_keys"
         android:title="@string/hardware_keys_volume_keys_title" >
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="volume_wake_screen"
             android:title="@string/button_wake_title"
             android:defaultValue="false" />
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="volume_answer_call"
             android:title="@string/volume_answer_call_title"
             android:summary="@string/volume_answer_call_summary"
             android:defaultValue="false" />
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="volbtn_music_controls"
             android:title="@string/volbtn_music_controls_title"
             android:summary="@string/volbtn_music_controls_summary"
@@ -323,15 +323,15 @@
         android:key="extras_category"
         android:title="@string/extras_title" >
 
-        <com.libremobileos.support.preferences.RemotePreference
+        <org.luminedroid.framework.preference.RemotePreference
             android:key="additional_buttons"
             android:title="@string/additional_buttons_title"
             settings:requiresAction="org.lineageos.settings.device.ADDITIONAL_BUTTONS_SETTINGS">
             <intent
                 android:action="org.lineageos.settings.device.ADDITIONAL_BUTTONS_SETTINGS" />
-        </com.libremobileos.support.preferences.RemotePreference>
+        </org.luminedroid.framework.preference.RemotePreference>
 
-        <com.libremobileos.support.preferences.SystemSettingSwitchPreference
+        <org.luminedroid.framework.preference.SystemSettingSwitchPreference
             android:key="click_partial_screenshot"
             android:title="@string/click_partial_screenshot_title"
             android:summary="@string/click_partial_screenshot_summary"

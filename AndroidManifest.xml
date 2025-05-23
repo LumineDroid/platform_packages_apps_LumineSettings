@@ -29,7 +29,7 @@
     <uses-permission android:name="com.android.permission.MANAGE_APP_LOCK" />
 
     <application>
-        <activity android:name="Settings$LMOSettingsActivity"
+        <activity android:name="Settings$LumineSettingsActivity"
             android:exported="true"
             android:excludeFromRecents="true"
             android:taskAffinity="com.android.settings"
@@ -61,7 +61,7 @@
             android:launchMode="singleInstance"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
-                <action android:name="com.libremobileos.applock.action.UNLOCK_APP" />
+                <action android:name="org.luminedroid.applock.action.UNLOCK_APP" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -76,7 +76,7 @@
             android:name=".display.RefreshRateSettings"
             android:label="@string/refresh_rate_title"
             android:exported="true"
-            android:targetActivity="Settings$LMOSettingsActivity">
+            android:targetActivity="Settings$LumineSettingsActivity">
             <intent-filter android:priority="32">
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.android.settings.SHORTCUT" />
@@ -94,42 +94,16 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".libremobileos.health.ChargingControlSettings"
+            android:name=".luminedroid.health.ChargingControlSettings"
             android:exported="true"
             android:label="@string/charging_control_title"
-            android:targetActivity="Settings$LMOSettingsActivity">
+            android:targetActivity="Settings$LumineSettingsActivity">
             <intent-filter>
-                <action android:name="com.android.settings.libremobileos.health.CHARGING_CONTROL_SETTINGS" />
+                <action android:name="com.android.settings.luminedroid.health.CHARGING_CONTROL_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.libremobileos.health.ChargingControlSettings" />
-        </activity-alias>
-
-        <activity-alias
-            android:name=".libremobileos.buttons.ButtonSettings"
-            android:exported="true"
-            android:label="@string/button_pref_title"
-            android:targetActivity="Settings$LMOSettingsActivity">
-            <intent-filter>
-                <action android:name="com.android.settings.libremobileos.BUTTON_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.libremobileos.buttons.ButtonSettings" />
-        </activity-alias>
-
-        <activity-alias
-            android:name=".libremobileos.statusbar.StatusBarSettings"
-            android:exported="true"
-            android:label="@string/status_bar_title"
-            android:targetActivity="Settings$LMOSettingsActivity">
-            <intent-filter>
-                <action android:name="com.android.settings.libremobileos.STATUS_BAR_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.libremobileos.statusbar.StatusBarSettings" />
+                android:value="com.android.settings.luminedroid.health.ChargingControlSettings" />
         </activity-alias>
     </application>
 

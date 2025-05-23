@@ -21,7 +21,7 @@
         android:summary="%s"
         android:title="@string/network_traffic_position_title" />
 
-    <com.libremobileos.support.preferences.SecureSettingSwitchPreference
+    <org.luminedroid.framework.preference.SecureSettingSwitchPreference
         android:defaultValue="false"
         android:key="network_traffic_autohide"
         android:summary="@string/network_traffic_autohide_summary"

@@ -27,7 +27,7 @@ import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
 
-import com.libremobileos.providers.LMOSettings;
+import org.luminedroid.providers.LumineSettings;
 
 public class StatusBarPreferenceController extends AbstractPreferenceController
         implements PreferenceControllerMixin, Preference.OnPreferenceChangeListener {
@@ -73,7 +73,7 @@ public class StatusBarPreferenceController extends AbstractPreferenceController
     public void updateState(Preference preference) {
         ((TwoStatePreference) preference).setChecked(Settings.Secure.getInt(
                 mContext.getContentResolver(),
-                LMOSettings.Secure.QS_TILES_TOGGLEABLE_ON_LOCK_SCREEN,
+                LumineSettings.Secure.QS_TILES_TOGGLEABLE_ON_LOCK_SCREEN,
                 1) == 1);
     }
 
@@ -81,7 +81,7 @@ public class StatusBarPreferenceController extends AbstractPreferenceController
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         Settings.Secure.putInt(
                 mContext.getContentResolver(),
-                LMOSettings.Secure.QS_TILES_TOGGLEABLE_ON_LOCK_SCREEN,
+                LumineSettings.Secure.QS_TILES_TOGGLEABLE_ON_LOCK_SCREEN,
                 (Boolean) newValue ? 1 : 0);
         return true;
     }

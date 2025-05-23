@@ -19,28 +19,28 @@
     android:key="charging_control"
     android:title="@string/charging_control_title">
 
-    <com.libremobileos.support.preferences.SystemSettingMainSwitchPreference
+    <org.luminedroid.framework.preference.SystemSettingMainSwitchPreference
         android:key="charging_control_enabled"
         android:title="@string/charging_control_enable_title" />
 
-    <com.libremobileos.support.preferences.SystemSettingDropDownPreference
+    <org.luminedroid.framework.preference.SystemSettingDropDownPreference
         android:key="charging_control_mode"
         android:title="@string/charging_control_mode_title"
         android:entries="@array/charging_control_mode_entries"
         android:entryValues="@array/charging_control_mode_values"
         android:dependency="charging_control_enabled" />
 
-    <com.android.settings.libremobileos.health.StartTimePreference
+    <com.android.settings.luminedroid.health.StartTimePreference
         android:key="charging_control_start_time"
         android:title="@string/charging_control_start_time_title"
         android:dependency="charging_control_enabled" />
 
-    <com.android.settings.libremobileos.health.TargetTimePreference
+    <com.android.settings.luminedroid.health.TargetTimePreference
         android:key="charging_control_target_time"
         android:title="@string/charging_control_target_time_title"
         android:dependency="charging_control_enabled" />
 
-    <com.android.settings.libremobileos.health.ChargingLimitPreference
+    <com.android.settings.luminedroid.health.ChargingLimitPreference
         android:key="charging_control_charging_limit"
         android:title="@string/charging_control_limit_title"
         android:dependency="charging_control_enabled" />

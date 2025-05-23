@@ -18,7 +18,7 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.android.settings.libremobileos.tether.preference.WifiTetherClientLimitPreference
+    <com.android.settings.luminedroid.tether.preference.WifiTetherClientLimitPreference
         android:key="client_limit"
         android:title="@string/wifi_hotspot_client_limit_title" />
 

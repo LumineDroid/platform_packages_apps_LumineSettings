@@ -28,7 +28,7 @@ import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
 import com.android.settings.core.PreferenceControllerMixin;
 
-import com.libremobileos.providers.LMOSettings;
+import org.luminedroid.providers.LumineSettings;
 
 public class DeviceRebootTimeoutPreferenceController extends BasePreferenceController implements
         PreferenceControllerMixin, Preference.OnPreferenceChangeListener {
@@ -57,7 +57,7 @@ public class DeviceRebootTimeoutPreferenceController extends BasePreferenceContr
     public void updateState(Preference preference) {
         final ListPreference timeoutListPreference = (ListPreference) preference;
         final long currentTimeout = Settings.Global.getLong(mContext.getContentResolver(),
-                LMOSettings.Global.DEVICE_REBOOT_TIMEOUT, FALLBACK_DEVICE_REBOOT_TIMEOUT_VALUE);
+                LumineSettings.Global.DEVICE_REBOOT_TIMEOUT, FALLBACK_DEVICE_REBOOT_TIMEOUT_VALUE);
         timeoutListPreference.setValue(String.valueOf(currentTimeout));
         updateTimeoutPreferenceDescription(timeoutListPreference,
                 Long.parseLong(timeoutListPreference.getValue()));
@@ -68,7 +68,7 @@ public class DeviceRebootTimeoutPreferenceController extends BasePreferenceContr
         try {
             long value = Long.parseLong((String) newValue);
             Settings.Global.putLong(mContext.getContentResolver(),
-                    LMOSettings.Global.DEVICE_REBOOT_TIMEOUT, value);
+                    LumineSettings.Global.DEVICE_REBOOT_TIMEOUT, value);
             updateTimeoutPreferenceDescription((ListPreference) preference, value);
         } catch (NumberFormatException e) {
             Log.e(TAG, "could not persist reboot timeout setting", e);

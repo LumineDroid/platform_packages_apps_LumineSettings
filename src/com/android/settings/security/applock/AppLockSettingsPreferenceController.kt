@@ -45,7 +45,7 @@ import com.android.settings.SettingsActivity
 import com.android.settings.core.SettingsBaseActivity
 import com.android.settingslib.core.instrumentation.MetricsFeatureProvider
 
-import com.libremobileos.applock.AppLockManager
+import org.luminedroid.applock.AppLockManager
 
 class AppLockSettingsPreferenceController(
     context: Context,

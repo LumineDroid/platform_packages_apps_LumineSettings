@@ -23,7 +23,7 @@ import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.core.TogglePreferenceController;
 
-import com.libremobileos.providers.LMOSettings;
+import org.luminedroid.providers.LumineSettings;
 
 public class AutoBrightnessOneShotPreferenceController extends TogglePreferenceController {
 
@@ -34,13 +34,13 @@ public class AutoBrightnessOneShotPreferenceController extends TogglePreferenceC
     @Override
     public boolean isChecked() {
         return Settings.System.getInt(mContext.getContentResolver(),
-                LMOSettings.System.AUTO_BRIGHTNESS_ONE_SHOT, 0) == 1;
+                LumineSettings.System.AUTO_BRIGHTNESS_ONE_SHOT, 0) == 1;
     }
 
     @Override
     public boolean setChecked(boolean isChecked) {
         Settings.System.putInt(mContext.getContentResolver(),
-                LMOSettings.System.AUTO_BRIGHTNESS_ONE_SHOT, isChecked ? 1 : 0);
+                LumineSettings.System.AUTO_BRIGHTNESS_ONE_SHOT, isChecked ? 1 : 0);
         return true;
     }
 

@@ -25,7 +25,7 @@ import com.android.internal.widget.LockPatternUtils;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
 
-import com.libremobileos.providers.LMOSettings;
+import org.luminedroid.providers.LumineSettings;
 
 import android.provider.Settings;
 
@@ -58,7 +58,7 @@ public class PinScramblePreferenceController extends AbstractPreferenceControlle
     public void updateState(Preference preference) {
         ((TwoStatePreference) preference).setChecked(Settings.System.getInt(
                 mContext.getContentResolver(),
-                LMOSettings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT,
+                LumineSettings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT,
                 0) == 1);
     }
 
@@ -73,7 +73,7 @@ public class PinScramblePreferenceController extends AbstractPreferenceControlle
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         Settings.System.putInt(
                 mContext.getContentResolver(),
-                LMOSettings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT,
+                LumineSettings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT,
                 (Boolean) newValue ? 1 : 0);
         return true;
     }

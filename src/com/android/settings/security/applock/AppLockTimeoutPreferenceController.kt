@@ -23,7 +23,7 @@ import androidx.preference.Preference
 
 import com.android.settings.core.BasePreferenceController
 
-import com.libremobileos.applock.AppLockManager
+import org.luminedroid.applock.AppLockManager
 
 class AppLockTimeoutPreferenceController(
     context: Context,

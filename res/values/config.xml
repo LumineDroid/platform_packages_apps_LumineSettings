@@ -53,8 +53,8 @@
     <!-- Whether to show Assisted GPS switch in Locations settings -->
     <bool name="config_show_assisted_gps_switch">true</bool>
 
-    <!-- Whether to show LMO features (button, status bar) in System settings -->
-    <bool name="config_show_lmo_features_settings">true</bool>
+    <!-- Whether to show Lumine features (button, status bar) in System settings -->
+    <bool name="config_show_lumine_features_settings">true</bool>
 
     <!-- Show battery information -->
     <bool name="config_show_battery_info" translatable="false">true</bool>

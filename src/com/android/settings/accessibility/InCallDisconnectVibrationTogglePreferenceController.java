@@ -22,7 +22,7 @@ import android.os.VibrationAttributes;
 import android.os.Vibrator;
 import android.provider.Settings;
 
-import com.libremobileos.providers.LMOSettings;
+import org.luminedroid.providers.LumineSettings;
 
 /** Preference controller for incall vibration with only a toggle for on/off states. */
 public class InCallDisconnectVibrationTogglePreferenceController extends VibrationTogglePreferenceController {
@@ -31,7 +31,7 @@ public class InCallDisconnectVibrationTogglePreferenceController extends Vibrati
     public static final class InCallVibrationPreferenceConfig extends VibrationPreferenceConfig {
 
         public InCallVibrationPreferenceConfig(Context context) {
-            super(context, LMOSettings.System.VIBRATE_ON_DISCONNECT,
+            super(context, LumineSettings.System.VIBRATE_ON_DISCONNECT,
                     VibrationAttributes.USAGE_UNKNOWN);
         }
 

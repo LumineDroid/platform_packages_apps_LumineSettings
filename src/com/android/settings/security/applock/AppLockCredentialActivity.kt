@@ -43,7 +43,7 @@ import com.android.settings.R
 import com.android.settings.password.BiometricFragment
 import com.android.settings.password.ConfirmDeviceCredentialUtils
 
-import com.libremobileos.applock.AppLockManager
+import org.luminedroid.applock.AppLockManager
 
 class AppLockCredentialActivity : FragmentActivity() {
 

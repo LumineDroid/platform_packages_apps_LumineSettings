@@ -24,7 +24,7 @@ import android.text.TextUtils;
 
 import com.android.settings.core.TogglePreferenceController;
 
-import com.libremobileos.providers.LMOSettings;
+import org.luminedroid.providers.LumineSettings;
 
 public class CleartextNetworkPolicyPreferenceController extends TogglePreferenceController {
 
@@ -49,14 +49,14 @@ public class CleartextNetworkPolicyPreferenceController extends TogglePreference
     @Override
     public boolean isChecked() {
         return Settings.Global.getInt(mContext.getContentResolver(),
-                LMOSettings.Global.CLEARTEXT_NETWORK_POLICY, StrictMode.NETWORK_POLICY_INVALID)
+                LumineSettings.Global.CLEARTEXT_NETWORK_POLICY, StrictMode.NETWORK_POLICY_INVALID)
                 != StrictMode.NETWORK_POLICY_INVALID;
     }
 
     @Override
     public boolean setChecked(boolean isChecked) {
         return Settings.Global.putInt(mContext.getContentResolver(),
-                LMOSettings.Global.CLEARTEXT_NETWORK_POLICY,
+                LumineSettings.Global.CLEARTEXT_NETWORK_POLICY,
                 isChecked ? StrictMode.NETWORK_POLICY_REJECT : StrictMode.NETWORK_POLICY_INVALID);
     }
 

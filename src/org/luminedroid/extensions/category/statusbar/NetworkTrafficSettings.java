@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.android.settings.luminedroid.statusbar;
+package org.luminedroid.exntensions.category.statusbar;
 
 import android.content.ContentResolver;
 import android.os.Bundle;

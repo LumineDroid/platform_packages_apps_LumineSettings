@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.luminedroid.statusbar;
+package org.luminedroid.extensions.category.statusbar;
 
 import android.content.Context;
 import com.android.settings.core.BasePreferenceController;

@@ -22,6 +22,13 @@
         android:fragment="org.luminedroid.extensions.category.quicksettings.QuickSettings"
         android:icon="@drawable/ic_quicksettings"/>
 
+    <!-- Buttons -->
+    <Preference
+        android:key="extensions_buttons"
+        android:title="@string/extensions_buttons_title"
+        android:fragment="org.luminedroid.extensions.category.buttons.ButtonsSettings"
+        android:icon="@drawable/ic_buttons"/>
+
     <!-- Navigation -->
     <Preference
         android:key="extensions_navigation"

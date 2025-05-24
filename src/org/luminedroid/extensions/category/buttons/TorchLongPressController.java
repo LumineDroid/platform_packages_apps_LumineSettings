@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.luminedroid.buttons;
+package org.luminedroid.extensions.category.buttons;
 
 import android.content.Context;
 import com.android.settings.core.BasePreferenceController;

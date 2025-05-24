@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.android.settings.luminedroid.buttons;
+package org.luminedroid.extensions.category.buttons;
 
 import android.Manifest;
 import android.content.Context;

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.android.settings.luminedroid.buttons;
+package org.luminedroid.extensions.category.buttons;
 
 import static android.inputmethodservice.InputMethodService.canImeRenderGesturalNavButtons;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_2BUTTON;
@@ -44,7 +44,7 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.luminedroid.buttons.preference.*;
+import org.luminedroid.extensions.category.buttons.preference.*;
 import com.android.settings.luminedroid.utils.DeviceUtils;
 import com.android.settings.luminedroid.utils.TelephonyUtils;
 import com.android.settingslib.search.SearchIndexable;
@@ -160,7 +160,7 @@ public class ButtonSettings extends SettingsPreferenceFragment
 
         mHardware = LineageHardwareManager.getInstance(getActivity());
 
-        addPreferencesFromResource(R.xml.button_settings);
+        addPreferencesFromResource(R.xml.extensions_button);
 
         final Resources res = getResources();
         final ContentResolver resolver = requireActivity().getContentResolver();
@@ -925,14 +925,7 @@ public class ButtonSettings extends SettingsPreferenceFragment
     }
 
     public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.button_settings) {
-
-        @Override
-        protected boolean isPageSearchEnabled(Context context) {
-            // Enable page search only if Lumine features are available.
-            return context.getResources()
-                    .getBoolean(R.bool.config_show_lumine_features_settings);
-        }
+            new BaseSearchIndexProvider(R.xml.extensions_button) {
 
         @Override
         public List<String> getNonIndexableKeys(Context context) {

@@ -17,7 +17,6 @@
 package com.android.settings.core.gateway;
 
 import com.android.settings.display.RefreshRateSettings;
-import com.android.settings.luminedroid.buttons.ButtonSettings;
 import com.android.settings.luminedroid.health.ChargingControlSettings;
 
 import org.luminedroid.extensions.Extensions;
@@ -29,7 +28,6 @@ public class LumineSettingsGateway {
      * security exception if the fragment it needs to display is not in this list.
      */
     public static final String[] ENTRY_FRAGMENTS = {
-        ButtonSettings.class.getName(),
         ChargingControlSettings.class.getName(),
         Extensions.class.getName(),
         RefreshRateSettings.class.getName()

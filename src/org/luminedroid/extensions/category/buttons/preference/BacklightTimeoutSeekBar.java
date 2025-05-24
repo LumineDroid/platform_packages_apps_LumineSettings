@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package com.android.settings.luminedroid.buttons.preference;
+package org.luminedroid.extensions.category.buttons.preference;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

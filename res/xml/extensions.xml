@@ -8,6 +8,13 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/extensions_title">
 
+    <!-- Themes -->
+    <Preference
+        android:key="extensions_themes"
+        android:title="@string/extensions_themes_title"
+        android:fragment="org.luminedroid.extensions.category.themes.ThemesSettings"
+        android:icon="@drawable/ic_themes"/>
+
     <!-- Status Bar -->
     <Preference
         android:key="extensions_statusbar"

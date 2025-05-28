@@ -18,6 +18,7 @@
     <string name="extensions_navigation_title">Navigation bar</string>
     <string name="extensions_quicksettings_title">Quick Settings</string>
     <string name="extensions_statusbar_title">Status bar</string>
+    <string name="extensions_themes_title">Themes</string>
     <string name="extensions_quicksettings_summary">Quick Settings customization</string>
 
     <!-- Color Picker -->

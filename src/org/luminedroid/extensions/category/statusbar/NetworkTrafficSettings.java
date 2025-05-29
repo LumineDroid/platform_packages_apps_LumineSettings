@@ -16,45 +16,39 @@
 
 package org.luminedroid.extensions.category.statusbar;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.UserHandle;
-
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
-import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-
 import java.util.List;
-
-import lineageos.providers.LineageSettings;
 
 @SearchIndexable
 public class NetworkTrafficSettings extends SettingsPreferenceFragment {
 
-    private static final String TAG = "NetworkTrafficSettings";
+  private static final String TAG = "NetworkTrafficSettings";
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.network_traffic_settings);
-    }
+    addPreferencesFromResource(R.xml.network_traffic_settings);
+  }
 
-    @Override
-    public int getMetricsCategory() {
-        return MetricsEvent.LUMINEDROID;
-    }
+  @Override
+  public int getMetricsCategory() {
+    return MetricsEvent.LUMINEDROID;
+  }
 
-    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider(R.xml.network_traffic_settings) {
+  public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+      new BaseSearchIndexProvider(R.xml.network_traffic_settings) {
 
-            @Override
-            public List<String> getNonIndexableKeys(Context context) {
-                List<String> keys = super.getNonIndexableKeys(context);
-                return keys;
-            }
-        };
+        @Override
+        public List<String> getNonIndexableKeys(Context context) {
+          List<String> keys = super.getNonIndexableKeys(context);
+          return keys;
+        }
+      };
 }

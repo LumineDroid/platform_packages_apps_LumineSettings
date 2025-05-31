@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.luminedroid.extensions.category.navbar;
+package org.luminedroid.extensions.category.button;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -17,13 +17,13 @@ import com.android.settingslib.search.SearchIndexable;
 import java.util.List;
 
 @SearchIndexable
-public class NavbarSettings extends SettingsPreferenceFragment
+public class ButtonSettings extends SettingsPreferenceFragment
     implements Preference.OnPreferenceChangeListener, Indexable {
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    addPreferencesFromResource(R.xml.extensions_navbar);
+    addPreferencesFromResource(R.xml.extensions_button);
   }
 
   @Override
@@ -37,7 +37,7 @@ public class NavbarSettings extends SettingsPreferenceFragment
   }
 
   public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-      new BaseSearchIndexProvider(R.xml.extensions_navbar) {
+      new BaseSearchIndexProvider(R.xml.extensions_button) {
         @Override
         public List<String> getNonIndexableKeys(Context context) {
           List<String> keys = super.getNonIndexableKeys(context);

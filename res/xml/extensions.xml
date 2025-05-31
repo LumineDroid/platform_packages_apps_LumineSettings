@@ -29,12 +29,12 @@
         android:fragment="org.luminedroid.extensions.category.qs.QuickSettings"
         android:icon="@drawable/ic_quicksettings"/>
 
-    <!-- Navigation -->
+    <!-- Button -->
     <Preference
-        android:key="extensions_navigation"
-        android:title="@string/extensions_navigation_title"
-        android:fragment="org.luminedroid.extensions.category.navbar.NavbarSettings"
-        android:icon="@drawable/ic_navigation"/>
+        android:key="extensions_button"
+        android:title="@string/extensions_button_title"
+        android:fragment="org.luminedroid.extensions.category.button.ButtonSettings"
+        android:icon="@drawable/ic_button"/>
 
     <!-- Lockscreen -->
     <Preference

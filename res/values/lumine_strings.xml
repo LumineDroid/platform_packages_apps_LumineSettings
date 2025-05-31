@@ -15,11 +15,10 @@
     <!-- Categories -->
     <string name="extensions_lockscreen_title">Lock screen</string>
     <string name="extensions_misc_title">Miscellaneous</string>
-    <string name="extensions_navigation_title">Navigation bar</string>
+    <string name="extensions_button_title">Button</string>
     <string name="extensions_quicksettings_title">Quick Settings</string>
     <string name="extensions_statusbar_title">Status bar</string>
     <string name="extensions_themes_title">Themes</string>
-    <string name="extensions_quicksettings_summary">Quick Settings customization</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>

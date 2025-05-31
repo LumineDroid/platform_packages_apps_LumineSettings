@@ -39,4 +39,7 @@ java_defaults {
     resource_zips: [":LumineSettings-res"],
     additional_manifests: [":LumineSettings-manifest"],
 
+    static_libs: [
+        "SystemUISharedLib",
+    ],
 }

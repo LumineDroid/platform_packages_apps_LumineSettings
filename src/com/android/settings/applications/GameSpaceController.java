@@ -17,51 +17,50 @@
 
 package com.android.settings.applications;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.content.Intent;
 import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.UserHandle;
 import android.text.TextUtils;
-
 import androidx.preference.Preference;
-
 import com.android.settings.core.BasePreferenceController;
 
 public class GameSpaceController extends BasePreferenceController {
 
-    private static final String GAME_PACKAGE = "io.chaldeaprjkt.gamespace";
-    private static final String GAME_SETTINGS = "io.chaldeaprjkt.gamespace.settings.SettingsActivity";
+  private static final String GAME_PACKAGE = "io.chaldeaprjkt.gamespace";
+  private static final String GAME_SETTINGS = "io.chaldeaprjkt.gamespace.settings.SettingsActivity";
 
-    private final PackageManager mPackageManager;
+  private final PackageManager mPackageManager;
 
-    public GameSpaceController(Context context, String preferenceKey) {
-        super(context, preferenceKey);
-        mPackageManager = mContext.getPackageManager();
+  public GameSpaceController(Context context, String preferenceKey) {
+    super(context, preferenceKey);
+    mPackageManager = mContext.getPackageManager();
+  }
+
+  private Intent settingsIntent() {
+    Intent intent = new Intent();
+    ComponentName component = new ComponentName(GAME_PACKAGE, GAME_SETTINGS);
+    intent.setComponent(component);
+    return intent;
+  }
+
+  @Override
+  public int getAvailabilityStatus() {
+    return mContext.getPackageManager().resolveActivity(settingsIntent(), 0) != null
+        ? AVAILABLE
+        : UNSUPPORTED_ON_DEVICE;
+  }
+
+  @Override
+  public boolean handlePreferenceTreeClick(Preference preference) {
+    if (!TextUtils.equals(preference.getKey(), getPreferenceKey())) {
+      return false;
     }
 
-    private Intent settingsIntent() {
-        Intent intent = new Intent();
-        ComponentName component = new ComponentName(GAME_PACKAGE, GAME_SETTINGS);
-        intent.setComponent(component);
-        return intent;
-    }
-
-    @Override
-    public int getAvailabilityStatus() {
-        return mContext.getPackageManager().resolveActivity(settingsIntent(), 0) != null
-                ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
-    }
-
-    @Override
-    public boolean handlePreferenceTreeClick(Preference preference) {
-        if (!TextUtils.equals(preference.getKey(), getPreferenceKey())) {
-            return false;
-        }
-
-        Intent intent = settingsIntent();
-        intent.putExtra("referer", this.getClass().getCanonicalName());
-        mContext.startActivityAsUser(intent, UserHandle.CURRENT);
-        return true;
-    }
+    Intent intent = settingsIntent();
+    intent.putExtra("referer", this.getClass().getCanonicalName());
+    mContext.startActivityAsUser(intent, UserHandle.CURRENT);
+    return true;
+  }
 }

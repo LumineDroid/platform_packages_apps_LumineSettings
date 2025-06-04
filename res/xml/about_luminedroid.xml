@@ -1,0 +1,27 @@
+<!--
+    Copyright (C) 2025 LumineDroid
+    SPDX-License-Identifier: Apache-2.0
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/about_title">
+        <Preference
+            android:key="website"
+            android:title="@string/website_title"
+            android:summary="@string/website_summary" />
+
+        <Preference
+            android:key="telegram"
+            android:title="@string/telegram_title"
+            android:summary="@string/telegram_summary" />
+
+        <Preference
+            android:key="github"
+            android:title="@string/github_title"
+            android:summary="@string/github_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="team_category"
+        android:title="@string/team_category_title" />
+</PreferenceScreen>

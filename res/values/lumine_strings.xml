@@ -5,6 +5,21 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- About LumineDroid -->
+    <string name="about_title">About LumineDroid</string>
+    <string name="website_title">Website</string>
+    <string name="website_summary">Visit LumineDroid website</string>
+    <string name="telegram_title">Telegram</string>
+    <string name="telegram_summary">Join our Telegram</string>
+    <string name="github_title">GitHub</string>
+    <string name="github_summary">Explore on GitHub</string>
+    <string name="team_category_title">Team</string>
+    <string name="team_avatar">Team member avatar</string>
+    <string name="contact_dialog_title">Contact %1$s</string>
+    <string name="contact_option_github">GitHub</string>
+    <string name="contact_option_telegram">Telegram</string>
+    <string name="cancel">Cancel</string>
+
     <!-- LumineDroid version -->
     <string name="lumine_version_title">LumineDroid version</string>
 
@@ -13,6 +28,8 @@
     <string name="extensions_summary">Add powerful features to customize and enhance your Android experience.</string>
 
     <!-- Categories -->
+    <string name="extensions_about_title">About us</string
+    <string name="extensions_about_summary">Learn more about our team and project</string>
     <string name="extensions_lockscreen_title">Lock screen</string>
     <string name="extensions_lockscreen_summary">Customize the appearance and behavior of the lock screen</string>
     <string name="extensions_misc_title">Miscellaneous</string>

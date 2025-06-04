@@ -1,0 +1,45 @@
+{
+  "links": {
+    "website": "https://luminedroid.org",
+    "telegram": "https://t.me/LumineDroidNews",
+    "github": "https://github.com/LumineDroid"
+  },
+  "team": [
+    {
+      "name": "Geeky",
+      "job": "Founder / Lead Developer",
+      "github": "Kizziama",
+      "telegram": "https://t.me/Kizziama"
+    },
+    {
+      "name": "Luigiee",
+      "job": "Co Founder / Co Developer",
+      "github": "fourninesix",
+      "telegram": "https://t.me/Luigiee"
+    },
+    {
+      "name": "Mikazuuu07",
+      "job": "UI/UX Designer",
+      "github": "Mikazuuu07",
+      "telegram": "https://t.me/Mikazuuu07"
+    },
+    {
+      "name": "Ramadhani",
+      "job": "Core Developer",
+      "github": "ramaadni",
+      "telegram": "https://t.me/ramaadni"
+    },
+    {
+      "name": "Piyyy",
+      "job": "Core Contributor",
+      "github": "Piyyy",
+      "telegram": "https://t.me/piyskrrt"
+    },
+    {
+      "name": "Soni Dharma",
+      "job": "Core Contributor",
+      "github": "Hikari-Soni",
+      "telegram": "https://t.me/StartTrueDreams"
+    }
+  ]
+}

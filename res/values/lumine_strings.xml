@@ -14,8 +14,13 @@
 
     <!-- Categories -->
     <string name="extensions_lockscreen_title">Lock screen</string>
+    <string name="extensions_lockscreen_summary">Customize the appearance and behavior of the lock screen</string>
     <string name="extensions_misc_title">Miscellaneous</string>
+    <string name="extensions_misc_summary">Various additional settings and tweaks</string>
     <string name="extensions_navigation_title">Navigation bar</string>
+    <string name="extensions_navigation_summary">Configure hardware and navigation button behavior</string>
     <string name="extensions_quicksettings_title">Quick Settings</string>
+    <string name="extensions_quicksettings_summary">Modify the layout and functionality of Quick Settings tiles</string>
     <string name="extensions_statusbar_title">Status bar</string>
+    <string name="extensions_statusbar_summary">Tweak icons and layout in the status bar</string>
 </resources>

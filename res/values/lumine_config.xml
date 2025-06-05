@@ -5,9 +5,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Download PIF JSON target -->
-    <string name="spoofing_pif_json_download_url">https://raw.githubusercontent.com/aosPB-Project/PlayIntegrityFix/refs/heads/main/module/pif.json</string>
-
     <!-- The position of the volume rocker, as opposed to the natural
          orientation of the display.
          Currently used for the volume button re-orient functionality.

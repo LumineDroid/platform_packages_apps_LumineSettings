@@ -17,12 +17,6 @@
         settings:controller="com.android.settings.applications.GameSpaceController">
     </Preference>
 
-    <!-- Play Integrity Fix - JSON utils -->
-    <Preference
-        android:key="pif_json_manage_preference"
-        android:title="@string/spoofing_pif_manage_title"
-        android:summary="@string/spoofing_pif_json_select_summary" />
-
     <!-- Ignore window secure flags -->
     <org.luminedroid.preferences.GlobalSettingSwitchPreference
         android:key="window_ignore_secure"

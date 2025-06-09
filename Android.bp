@@ -40,9 +40,8 @@ java_defaults {
     additional_manifests: [":LumineSettings-manifest"],
 
     static_libs: [
-        "glide-prebuilt",
-        "glide-gifdecoder-prebuilt",
-        "glide-disklrucache-prebuilt",
+        "glide",
+        "glide-annotation",
         "SystemUISharedLib",
     ],
 }

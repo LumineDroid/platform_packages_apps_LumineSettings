@@ -6,7 +6,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- About LumineDroid -->
-    <string name="about_title">About LumineDroid</string>
+    <string name="luminedroid_about_title">What is LumineDroid?</string>
+    <string name="luminedroid_about_summary">An open-source custom Android based on LineageOS with additional features</string>
+    <string name="about_social_title">Social</string>
     <string name="website_title">Website</string>
     <string name="website_summary">Visit LumineDroid website</string>
     <string name="telegram_title">Telegram</string>

@@ -2,9 +2,18 @@
     Copyright (C) 2025 LumineDroid
     SPDX-License-Identifier: Apache-2.0
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title=" ">
 
-    <PreferenceCategory android:title="@string/about_title">
+        <Preference
+            android:key="about_header"
+            android:layout="@layout/luminedroid_about_header"
+            android:selectable="false"/>
+
+    <PreferenceCategory
+        android:title="@string/about_social_title">
+
         <Preference
             android:key="website"
             android:title="@string/website_title"

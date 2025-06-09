@@ -5,6 +5,7 @@
 -->
 <resources>
     <!-- LumineDroid -->
+    <dimen name="lumine_card_radius">16dp</dimen>
     <dimen name="lumine_card_horizontal_padding">16dp</dimen>
 
     <!-- Oval preview size -->

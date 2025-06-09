@@ -12,6 +12,7 @@
     <Preference
         android:key="extensions_about"
         android:title="@string/extensions_about_title"
+        android:layout="@layout/card_preference_top"
         android:summary="@string/extensions_about_summary"
         android:fragment="org.luminedroid.extensions.category.about.AboutLumineDroid"
         android:icon="@drawable/ic_about"/>
@@ -20,6 +21,7 @@
     <Preference
         android:key="extensions_themes"
         android:title="@string/extensions_themes_title"
+        android:layout="@layout/card_preference_mid"
         android:summary="@string/extensions_themes_summary"
         android:fragment="org.luminedroid.extensions.category.themes.ThemesSettings"
         android:icon="@drawable/ic_themes"/>
@@ -28,6 +30,7 @@
     <Preference
         android:key="extensions_statusbar"
         android:title="@string/extensions_statusbar_title"
+        android:layout="@layout/card_preference_mid"
         android:summary="@string/extensions_statusbar_summary"
         android:fragment="org.luminedroid.extensions.category.statusbar.StatusBarSettings"
         android:icon="@drawable/ic_statusbar"/>
@@ -36,6 +39,7 @@
     <Preference
         android:key="extensions_quicksettings"
         android:title="@string/extensions_quicksettings_title"
+        android:layout="@layout/card_preference_mid"
         android:summary="@string/extensions_quicksettings_summary"
         android:fragment="org.luminedroid.extensions.category.qs.QuickSettings"
         android:icon="@drawable/ic_quicksettings"/>
@@ -44,6 +48,7 @@
     <Preference
         android:key="extensions_button"
         android:title="@string/extensions_button_title"
+        android:layout="@layout/card_preference_mid"
         android:summary="@string/extensions_button_summary"
         android:fragment="org.luminedroid.extensions.category.button.ButtonSettings"
         android:icon="@drawable/ic_button"/>
@@ -52,6 +57,7 @@
     <Preference
         android:key="extensions_lockscreen"
         android:title="@string/extensions_lockscreen_title"
+        android:layout="@layout/card_preference_mid"
         android:summary="@string/extensions_lockscreen_summary"
         android:fragment="org.luminedroid.extensions.category.lockscreen.LockScreenSettings"
         android:icon="@drawable/ic_lockscreen"/>
@@ -60,6 +66,7 @@
     <Preference
         android:key="extensions_misc"
         android:title="@string/extensions_misc_title"
+        android:layout="@layout/card_preference_bot"
         android:summary="@string/extensions_misc_summary"
         android:fragment="org.luminedroid.extensions.category.misc.MiscSettings"
         android:icon="@drawable/ic_misc"/>

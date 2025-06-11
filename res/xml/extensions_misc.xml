@@ -8,4 +8,16 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/extensions_misc_title">
 
+    <PreferenceCategory
+        android:key="spoofing_category"
+        android:title="@string/spoofing_category" >
+
+        <org.luminedroid.extensions.category.misc.KeyboxDataPreference
+            android:key="keybox_data_setting"
+            android:title="@string/keybox_data_title"
+            android:summary="@string/keybox_data_summary"
+            android:defaultValue=""/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

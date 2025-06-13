@@ -11,8 +11,9 @@ import android.content.Intent;
 import android.os.BatteryManager;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.text.TextUtils;
 import android.text.format.DateFormat;
+import android.text.TextUtils;
+import android.util.ArraySet;
 import android.view.View;
 
 import androidx.preference.Preference;
@@ -28,6 +29,7 @@ import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
 import java.util.List;
+import java.util.Set;
 
 import lineageos.preference.LineageSystemSettingListPreference;
 import lineageos.providers.LineageSettings;
@@ -55,6 +57,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
 
+    private static final String NETWORK_TRAFFIC_SETTINGS = "network_traffic_settings";
+
     private LineageSystemSettingListPreference mQuickPulldown;
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
@@ -62,6 +66,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     private PreferenceCategory mStatusBarBatteryCategory;
     private PreferenceCategory mStatusBarClockCategory;
+    private Preference mNetworkTrafficPref;
+
+    private boolean mHasCenteredCutout;
 
     private boolean mBatteryPresent;
 
@@ -71,6 +78,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.extensions_statusbar);
     
         final Context context = getContext();
+
+        mNetworkTrafficPref = findPreference(NETWORK_TRAFFIC_SETTINGS);
+
+        mHasCenteredCutout = DeviceUtils.hasCenteredCutout(getActivity());
 
         mStatusBarAmPm = findPreference(STATUS_BAR_AM_PM);
         mStatusBarClock = findPreference(STATUS_BAR_CLOCK_STYLE);
@@ -120,7 +131,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_info);
         }
 
-        final boolean disallowCenteredClock = DeviceUtils.hasCenteredCutout(getActivity());
+        final boolean disallowCenteredClock = mHasCenteredCutout || getNetworkTrafficStatus() != 0;
 
         // Adjust status bar preferences for RTL
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
@@ -142,6 +153,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment
             }
             mQuickPulldown.setEntries(R.array.status_bar_quick_qs_pulldown_entries);
         }
+
+        // Disable network traffic preferences if clock is centered in the status bar
+        updateNetworkTrafficStatus(getClockPosition());
     }
 
     @Override
@@ -153,6 +167,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 updateQuickPulldownSummary(value);
                 break;
             case STATUS_BAR_CLOCK_STYLE:
+                updateNetworkTrafficStatus(value);
                 break;
             case STATUS_BAR_BATTERY_STYLE:
                 enableStatusBarBatteryDependents(value);
@@ -188,12 +203,23 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mQuickPulldown.setSummary(summary);
     }
 
+    private void updateNetworkTrafficStatus(int clockPosition) {
+        boolean isClockCentered = clockPosition == 1;
+        mNetworkTrafficPref.setEnabled(!isClockCentered);
+        mNetworkTrafficPref.setSummary(getResources().getString(isClockCentered ?
+                R.string.network_traffic_disabled_clock :
+                R.string.network_traffic_settings_summary
+        ));
+    }
+
     private int getNetworkTrafficStatus() {
-        int mode = LineageSettings.Secure.getInt(getActivity().getContentResolver(),
+        return LineageSettings.Secure.getInt(getActivity().getContentResolver(),
                 LineageSettings.Secure.NETWORK_TRAFFIC_MODE, 0);
-        int position = LineageSettings.Secure.getInt(getActivity().getContentResolver(),
-                LineageSettings.Secure.NETWORK_TRAFFIC_POSITION, /* Center */ 1);
-        return mode != 0 && position == 1 ? 1 : 0;
+    }
+
+    private int getClockPosition() {
+        return LineageSettings.System.getInt(getActivity().getContentResolver(),
+                STATUS_BAR_CLOCK_STYLE, 2);
     }
 
     @Override

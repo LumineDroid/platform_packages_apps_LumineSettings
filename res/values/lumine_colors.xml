@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2025 LumineDroid
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
+
+    <!-- Extensions -->
+    <color name="homepage_extensions_background">@color/homepage_pink_bg</color>
+    <color name="homepage_extensions_foreground">@color/homepage_pink_fg</color>
+</resources>

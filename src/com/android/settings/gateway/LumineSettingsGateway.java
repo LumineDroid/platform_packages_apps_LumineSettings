@@ -16,14 +16,13 @@
 
 package com.android.settings.core.gateway;
 
+import org.luminedroid.extensions.Extensions;
+
 public class LumineSettingsGateway {
 
     /**
      * A list of fragment that can be hosted by LumineSettingsActivity. SettingsActivity will throw a
      * security exception if the fragment it needs to display is not in this list.
      */
-    public static final String[] ENTRY_FRAGMENTS = {
-        // Add here
-    };
-
+    public static final String[] ENTRY_FRAGMENTS = {Extensions.class.getName()};
 }

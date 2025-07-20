@@ -53,6 +53,13 @@
             android:title="@string/notification_row_transparency_lockscreen_title"
             android:summary="@string/notification_row_transparency_lockscreen_summary"
             android:defaultValue="true" />
+
+        <!-- Pulse music visualizer -->
+        <Preference
+            android:key="pulse_settings"
+            android:title="@string/pulse_settings_title"
+            android:summary="@string/pulse_settings_summary"
+            android:fragment="org.luminedroid.extensions.category.lockscreen.PulseSettings" />
     </PreferenceCategory>
 
     <PreferenceCategory

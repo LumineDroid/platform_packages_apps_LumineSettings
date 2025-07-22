@@ -17,4 +17,9 @@
             android:defaultValue="false" />
     </com.android.settingslib.widget.UntitledPreferenceCategory>
 
+    <Preference
+            android:key="power_off_verify"
+            android:title="@string/power_off_verify_title"
+            android:summary="@string/power_off_verify_summary"
+            android:fragment="org.luminedroid.extensions.button.PowerOffVerify" />
 </PreferenceScreen>

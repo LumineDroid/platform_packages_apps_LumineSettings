@@ -18,6 +18,12 @@
             android:summary="@string/keybox_data_summary"
             android:defaultValue=""/>
 
+        <org.luminedroid.extensions.category.misc.PifDataPreference
+            android:key="pif_data_setting"
+            android:title="@string/pif_data_title"
+            android:summary="@string/pif_data_summary"
+            android:defaultValue=""/>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

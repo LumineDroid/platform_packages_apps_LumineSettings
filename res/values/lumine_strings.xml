@@ -257,6 +257,7 @@
     <string name="ignore_window_secure_summary">Remove screenshot and screenrecord limits for all apps. This can be convenient in some cases but may lead to privacy leaks.</string>
 
     <!-- Quick settings -->
+    <string name="quick_settings_notification_category">Notification</string>
     <string name="quick_settings_lock_screen_category">Lock screen</string>
     <string name="quick_settings_secure_lock_screen_title">Hide on secure lock screen</string>
     <string name="quick_settings_secure_lock_screen_summary">Hide all quick settings in the notification shade while the device is locked</string>
@@ -342,4 +343,8 @@
     <!-- Notification counter -->
     <string name="status_bar_notif_count_title">Notification count</string>
     <string name="status_bar_notif_count_summary">Display the number of unread notifications on each app icon</string>
+
+    <!-- Notification Row -->
+    <string name="notification_row_transparency_title">Notification row transparency</string>
+    <string name="notification_row_transparency_summary">Show translucent quicksettings notifications</string>
 </resources>

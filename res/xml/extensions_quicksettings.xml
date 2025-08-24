@@ -15,6 +15,19 @@
         android:summary="@string/quick_settings_data_usage_summary"
         android:defaultValue="false" />
 
+
+    <PreferenceCategory
+        android:key="quick_settings_notification_category"
+        android:title="@string/quick_settings_notification_category">
+
+        <!-- Notification Row Transparency -->
+        <org.luminedroid.preferences.SecureSettingSwitchPreference
+            android:key="notification_row_transparency"
+            android:title="@string/notification_row_transparency_title"
+            android:summary="@string/notification_row_transparency_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="quick_settings_lock_screen_category"
         android:title="@string/quick_settings_lock_screen_category">

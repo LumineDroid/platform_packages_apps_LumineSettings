@@ -33,6 +33,13 @@
         android:title="@string/quick_settings_lock_screen_category">
 
         <!-- Hide on secure lock screen -->
+        <org.luminedroid.preferences.SecureSettingSwitchPreference
+            android:key="enable_lockscreen_quick_settings"
+            android:title="@string/quick_settings_lock_screen_title"
+            android:summary="@string/quick_settings_lock_screen_summary"
+            android:defaultValue="true" />
+
+        <!-- Hide on secure lock screen -->
         <org.luminedroid.preferences.SystemSettingSwitchPreference
             android:key="secure_lockscreen_qs_disabled"
             android:title="@string/quick_settings_secure_lock_screen_title"

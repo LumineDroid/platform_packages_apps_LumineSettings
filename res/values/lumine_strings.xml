@@ -48,10 +48,6 @@
     <string name="icon_manager_title">Icon manager</string>
     <string name="icon_manager_summary">Control visibility of status bar icons</string>
 
-    <!-- Bluetooth battery status -->
-    <string name="status_bar_bluetooth_battery_title">Bluetooth battery status</string>
-    <string name="status_bar_bluetooth_battery_summary">Display battery status for the connected Bluetooth device, if available</string>
-
     <!-- Refresh rate -->
     <string name="refresh_rate_title">Refresh rate</string>
     <string name="refresh_rate_summary_vrr_off">%d Hz</string>

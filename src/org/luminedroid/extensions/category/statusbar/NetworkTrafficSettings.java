@@ -19,83 +19,84 @@ package org.luminedroid.extensions.category.statusbar;
 import android.content.ContentResolver;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.preference.DropDownPreference;
 import androidx.preference.Preference;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-
 import lineageos.preference.LineageSecureSettingMainSwitchPreference;
 import lineageos.preference.LineageSecureSettingSwitchPreference;
 import lineageos.providers.LineageSettings;
 
 public class NetworkTrafficSettings extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener  {
+    implements Preference.OnPreferenceChangeListener {
 
-    private static final String TAG = "NetworkTrafficSettings";
-    private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
+  private static final String TAG = "NetworkTrafficSettings";
+  private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
 
-    private LineageSecureSettingMainSwitchPreference mNetTraffic;
-    private LineageSecureSettingSwitchPreference mNetTrafficAutohide;
-    private DropDownPreference mNetTrafficUnits;
+  private LineageSecureSettingMainSwitchPreference mNetTraffic;
+  private LineageSecureSettingSwitchPreference mNetTrafficAutohide;
+  private DropDownPreference mNetTrafficUnits;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.network_traffic_settings);
-        getActivity().setTitle(R.string.network_traffic_settings_title);
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    addPreferencesFromResource(R.xml.network_traffic_settings);
+    getActivity().setTitle(R.string.network_traffic_settings_title);
 
-        final ContentResolver resolver = getActivity().getContentResolver();
+    final ContentResolver resolver = getActivity().getContentResolver();
 
-        mNetTraffic = findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_MODE);
+    mNetTraffic = findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_MODE);
 
-        mNetTrafficAutohide = findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_AUTOHIDE);
+    mNetTrafficAutohide = findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_AUTOHIDE);
 
-        mNetTrafficUnits = findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_UNITS);
-        mNetTrafficUnits.setOnPreferenceChangeListener(this);
-        int units = LineageSettings.Secure.getInt(resolver,
-                LineageSettings.Secure.NETWORK_TRAFFIC_UNITS, /* Mbps */ 1);
-        mNetTrafficUnits.setValue(String.valueOf(units));
+    mNetTrafficUnits = findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_UNITS);
+    mNetTrafficUnits.setOnPreferenceChangeListener(this);
+    int units =
+        LineageSettings.Secure.getInt(
+            resolver, LineageSettings.Secure.NETWORK_TRAFFIC_UNITS, /* Mbps */ 1);
+    mNetTrafficUnits.setValue(String.valueOf(units));
 
-        updateForClockConflicts();
+    updateForClockConflicts();
+  }
+
+  @Override
+  public boolean onPreferenceChange(Preference preference, Object newValue) {
+    int value = Integer.parseInt((String) newValue);
+    String key = preference.getKey();
+    switch (key) {
+      case LineageSettings.Secure.NETWORK_TRAFFIC_UNITS:
+        LineageSettings.Secure.putInt(
+            getActivity().getContentResolver(),
+            LineageSettings.Secure.NETWORK_TRAFFIC_UNITS,
+            value);
+        break;
+    }
+    return true;
+  }
+
+  @Override
+  public int getMetricsCategory() {
+    return MetricsEvent.LUMINEDROID;
+  }
+
+  private void updateEnabledStates(boolean enabled) {
+    mNetTrafficAutohide.setEnabled(enabled);
+    mNetTrafficUnits.setEnabled(enabled);
+  }
+
+  private void updateForClockConflicts() {
+    int clockPosition =
+        LineageSettings.System.getInt(
+            getActivity().getContentResolver(), STATUS_BAR_CLOCK_STYLE, 2);
+
+    if (clockPosition != 1) {
+      return;
     }
 
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        int value = Integer.parseInt((String) newValue);
-        String key = preference.getKey();
-        switch (key) {
-            case LineageSettings.Secure.NETWORK_TRAFFIC_UNITS:
-                LineageSettings.Secure.putInt(getActivity().getContentResolver(),
-                        LineageSettings.Secure.NETWORK_TRAFFIC_UNITS, value);
-                break;
-        }
-        return true;
-    }
-
-    @Override
-    public int getMetricsCategory() {
-        return MetricsEvent.LUMINEDROID;
-    }
-
-    private void updateEnabledStates(boolean enabled) {
-        mNetTrafficAutohide.setEnabled(enabled);
-        mNetTrafficUnits.setEnabled(enabled);
-    }
-
-    private void updateForClockConflicts() {
-        int clockPosition = LineageSettings.System.getInt(getActivity().getContentResolver(),
-                STATUS_BAR_CLOCK_STYLE, 2);
-
-        if (clockPosition != 1) {
-            return;
-        }
-
-        mNetTraffic.setEnabled(false);
-        Toast.makeText(getActivity(),
-                R.string.network_traffic_disabled_clock,
-                Toast.LENGTH_LONG).show();
-        updateEnabledStates(false);
-    }
+    mNetTraffic.setEnabled(false);
+    Toast.makeText(getActivity(), R.string.network_traffic_disabled_clock, Toast.LENGTH_LONG)
+        .show();
+    updateEnabledStates(false);
+  }
 }

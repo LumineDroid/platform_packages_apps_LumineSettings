@@ -34,13 +34,11 @@ import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -52,7 +50,7 @@ import org.luminedroid.utils.TelephonyUtils;
 
 @SearchIndexable
 public class ButtonSettings extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener, Indexable {
+    implements Preference.OnPreferenceChangeListener, Indexable {
 
   private static final String TAG = "SystemSettings";
 

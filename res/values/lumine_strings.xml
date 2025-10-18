@@ -13,6 +13,7 @@
     <string name="extensions_summary">Additional customization</string>
 
     <!-- Categories -->
+    <string name="extensions_about_title">About</string>
     <string name="extensions_lockscreen_title">Lock screen</string>
     <string name="extensions_misc_title">Miscellaneous</string>
     <string name="extensions_button_title">Button</string>

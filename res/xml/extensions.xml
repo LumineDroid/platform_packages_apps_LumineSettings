@@ -43,4 +43,11 @@
         android:fragment="org.luminedroid.extensions.category.misc.MiscSettings"
         android:icon="@drawable/ic_misc"/>
 
+    <!-- About -->
+    <Preference
+        android:key="extensions_about"
+        android:title="@string/extensions_about_title"
+        android:fragment="org.luminedroid.extensions.category.about.AboutLumineDroidFragment"
+        android:icon="@drawable/ic_about"/>
+
 </PreferenceScreen>

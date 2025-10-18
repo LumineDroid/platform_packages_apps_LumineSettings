@@ -1,0 +1,42 @@
+{
+  "developers": [
+    {
+      "name": "Egii",
+      "username": "Hexaboo",
+      "role": "Founder / Lead Developer",
+      "link": "https://github.com/Hexaboo"
+    },
+    {
+      "name": "Luigiee",
+      "username": "fourninesix",
+      "role": "Co Founder",
+      "link": "https://github.com/fourninesix"
+    },
+    {
+      "name": "Mikazuuu07",
+      "username": "Mikazuuu07",
+      "role": "Core Developer",
+      "link": "https://github.com/Mikazuuu07"
+    },
+    {
+      "name": "Byben",
+      "username": "heybyben",
+      "role": "Core Developer",
+      "link": "https://github.com/heybyben"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Soni Dharma",
+      "username": "Hikari-Soni",
+      "role": "Contributor",
+      "link": "https://github.com/Hikari-Soni"
+    },
+    {
+      "name": "Piyyy",
+      "username": "Piyyy",
+      "role": "Contributor",
+      "link": "https://github.com/Piyyy"
+    }
+  ]
+}

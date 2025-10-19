@@ -10,15 +10,22 @@
 
     <!-- Extensions -->
     <string name="extensions_title">Extensions</string>
+    <string name="extensions_homepage_summary">Access all customization features and system tweaks in one place</string>
     <string name="extensions_summary">Additional customization</string>
 
     <!-- Categories -->
     <string name="extensions_about_title">About</string>
+    <string name="extensions_about_summary">We are not a great people we are merely persistent individuals with unwavering determination</string>
     <string name="extensions_lockscreen_title">Lock screen</string>
+    <string name="extensions_lockscreen_summary">Customize your lock screen style shortcuts and behavior</string>
     <string name="extensions_misc_title">Miscellaneous</string>
+    <string name="extensions_misc_summary">Various options and experimental features for advanced users</string>
     <string name="extensions_button_title">Button</string>
-    <string name="extensions_quicksettings_title">Quick Settings</string>
+    <string name="extensions_button_summary">Configure hardware and navigation button actions</string>
+    <string name="extensions_quicksettings_title">Quick settings</string>
+    <string name="extensions_quicksettings_summary">Manage and personalize your quick settings tiles</string>
     <string name="extensions_statusbar_title">Status bar</string>
+    <string name="extensions_statusbar_summary">Adjust icon  battery style and other status bar elements</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>

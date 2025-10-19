@@ -6,48 +6,11 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
-    android:title="@string/extensions_title">
+    android:title=" ">
 
-    <!-- Status Bar -->
-    <Preference
-        android:key="extensions_statusbar"
-        android:title="@string/extensions_statusbar_title"
-        android:fragment="org.luminedroid.extensions.category.statusbar.StatusBarSettings"
-        android:icon="@drawable/ic_statusbar"/>
-
-    <!-- Quick Settings -->
-    <Preference
-        android:key="extensions_quicksettings"
-        android:title="@string/extensions_quicksettings_title"
-        android:fragment="org.luminedroid.extensions.category.qs.QuickSettings"
-        android:icon="@drawable/ic_quicksettings"/>
-
-    <!-- Button -->
-    <Preference
-        android:key="extensions_button"
-        android:title="@string/extensions_button_title"
-        android:fragment="org.luminedroid.extensions.category.button.ButtonSettings"
-        android:icon="@drawable/ic_button"/>
-
-    <!-- Lockscreen -->
-    <Preference
-        android:key="extensions_lockscreen"
-        android:title="@string/extensions_lockscreen_title"
-        android:fragment="org.luminedroid.extensions.category.lockscreen.LockScreenSettings"
-        android:icon="@drawable/ic_lockscreen"/>
-
-    <!-- Misc -->
-    <Preference
-        android:key="extensions_misc"
-        android:title="@string/extensions_misc_title"
-        android:fragment="org.luminedroid.extensions.category.misc.MiscSettings"
-        android:icon="@drawable/ic_misc"/>
-
-    <!-- About -->
-    <Preference
-        android:key="extensions_about"
-        android:title="@string/extensions_about_title"
-        android:fragment="org.luminedroid.extensions.category.about.AboutLumineDroidFragment"
-        android:icon="@drawable/ic_about"/>
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="extensions_homepage"
+        android:layout="@layout/extensions_homepage_layout"
+        android:selectable="false"/>
 
 </PreferenceScreen>

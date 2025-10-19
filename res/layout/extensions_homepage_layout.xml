@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:paddingVertical="8dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <org.luminedroid.utils.WallpaperView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:gravity="center"
+                android:elevation="0dp"
+                android:orientation="vertical"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.85"
+                android:background="@color/extensions_header_bg" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingVertical="45dp"
+                android:paddingHorizontal="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="@string/extensions_title"
+                    android:textColor="@color/extensions_text_color"
+                    android:fontFamily="@*android:string/config_headlineFontFamily"
+                    android:textSize="40sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:text="@string/extensions_homepage_summary"
+                    android:maxLines="3"
+                    android:alpha="0.8"
+                    android:textSize="12sp"
+                    android:textColor="@color/extensions_text_color"
+                    android:gravity="center"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </FrameLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="12dp"
+        android:weightSum="2"
+        android:gravity="center_vertical">
+
+        <!-- Statusbar -->
+        <LinearLayout
+            android:id="@+id/extensions_statusbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/extensions_homepage_bg"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:minHeight="?android:listPreferredItemHeightSmall"
+            android:clipToOutline="true"
+            android:clickable="true"
+            android:focusable="true">
+
+            <androidx.preference.internal.PreferenceImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/extensions_homepage_statusbar"
+                app:maxWidth="52dp"
+                app:maxHeight="52dp"
+                android:layout_gravity="start" />
+
+            <TextView
+                android:id="@+id/extensions_statusbar_title"
+                android:ellipsize="marquee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:singleLine="true"
+                android:text="@string/extensions_statusbar_title"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="?android:attr/textColorPrimary"
+                android:fontFamily="@*android:string/config_headlineFontFamily" />
+
+            <TextView
+                android:id="@+id/extensions_statusbar_summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:maxLines="4"
+                android:alpha="0.7"
+                android:text="@string/extensions_statusbar_summary"
+                android:textSize="14sp"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textAlignment="viewStart"
+                android:layout_below="@id/extensions_statusbar_title"
+                android:layout_alignStart="@id/extensions_statusbar_title" />
+        </LinearLayout>
+
+        <!-- Quick Settings -->
+        <LinearLayout
+            android:id="@+id/extensions_quicksettings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/extensions_homepage_bg"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:minHeight="?android:listPreferredItemHeightSmall"
+            android:clipToOutline="true"
+            android:clickable="true"
+            android:focusable="true">
+
+            <androidx.preference.internal.PreferenceImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/extensions_homepage_quicksettings"
+                app:maxWidth="52dp"
+                app:maxHeight="52dp"
+                android:layout_gravity="start" />
+
+            <TextView
+                android:id="@+id/extensions_quicksettings_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:text="@string/extensions_quicksettings_title"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="?android:attr/textColorPrimary"
+                android:fontFamily="@*android:string/config_headlineFontFamily" />
+
+            <TextView
+                android:id="@+id/extensions_quicksettings_summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:maxLines="4"
+                android:alpha="0.7"
+                android:text="@string/extensions_quicksettings_summary"
+                android:textSize="14sp"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textAlignment="viewStart"
+                android:layout_below="@id/extensions_quicksettings_title"
+                android:layout_alignStart="@id/extensions_quicksettings_title" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="16dp"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Button -->
+            <LinearLayout
+                android:id="@+id/extensions_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/extensions_homepage_bg"
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:clipToOutline="true"
+                android:clickable="true"
+                android:focusable="true">
+
+                <androidx.preference.internal.PreferenceImageView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@drawable/extensions_homepage_button"
+                    android:layout_gravity="start" />
+
+                <TextView
+                    android:id="@+id/extensions_button_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
+                    android:text="@string/extensions_button_title"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:fontFamily="@*android:string/config_headlineFontFamily" />
+
+                <TextView
+                    android:id="@+id/extensions_button_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:maxLines="4"
+                    android:alpha="0.7"
+                    android:text="@string/extensions_button_summary"
+                    android:textSize="14sp"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textAlignment="viewStart"
+                    android:layout_below="@id/extensions_button_title"
+                    android:layout_alignStart="@id/extensions_button_title" />
+            </LinearLayout>
+
+            <!-- Lockscreen -->
+            <LinearLayout
+                android:id="@+id/extensions_lockscreen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/extensions_homepage_bg"
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:clipToOutline="true"
+                android:clickable="true"
+                android:focusable="true">
+
+                <androidx.preference.internal.PreferenceImageView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@drawable/extensions_homepage_lockscreen"
+                    android:layout_gravity="start" />
+
+                <TextView
+                    android:id="@+id/extensions_lockscreen_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
+                    android:text="@string/extensions_lockscreen_title"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:fontFamily="@*android:string/config_headlineFontFamily" />
+
+                <TextView
+                    android:id="@+id/extensions_lockscreen_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:maxLines="4"
+                    android:alpha="0.7"
+                    android:text="@string/extensions_lockscreen_summary"
+                    android:textSize="14sp"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textAlignment="viewStart"
+                    android:layout_below="@id/extensions_lockscreen_title"
+                    android:layout_alignStart="@id/extensions_lockscreen_title" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- About -->
+        <LinearLayout
+            android:id="@+id/extensions_about"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/extensions_homepage_bg"
+            android:orientation="vertical"
+            android:clipToOutline="true"
+            android:gravity="center"
+            android:padding="18dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/extensions_homepage_about" />
+
+            <TextView
+                android:id="@+id/extensions_about_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:ellipsize="marquee"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/extensions_about_title"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="?android:attr/textColorPrimary"
+                android:fontFamily="@*android:string/config_headlineFontFamily" />       
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/extensions_about_title"
+                android:alpha="0.7"
+                android:gravity="center"
+                android:text="@string/extensions_about_summary"
+                android:textSize="14sp"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textAlignment="center"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/extensions_misc"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/extensions_homepage_bg"
+        android:clipToOutline="true"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/extensions_misc_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="32dp"
+            android:layout_alignParentStart="true"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="@string/extensions_misc_title"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary"
+            android:fontFamily="@*android:string/config_headlineFontFamily" />
+
+        <TextView
+            android:id="@+id/extensions_misc_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/extensions_misc_title"
+            android:layout_alignStart="@id/extensions_misc_title"
+            android:layout_toStartOf="@id/extensions_misc_icon"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="3dp"
+            android:maxLines="4"
+            android:alpha="0.7"
+            android:text="@string/extensions_misc_summary"
+            android:textSize="13sp"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textAlignment="viewStart"/>
+     
+        <androidx.preference.internal.PreferenceImageView
+            android:id="@+id/extensions_misc_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/extensions_homepage_misc" />
+    </RelativeLayout>
+</LinearLayout>

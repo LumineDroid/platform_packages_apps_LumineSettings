@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2025 LumineDroid
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
+    <color name="lumine_card_color">@android:color/system_neutral2_700</color>
+    <color name="extensions_header_bg">@android:color/system_accent1_1000</color>
+    <color name="extensions_text_color">@android:color/system_accent1_50</color>
+</resources>

@@ -16,14 +16,18 @@ class LumineDroidVersionController(
 ) : BasePreferenceController(context, key) {
 
     companion object {
-        private const val LUMINE_DISPLAY_VERSION_PROP = "ro.lineage.display.version"
+        private const val LUMINE_VERSION_PROP = "org.luminedroid.version"
+        private const val LUMINE_DEVICE_PROP = "org.luminedroid.device"
+        private const val LUMINE_BUILDTYPE_PROP = "org.luminedroid.build.type"
     }
 
     override fun getAvailabilityStatus(): Int = AVAILABLE_UNSEARCHABLE
 
     override fun getSummary(): CharSequence {
-        val lumineBuildVersion = SystemProperties.get(LUMINE_DISPLAY_VERSION_PROP, "Unknown")
+        val lumineBuildVersion = SystemProperties.get(LUMINE_VERSION_PROP, "Unknown")
+        val lumineDevice = SystemProperties.get(LUMINE_DEVICE_PROP, "Unknown")
+        val lumineBuildType = SystemProperties.get(LUMINE_BUILDTYPE_PROP, "Unknown")
 
-        return "$lumineBuildVersion"
+        return "$lumineBuildVersion | $lumineDevice | $lumineBuildType"
     }
 }

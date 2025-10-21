@@ -8,6 +8,10 @@
     <!-- LumineDroid version -->
     <string name="lumine_version_title">LumineDroid version</string>
 
+    <!-- LumineDroid FW Info -->
+    <string name="lumine_brand">LumineDroid</string>
+    <string name="lumine_maintainer">Maintainer</string>
+
     <!-- Extensions -->
     <string name="extensions_title">Extensions</string>
     <string name="extensions_homepage_summary">Access all customization features and system tweaks in one place</string>

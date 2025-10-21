@@ -7,4 +7,6 @@
     <color name="lumine_card_color">@android:color/system_neutral2_700</color>
     <color name="extensions_header_bg">@android:color/system_accent1_1000</color>
     <color name="extensions_text_color">@android:color/system_accent1_50</color>
+    <color name="extensions_icon_bg">@android:color/system_accent1_10</color>
+    <color name="extensions_icon_color">@android:color/system_accent1_50</color>
 </resources>

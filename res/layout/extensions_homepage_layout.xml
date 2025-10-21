@@ -14,7 +14,9 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="12dp"
         app:cardCornerRadius="24dp"
-        app:cardElevation="0dp">
+        app:cardElevation="0dp"
+        app:strokeWidth="0.8dp"
+        app:strokeColor="?android:attr/colorAccent">
 
         <FrameLayout
             android:layout_width="match_parent"

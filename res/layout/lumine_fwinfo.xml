@@ -16,13 +16,14 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="4dp"
         android:background="@drawable/lumine_fwinfo_header_bg"
-        android:padding="14dp"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="14dp"
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
         <androidx.preference.internal.PreferenceImageView
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
             android:scaleType="centerCrop"
             android:src="@drawable/lumine_header_logo"
             android:contentDescription="@string/lumine_brand" />
@@ -31,6 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginStart="10dp"
             android:orientation="vertical"
             android:gravity="center_horizontal">
 

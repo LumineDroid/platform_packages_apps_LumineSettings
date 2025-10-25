@@ -335,55 +335,61 @@
         </LinearLayout>
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/extensions_misc"
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:background="@drawable/extensions_homepage_bg"
         android:clipToOutline="true"
         android:clickable="true"
         android:focusable="true">
 
-        <TextView
-            android:id="@+id/extensions_misc_title"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="32dp"
-            android:layout_alignParentStart="true"
-            android:ellipsize="marquee"
-            android:singleLine="true"
-            android:text="@string/extensions_misc_title"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="?android:attr/textColorPrimary"
-            android:fontFamily="@*android:string/config_headlineFontFamily" />
+            android:layout_marginEnd="6dp"
+            android:padding="18dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/extensions_misc_summary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/extensions_misc_title"
-            android:layout_alignStart="@id/extensions_misc_title"
-            android:layout_toStartOf="@id/extensions_misc_icon"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="3dp"
-            android:maxLines="4"
-            android:alpha="0.7"
-            android:text="@string/extensions_misc_summary"
-            android:textSize="13sp"
-            android:textColor="?android:attr/textColorSecondary"
-            android:textAlignment="viewStart"/>
-     
+            <TextView
+                android:id="@+id/extensions_misc_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@string/extensions_misc_title"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="?android:attr/textColorPrimary"
+                android:fontFamily="@*android:string/config_headlineFontFamily" />
+
+            <TextView
+                android:id="@+id/extensions_misc_summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/extensions_misc_title"
+                android:layout_alignStart="@id/extensions_misc_title"
+                android:layout_toStartOf="@id/extensions_misc_icon"
+                android:maxLines="4"
+                android:alpha="0.7"
+                android:text="@string/extensions_misc_summary"
+                android:textSize="13sp"
+                android:textColor="?android:attr/textColorSecondary"/>
+
+        </LinearLayout>
+
         <androidx.preference.internal.PreferenceImageView
             android:id="@+id/extensions_misc_icon"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/extensions_homepage_misc" />
-    </RelativeLayout>
+            android:src="@drawable/extensions_homepage_misc"
+            android:scaleType="center" />
+
+    </LinearLayout>
 </LinearLayout>

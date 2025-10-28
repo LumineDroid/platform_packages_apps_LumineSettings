@@ -128,7 +128,8 @@ class LumineDroidFirmwareVersionView : AppCompatTextView {
     }
 
     fun getBuildNumber(): String {
-        return BidiFormatter.getInstance().unicodeWrap(Build.DISPLAY)
+        val display = Build.DISPLAY.replace("lineage_", "lumine_")
+        return BidiFormatter.getInstance().unicodeWrap(display)
     }
 
     private fun handleAndroidVersionClick() {

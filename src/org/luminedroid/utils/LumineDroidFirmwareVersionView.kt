@@ -21,10 +21,6 @@ import com.android.settings.R
 import com.android.settings.Utils
 import com.android.settingslib.RestrictedLockUtils
 import com.android.settingslib.RestrictedLockUtilsInternal
-import com.android.settingslib.DeviceInfoUtils
-import java.io.BufferedReader
-import java.io.FileReader
-import java.io.IOException
 
 class LumineDroidFirmwareVersionView : AppCompatTextView {
 
@@ -35,16 +31,16 @@ class LumineDroidFirmwareVersionView : AppCompatTextView {
 
     private var mFunDisallowedAdmin: RestrictedLockUtils.EnforcedAdmin? = null
     private var mFunDisallowedBySystem = false
-    private var fullKernelVersion = false
 
     private val userManager by lazy { context.getSystemService(Context.USER_SERVICE) as UserManager }
     private val packageManager: PackageManager by lazy { context.packageManager }
-    private val SECURITY_PATCH_URL = Uri.parse("https://source.android.com/docs/security/bulletin/")
-    private val KEY_BUILD_DATE_PROP = "ro.build.date"
+
     private val LUMINE_VERSION_PROP = "org.luminedroid.version"
     private val LUMINE_DEVICE_PROP = "org.luminedroid.device"
     private val LUMINE_BUILDTYPE_PROP = "org.luminedroid.build.type"
     private val LUMINE_MAINTAINER_PROP = "org.luminedroid.maintainer"
+    private val LUMINE_MAINTAINER_LINK_PROP = "org.luminedroid.maintainer.link"
+    private val DEFAULT_MAINTAINER_LINK = "https://github.com/LumineDroid"
 
     constructor(context: Context) : super(context) { init() }
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) { init() }
@@ -69,27 +65,13 @@ class LumineDroidFirmwareVersionView : AppCompatTextView {
         val lumineVersion = parentView.findViewById<TextView>(R.id.lumine_version)
         val maintainerLayout = parentView.findViewById<LinearLayout>(R.id.lumine_maintainer)
         val maintainerSummary = parentView.findViewById<TextView>(R.id.lumine_maintainer_summary)
-        val securityPatchLayout = parentView.findViewById<LinearLayout>(R.id.lumine_security_patch)
-        val securityPatchSummary = parentView.findViewById<TextView>(R.id.lumine_security_patch_summary)
-        val basebandSummary = parentView.findViewById<TextView>(R.id.lumine_baseband_summary)
-        val kernelLayout = parentView.findViewById<LinearLayout>(R.id.lumine_kernel)
-        val kernelSummary = parentView.findViewById<TextView>(R.id.lumine_kernel_summary)
-        val buildDateSummary = parentView.findViewById<TextView>(R.id.lumine_build_date_summary)
-        val buildNumberSummary = parentView.findViewById<TextView>(R.id.lumine_build_number_summary)
 
         androidVersionSummary?.text = getAndroidVersion()
         lumineVersion?.text = getLumineVersion()
         maintainerSummary?.text = getMaintainerName()
-        securityPatchSummary?.text = getSecurityPatch()
-        basebandSummary?.text = getBasebandVersion()
-        kernelSummary?.text = getFormattedKernelVersion()
-        buildDateSummary?.text = getBuildDate()
-        buildNumberSummary?.text = getBuildNumber()
 
         androidVersionLayout?.setOnClickListener { handleAndroidVersionClick() }
         maintainerLayout?.setOnClickListener { handleMaintainerClick() }
-        securityPatchLayout?.setOnClickListener { handleSecurityPatchClick() }
-        kernelLayout?.setOnClickListener { handleKernelClick(kernelSummary) }
     }
 
     fun getAndroidVersion(): String = Build.VERSION.RELEASE_OR_PREVIEW_DISPLAY
@@ -100,36 +82,11 @@ class LumineDroidFirmwareVersionView : AppCompatTextView {
         val lumineBuildType = SystemProperties.get(LUMINE_BUILDTYPE_PROP, "Unknown")
 
         return "$lumineBuildVersion | $lumineDevice | $lumineBuildType"
-        }
+    }
 
     fun getMaintainerName(): String {
         val maintainer = SystemProperties.get(LUMINE_MAINTAINER_PROP, "Unknown")
         return if (maintainer.isNotEmpty()) maintainer else "Unknown"
-    }
-
-    fun getSecurityPatch(): String = DeviceInfoUtils.getSecurityPatch() ?: "Unknown"
-
-    fun getBasebandVersion(): String = SystemProperties.get("gsm.version.baseband", "Unavailable")
-
-    fun getFormattedKernelVersion(): String = DeviceInfoUtils.getFormattedKernelVersion(context)
-
-    fun getFullKernelVersion(): String {
-        val file = "/proc/version"
-        return try {
-            BufferedReader(FileReader(file), 256).use { it.readLine() ?: "Unavailable" }
-        } catch (e: IOException) {
-            Log.e(TAG, "IO Exception when reading kernel version", e)
-            "Unavailable"
-        }
-    }
-
-    fun getBuildDate(): String {
-        return SystemProperties.get(KEY_BUILD_DATE_PROP, context.getString(R.string.unknown))
-    }
-
-    fun getBuildNumber(): String {
-        val display = Build.DISPLAY.replace("lineage_", "lumine_")
-        return BidiFormatter.getInstance().unicodeWrap(display)
     }
 
     private fun handleAndroidVersionClick() {
@@ -159,51 +116,25 @@ class LumineDroidFirmwareVersionView : AppCompatTextView {
     }
 
     private fun handleMaintainerClick() {
-        val maintainer = SystemProperties.get(LUMINE_MAINTAINER_PROP, "")
-        if (maintainer.isBlank() || maintainer == "Unknown") {
-            Log.w(TAG, "No maintainer info available")
-            return
+        val maintainerLink = SystemProperties.get(LUMINE_MAINTAINER_LINK_PROP, DEFAULT_MAINTAINER_LINK)
+        val finalLink = if (maintainerLink.isBlank()) DEFAULT_MAINTAINER_LINK else maintainerLink.trim()
+
+        val uri = try {
+            Uri.parse(finalLink)
+        } catch (e: Exception) {
+            Log.e(TAG, "Invalid maintainer link: $finalLink", e)
+            Uri.parse(DEFAULT_MAINTAINER_LINK)
         }
 
-        val username = maintainer.trim()
-            .replace("@", "")
-        val telegramUri = Uri.parse("https://t.me/$username")
-
-        val intent = Intent(Intent.ACTION_VIEW, telegramUri)
+        val intent = Intent(Intent.ACTION_VIEW, uri)
         if (packageManager.queryIntentActivities(intent, 0).isEmpty()) {
-            Log.w(TAG, "No Telegram app found, opening in browser")
+            Log.w(TAG, "No activity found to handle maintainer link, fallback to browser")
         }
 
         try {
             context.startActivity(intent)
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to open Telegram link for maintainer", e)
-        }
-    }
-
-    private fun handleSecurityPatchClick() {
-        val intent = Intent(Intent.ACTION_VIEW).apply { data = SECURITY_PATCH_URL }
-
-        if (packageManager.queryIntentActivities(intent, 0).isEmpty()) {
-            Log.w(TAG, "No activity can handle security patch intent")
-            return
-        }
-
-        try {
-            context.startActivity(intent)
-        } catch (e: Exception) {
-            Log.e(TAG, "Failed to open security bulletin URL", e)
-        }
-    }
-
-    private fun handleKernelClick(view: TextView?) {
-        view ?: return
-        if (fullKernelVersion) {
-            view.text = getFormattedKernelVersion()
-            fullKernelVersion = false
-        } else {
-            view.text = getFullKernelVersion()
-            fullKernelVersion = true
+            Log.e(TAG, "Failed to open maintainer link: $finalLink", e)
         }
     }
 

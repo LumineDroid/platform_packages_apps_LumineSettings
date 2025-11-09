@@ -53,6 +53,12 @@
             android:title="@string/pulse_settings_title"
             android:summary="@string/pulse_settings_summary"
             android:fragment="org.luminedroid.extensions.lockscreen.PulseSettings" />
+
+        <org.luminedroid.preferences.SecureSettingSwitchPreference
+            android:key="lockscreen_smartspace_enabled"
+            android:title="@string/lockscreen_smartspace_title"
+            android:summary="@string/lockscreen_smartspace_summary"
+            android:defaultValue="true" />
     </PreferenceCategory>
 
     <!-- Fingerprint unlock ripple animation -->

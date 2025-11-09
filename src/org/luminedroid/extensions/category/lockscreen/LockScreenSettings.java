@@ -5,19 +5,25 @@
 
 package org.luminedroid.extensions.category.lockscreen;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.provider.Settings;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreferenceCompat;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.luminedroid.OmniJawsClient;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 import java.util.List;
+import org.luminedroid.utils.SystemUtils;
 
 @SearchIndexable
 public class LockScreenSettings extends SettingsPreferenceFragment
@@ -27,8 +33,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment
   private static final String KEY_AUTHENTICATION_SUCCESS = "fp_success_vibrate";
   private static final String KEY_AUTHENTICATION_ERROR = "fp_error_vibrate";
   private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
+  private static final String KEY_WEATHER = "lockscreen_weather_enabled";
 
   private PreferenceCategory mFingerprintCategory;
+  private SwitchPreferenceCompat mWeather;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -46,11 +54,48 @@ public class LockScreenSettings extends SettingsPreferenceFragment
     if (fingerprintManager == null || !fingerprintManager.isHardwareDetected()) {
       prefScreen.removePreference(mFingerprintCategory);
     }
+
+    mWeather = (SwitchPreferenceCompat) findPreference(KEY_WEATHER);
+    mWeather.setOnPreferenceChangeListener(this);
+    updateWeatherSettings();
   }
 
   @Override
   public boolean onPreferenceChange(Preference preference, Object newValue) {
+    if (preference == mWeather) {
+      mWeather.setChecked((Boolean) newValue);
+      SystemUtils.showSystemUiRestartDialog(getContext());
+      return true;
+    }
     return false;
+  }
+
+  public static void reset(Context mContext) {
+    ContentResolver resolver = mContext.getContentResolver();
+    Settings.System.putIntForUser(
+        resolver, Settings.System.LOCKSCREEN_WEATHER_ENABLED, 0, UserHandle.USER_CURRENT);
+    Settings.System.putIntForUser(
+        resolver, Settings.System.LOCKSCREEN_WEATHER_LOCATION, 0, UserHandle.USER_CURRENT);
+    Settings.System.putIntForUser(
+        resolver, Settings.System.LOCKSCREEN_WEATHER_TEXT, 1, UserHandle.USER_CURRENT);
+    Settings.System.putIntForUser(
+        resolver, Settings.System.LOCKSCREEN_WEATHER_WIND_INFO, 0, UserHandle.USER_CURRENT);
+    Settings.System.putIntForUser(
+        resolver, Settings.System.LOCKSCREEN_WEATHER_HUMIDITY_INFO, 0, UserHandle.USER_CURRENT);
+  }
+
+  private void updateWeatherSettings() {
+    if (mWeather == null) return;
+
+    boolean weatherEnabled = OmniJawsClient.get().isOmniJawsEnabled(getContext());
+    mWeather.setEnabled(weatherEnabled);
+        mWeather.setSummary(weatherEnabled ? R.string.lockscreen_weather_summary :
+  }
+
+  @Override
+  public void onResume() {
+    super.onResume();
+    updateWeatherSettings();
   }
 
   @Override

@@ -129,7 +129,7 @@ public class ButtonSettings extends SettingsPreferenceFragment
   private SwitchPreferenceCompat mHomeAnswerCall;
   private ListPreference mTorchLongPressPowerTimeout;
   private SwitchPreferenceCompat mSwapCapacitiveKeys;
-  // private SwitchPreferenceCompat mNavBarInverse;
+  private SwitchPreferenceCompat mNavBarInverse;
   private SwitchPreferenceCompat mEnableTaskbar;
 
   private PreferenceCategory mNavigationPreferencesCat;
@@ -456,7 +456,7 @@ public class ButtonSettings extends SettingsPreferenceFragment
       mSwapCapacitiveKeys.setDependency(KEY_DISABLE_NAV_KEYS);
     }
 
-    // mNavBarInverse = findPreference(KEY_NAV_BAR_INVERSE);
+    mNavBarInverse = findPreference(KEY_NAV_BAR_INVERSE);
 
     mEnableTaskbar = findPreference(KEY_ENABLE_TASKBAR);
     if (mEnableTaskbar != null) {

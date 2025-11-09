@@ -22,6 +22,12 @@
         android:fragment="org.luminedroid.extensions.statusbar.NetworkTrafficSettings" />
 
     <org.luminedroid.preferences.SystemSettingSwitchPreference
+        android:key="show_fourg_icon"
+        android:title="@string/show_fourg_icon_title"
+        android:summary="@string/show_fourg_icon_summary"
+        android:defaultValue="false"/>
+
+    <org.luminedroid.preferences.SystemSettingSwitchPreference
         android:key="bluetooth_show_battery"
         android:title="@string/bluetooth_battery_title"
         android:summary="@string/bluetooth_battery_summary"

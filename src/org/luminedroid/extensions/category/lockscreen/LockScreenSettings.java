@@ -34,9 +34,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment
   private static final String KEY_AUTHENTICATION_ERROR = "fp_error_vibrate";
   private static final String KEY_RIPPLE_EFFECT = "enable_ripple_effect";
   private static final String KEY_WEATHER = "lockscreen_weather_enabled";
+  private static final String KEY_SMARTSPACE = "lockscreen_smartspace_enabled";
 
   private PreferenceCategory mFingerprintCategory;
   private SwitchPreferenceCompat mWeather;
+  private SwitchPreferenceCompat mSmartspace;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,9 @@ public class LockScreenSettings extends SettingsPreferenceFragment
       prefScreen.removePreference(mFingerprintCategory);
     }
 
+    mSmartspace = (SwitchPreferenceCompat) findPreference(KEY_SMARTSPACE);
+    mSmartspace.setOnPreferenceChangeListener(this);
+
     mWeather = (SwitchPreferenceCompat) findPreference(KEY_WEATHER);
     mWeather.setOnPreferenceChangeListener(this);
     updateWeatherSettings();
@@ -62,16 +67,24 @@ public class LockScreenSettings extends SettingsPreferenceFragment
 
   @Override
   public boolean onPreferenceChange(Preference preference, Object newValue) {
-    if (preference == mWeather) {
+    if (preference == mSmartspace) {
+      mSmartspace.setChecked((Boolean) newValue);
+      updateWeatherSettings();
+      SystemUtils.showSystemUiRestartDialog(getContext());
+      return true;
+    } else if (preference == mWeather) {
       mWeather.setChecked((Boolean) newValue);
       SystemUtils.showSystemUiRestartDialog(getContext());
       return true;
     }
+
     return false;
   }
 
   public static void reset(Context mContext) {
     ContentResolver resolver = mContext.getContentResolver();
+    Settings.Secure.putIntForUser(
+        resolver, Settings.Secure.LOCKSCREEN_SMARTSPACE_ENABLED, 1, UserHandle.USER_CURRENT);
     Settings.System.putIntForUser(
         resolver, Settings.System.LOCKSCREEN_WEATHER_ENABLED, 0, UserHandle.USER_CURRENT);
     Settings.System.putIntForUser(
@@ -85,11 +98,14 @@ public class LockScreenSettings extends SettingsPreferenceFragment
   }
 
   private void updateWeatherSettings() {
-    if (mWeather == null) return;
+    if (mWeather == null || mSmartspace == null) return;
 
     boolean weatherEnabled = OmniJawsClient.get().isOmniJawsEnabled(getContext());
-    mWeather.setEnabled(weatherEnabled);
-        mWeather.setSummary(weatherEnabled ? R.string.lockscreen_weather_summary :
+    mWeather.setEnabled(!mSmartspace.isChecked() && weatherEnabled);
+    mWeather.setSummary(
+        !mSmartspace.isChecked() && weatherEnabled
+            ? R.string.lockscreen_weather_summary
+            : R.string.lockscreen_weather_enabled_info);
   }
 
   @Override

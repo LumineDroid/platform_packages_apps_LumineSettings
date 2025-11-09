@@ -62,6 +62,52 @@
         android:summary="@string/lock_screen_fingerprint_ripple_summary"
         android:defaultValue="true" />
 
+    <PreferenceCategory
+        android:key="lockscreen_weather_category"
+        android:title="@string/lockscreen_weather_category">
+
+        <Preference
+            android:summary="@string/weather_settings_summary">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="org.omnirom.omnijaws"
+                android:targetClass="org.omnirom.omnijaws.SettingsActivity" />
+        </Preference>
+
+        <org.luminedroid.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_enabled"
+            android:title="@string/lockscreen_weather_title"
+            android:summary="@string/lockscreen_weather_summary" />
+
+        <org.luminedroid.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_location"
+            android:title="@string/lockscreen_weather_location_title"
+            android:summary="@string/lockscreen_weather_location_summary"
+            android:dependency="lockscreen_weather_enabled" />
+
+        <org.luminedroid.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_text"
+            android:title="@string/lockscreen_weather_text_title"
+            android:summary="@string/lockscreen_weather_text_summary"
+            android:defaultValue="true"
+            android:dependency="lockscreen_weather_enabled" />
+
+        <org.luminedroid.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_wind_info"
+            android:title="@string/lockscreen_weather_wind_info_title"
+            android:summary="@string/lockscreen_weather_wind_info_summary"
+            android:defaultValue="false"
+            android:dependency="lockscreen_weather_enabled" />
+
+        <org.luminedroid.preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_weather_humidity_info"
+            android:title="@string/lockscreen_weather_humidity_info_title"
+            android:summary="@string/lockscreen_weather_humidity_info_summary"
+            android:defaultValue="false"
+            android:dependency="lockscreen_weather_enabled" />
+
+    </PreferenceCategory>
+
     <org.luminedroid.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_enable_power_menu"
         android:title="@string/lockscreen_enable_power_menu_title"

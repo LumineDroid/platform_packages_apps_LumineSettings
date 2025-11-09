@@ -6,10 +6,12 @@
 
 package org.luminedroid.extensions.category.statusbar;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -164,6 +166,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         break;
     }
     return true;
+  }
+
+  public static void reset(Context mContext) {
+    ContentResolver resolver = mContext.getContentResolver();
+
+    Settings.System.putIntForUser(
+        resolver, Settings.System.STATUSBAR_COLORED_ICONS, 0, UserHandle.USER_CURRENT);
   }
 
   private void enableStatusBarBatteryDependents(int batteryIconStyle) {

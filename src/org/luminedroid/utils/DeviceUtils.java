@@ -24,6 +24,7 @@ import android.hardware.camera2.CameraManager;
 import android.nfc.NfcAdapter;
 import android.os.Build;
 import android.os.SystemProperties;
+import android.os.Vibrator;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -302,4 +303,12 @@ public class DeviceUtils {
             .getResources()
             .getInteger(com.android.internal.R.integer.config_navBarInteractionMode);
   }
+
+  public static boolean hasVibrator(Context context) {
+        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator == null || !vibrator.hasVibrator()) {
+            return false;
+        }
+        return true;
+    }
 }

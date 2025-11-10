@@ -10,9 +10,11 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.provider.Settings;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
+import androidx.preference.SwitchPreferenceCompat;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -21,6 +23,7 @@ import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 import java.util.List;
 import lineageos.providers.LineageSettings;
+import org.luminedroid.utils.DeviceUtils;
 
 @SearchIndexable
 public class QuickSettings extends SettingsPreferenceFragment
@@ -28,10 +31,12 @@ public class QuickSettings extends SettingsPreferenceFragment
 
   private static final String QS_BRIGHTNESS_CATEGORY = "qs_brightness_slider_category";
   private static final String KEY_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
+  private static final String KEY_BRIGHTNESS_SLIDER_HAPTIC = "qs_brightness_slider_haptic";
   private static final String KEY_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
 
   private ListPreference mShowBrightnessSlider;
   private ListPreference mBrightnessSliderPosition;
+  private SwitchPreferenceCompat mBrightnessSliderHaptic;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,14 @@ public class QuickSettings extends SettingsPreferenceFragment
 
     mBrightnessSliderPosition = findPreference(KEY_BRIGHTNESS_SLIDER_POSITION);
     mBrightnessSliderPosition.setEnabled(showSlider);
+    mBrightnessSliderHaptic = findPreference(KEY_BRIGHTNESS_SLIDER_HAPTIC);
+    boolean hapticAvailable = DeviceUtils.hasVibrator(context);
+
+    if (hapticAvailable) {
+      mBrightnessSliderHaptic.setEnabled(showSlider);
+    } else {
+      brightnessCategory.removePreference(mBrightnessSliderHaptic);
+    }
   }
 
   @Override
@@ -65,6 +78,7 @@ public class QuickSettings extends SettingsPreferenceFragment
     if (preference == mShowBrightnessSlider) {
       int value = Integer.parseInt((String) newValue);
       mBrightnessSliderPosition.setEnabled(value > 0);
+      if (mBrightnessSliderHaptic != null) mBrightnessSliderHaptic.setEnabled(value > 0);
       return true;
     }
     return false;
@@ -76,6 +90,8 @@ public class QuickSettings extends SettingsPreferenceFragment
         resolver, LineageSettings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1, UserHandle.USER_CURRENT);
     LineageSettings.Secure.putIntForUser(
         resolver, LineageSettings.Secure.QS_BRIGHTNESS_SLIDER_POSITION, 0, UserHandle.USER_CURRENT);
+    Settings.System.putIntForUser(
+        resolver, Settings.System.QS_BRIGHTNESS_SLIDER_HAPTIC, 0, UserHandle.USER_CURRENT);
   }
 
   @Override
@@ -88,6 +104,12 @@ public class QuickSettings extends SettingsPreferenceFragment
         @Override
         public List<String> getNonIndexableKeys(Context context) {
           List<String> keys = super.getNonIndexableKeys(context);
+          final Resources res = context.getResources();
+
+          boolean hapticAvailable = DeviceUtils.hasVibrator(context);
+          if (!hapticAvailable) {
+            keys.add(KEY_BRIGHTNESS_SLIDER_HAPTIC);
+          }
           return keys;
         }
       };

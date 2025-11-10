@@ -50,6 +50,12 @@
             android:title="@string/qs_brightness_slider_haptic_title"
             android:summary="@string/qs_brightness_slider_haptic_summary" />
 
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/qs_show_auto_brightness_title"
+            android:summary="@string/qs_show_auto_brightness_summary"
+            android:defaultValue="true" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

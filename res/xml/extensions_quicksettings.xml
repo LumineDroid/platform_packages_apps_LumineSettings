@@ -8,4 +8,23 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/extensions_quicksettings_title">
 
+    <PreferenceCategory
+         android:key="qs_brightness_slider_category"
+         android:title="@string/qs_brightness_slider_category">
+
+        <org.luminedroid.preferences.SecureSettingListPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/qs_show_brightness_slider_title"
+            android:entries="@array/qs_show_brightness_slider_entries"
+            android:entryValues="@array/qs_show_brightness_slider_values"
+            android:defaultValue="1" />
+
+        <org.luminedroid.preferences.SecureSettingListPreference
+            android:key="qs_brightness_slider_position"
+            android:title="@string/qs_brightness_slider_position_title"
+            android:entries="@array/qs_brightness_slider_position_entries"
+            android:entryValues="@array/qs_brightness_slider_position_values"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

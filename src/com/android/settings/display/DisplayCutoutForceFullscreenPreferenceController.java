@@ -17,26 +17,21 @@
 package com.android.settings.display;
 
 import android.content.Context;
-import android.provider.Settings;
-import android.os.UserHandle;
-
-import com.android.settings.core.BasePreferenceController;
-
 import com.android.internal.util.luminedroid.cutout.CutoutFullscreenController;
+import com.android.settings.core.BasePreferenceController;
 
 public class DisplayCutoutForceFullscreenPreferenceController extends BasePreferenceController {
 
-    private static final String PREF_KEY = "display_cutout_force_fullscreen_settings";
-    private CutoutFullscreenController mCutoutForceFullscreenSettings;
+  private static final String PREF_KEY = "display_cutout_force_fullscreen_settings";
+  private CutoutFullscreenController mCutoutForceFullscreenSettings;
 
-    public DisplayCutoutForceFullscreenPreferenceController(Context context) {
-        super(context, PREF_KEY);
-        mCutoutForceFullscreenSettings = new CutoutFullscreenController(context);
-    }
+  public DisplayCutoutForceFullscreenPreferenceController(Context context) {
+    super(context, PREF_KEY);
+    mCutoutForceFullscreenSettings = new CutoutFullscreenController(context);
+  }
 
-    @Override
-    public int getAvailabilityStatus() {
-        return mCutoutForceFullscreenSettings.isSupported() ?
-                AVAILABLE : UNSUPPORTED_ON_DEVICE;
-    }
+  @Override
+  public int getAvailabilityStatus() {
+    return mCutoutForceFullscreenSettings.isSupported() ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
+  }
 }

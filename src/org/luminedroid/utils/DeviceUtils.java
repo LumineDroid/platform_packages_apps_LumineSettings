@@ -305,10 +305,10 @@ public class DeviceUtils {
   }
 
   public static boolean hasVibrator(Context context) {
-        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        if (vibrator == null || !vibrator.hasVibrator()) {
-            return false;
-        }
-        return true;
+    Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+    if (vibrator == null || !vibrator.hasVibrator()) {
+      return false;
     }
+    return true;
+  }
 }

@@ -17,16 +17,14 @@
 package com.android.settings.core.gateway;
 
 import com.android.settings.Settings;
-
 import com.android.settings.display.RefreshRateSettings;
 import org.luminedroid.extensions.Extensions;
 import org.luminedroid.extensions.category.about.AboutLumineDroidFragment;
-import org.luminedroid.extensions.category.statusbar.StatusBarSettings;
-import org.luminedroid.extensions.category.qs.QuickSettings;
 import org.luminedroid.extensions.category.button.ButtonSettings;
 import org.luminedroid.extensions.category.lockscreen.LockScreenSettings;
 import org.luminedroid.extensions.category.misc.MiscSettings;
-
+import org.luminedroid.extensions.category.qs.QuickSettings;
+import org.luminedroid.extensions.category.statusbar.StatusBarSettings;
 
 public class LumineSettingsGateway {
 
@@ -35,23 +33,23 @@ public class LumineSettingsGateway {
    * security exception if the fragment it needs to display is not in this list.
    */
   public static final String[] ENTRY_FRAGMENTS = {
-          Extensions.class.getName(),
-          RefreshRateSettings.class.getName(),
-          StatusBarSettings.class.getName(),
-          QuickSettings.class.getName(),
-          ButtonSettings.class.getName(),
-          LockScreenSettings.class.getName(),
-          MiscSettings.class.getName(),
-          AboutLumineDroidFragment.class.getName()
+    Extensions.class.getName(),
+    RefreshRateSettings.class.getName(),
+    StatusBarSettings.class.getName(),
+    QuickSettings.class.getName(),
+    ButtonSettings.class.getName(),
+    LockScreenSettings.class.getName(),
+    MiscSettings.class.getName(),
+    AboutLumineDroidFragment.class.getName()
   };
 
   public static final String[] SETTINGS_FOR_RESTRICTED = {
-          Settings.ExtensionsActivity.class.getName(),
-          Settings.ExtensionsStatusbarActivity.class.getName(),
-          Settings.ExtensionsQuickSettingsActivity.class.getName(),
-          Settings.ExtensionsButtonActivity.class.getName(),
-          Settings.ExtensionsLockScreenActivity.class.getName(),
-          Settings.ExtensionsAboutActivity.class.getName(),
-          Settings.ExtensionsMiscActivity.class.getName()
+    Settings.ExtensionsActivity.class.getName(),
+    Settings.ExtensionsStatusbarActivity.class.getName(),
+    Settings.ExtensionsQuickSettingsActivity.class.getName(),
+    Settings.ExtensionsButtonActivity.class.getName(),
+    Settings.ExtensionsLockScreenActivity.class.getName(),
+    Settings.ExtensionsAboutActivity.class.getName(),
+    Settings.ExtensionsMiscActivity.class.getName()
   };
 }

@@ -18,34 +18,30 @@ package org.luminedroid.extensions.category.misc;
 
 import android.content.Context;
 import android.content.pm.UserInfo;
-import android.provider.Settings;
 import android.os.UserManager;
-
-import com.android.settings.core.BasePreferenceController;
-
 import com.android.internal.util.luminedroid.HideDeveloperStatusUtils;
-
+import com.android.settings.core.BasePreferenceController;
 import java.util.List;
 
 public class HideDeveloperStatusPreferenceController extends BasePreferenceController {
 
-    private static final String PREF_KEY = "hide_developer_status_settings";
-    private static HideDeveloperStatusUtils hideDeveloperStatusUtils = new HideDeveloperStatusUtils();
+  private static final String PREF_KEY = "hide_developer_status_settings";
+  private static HideDeveloperStatusUtils hideDeveloperStatusUtils = new HideDeveloperStatusUtils();
 
-    private UserManager userManager;
-    private List<UserInfo> userInfos;
+  private UserManager userManager;
+  private List<UserInfo> userInfos;
 
-    public HideDeveloperStatusPreferenceController(Context context) {
-        super(context, PREF_KEY);
-        userManager = UserManager.get(context);
-        userInfos = userManager.getUsers();
-        for (UserInfo info: userInfos) {
-            hideDeveloperStatusUtils.setApps(context, info.id);
-        }
+  public HideDeveloperStatusPreferenceController(Context context) {
+    super(context, PREF_KEY);
+    userManager = UserManager.get(context);
+    userInfos = userManager.getUsers();
+    for (UserInfo info : userInfos) {
+      hideDeveloperStatusUtils.setApps(context, info.id);
     }
+  }
 
-    @Override
-    public int getAvailabilityStatus() {
-        return AVAILABLE;
-    }
+  @Override
+  public int getAvailabilityStatus() {
+    return AVAILABLE;
+  }
 }

@@ -171,6 +171,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment
   public static void reset(Context mContext) {
     ContentResolver resolver = mContext.getContentResolver();
 
+    Settings.Secure.putIntForUser(
+        resolver, Settings.Secure.ENABLE_CAMERA_PRIVACY_INDICATOR, 1, UserHandle.USER_CURRENT);
+    Settings.Secure.putIntForUser(
+        resolver, Settings.Secure.ENABLE_LOCATION_PRIVACY_INDICATOR, 1, UserHandle.USER_CURRENT);
+    Settings.Secure.putIntForUser(
+        resolver, Settings.Secure.ENABLE_PROJECTION_PRIVACY_INDICATOR, 1, UserHandle.USER_CURRENT);
     Settings.System.putIntForUser(
         resolver, Settings.System.STATUSBAR_COLORED_ICONS, 0, UserHandle.USER_CURRENT);
     Settings.System.putIntForUser(

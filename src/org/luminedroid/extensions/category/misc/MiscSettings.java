@@ -5,13 +5,8 @@
 
 package org.luminedroid.extensions.category.misc;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.preference.Preference;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
@@ -25,52 +20,10 @@ import java.util.List;
 public class MiscSettings extends SettingsPreferenceFragment
     implements Preference.OnPreferenceChangeListener, Indexable {
 
-  private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
-  private static final String PIF_DATA_KEY = "pif_data_setting";
-  private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
-  private ActivityResultLauncher<Intent> mPifFilePickerLauncher;
-  private KeyboxDataPreference mKeyboxDataPreference;
-  private PifDataPreference mPifDataPreference;
-
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     addPreferencesFromResource(R.xml.extensions_misc);
-
-    mKeyboxFilePickerLauncher =
-        registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-              if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                Uri uri = result.getData().getData();
-                Preference pref = findPreference(KEYBOX_DATA_KEY);
-                if (pref instanceof KeyboxDataPreference) {
-                  ((KeyboxDataPreference) pref).handleFileSelected(uri);
-                }
-              }
-            });
-
-    mPifFilePickerLauncher =
-        registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-              if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                Uri uri = result.getData().getData();
-                Preference pref = findPreference(PIF_DATA_KEY);
-                if (pref instanceof PifDataPreference) {
-                  ((PifDataPreference) pref).handleFileSelected(uri);
-                }
-              }
-            });
-
-    mKeyboxDataPreference = findPreference(KEYBOX_DATA_KEY);
-    mPifDataPreference = findPreference(PIF_DATA_KEY);
-    if (mKeyboxDataPreference != null) {
-      mKeyboxDataPreference.setFilePickerLauncher(mKeyboxFilePickerLauncher);
-    }
-    if (mPifDataPreference != null) {
-      mPifDataPreference.setFilePickerLauncher(mPifFilePickerLauncher);
-    }
   }
 
   @Override

@@ -9,24 +9,6 @@
     android:title="@string/extensions_misc_title">
 
     <PreferenceCategory
-        android:key="spoofing_category"
-        android:title="@string/spoofing_category" >
-
-        <org.luminedroid.extensions.category.misc.KeyboxDataPreference
-            android:key="keybox_data_setting"
-            android:title="@string/keybox_data_title"
-            android:summary="@string/keybox_data_summary"
-            android:defaultValue=""/>
-
-        <org.luminedroid.extensions.category.misc.PifDataPreference
-            android:key="pif_data_setting"
-            android:title="@string/pif_data_title"
-            android:summary="@string/pif_data_summary"
-            android:defaultValue=""/>
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="miscellaneous_developer_options_category"
         android:title="@string/miscellaneous_developer_options_category">
 

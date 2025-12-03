@@ -1,0 +1,44 @@
+/*
+ * Copyright (C) 2025 LumineDroid
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+package org.luminedroid.extensions.qs
+
+import android.content.Context
+import android.os.Bundle
+import androidx.preference.Preference
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent
+import com.android.settings.R
+import com.android.settings.SettingsPreferenceFragment
+import com.android.settings.search.BaseSearchIndexProvider
+import com.android.settingslib.search.Indexable
+import com.android.settingslib.search.SearchIndexable
+
+@SearchIndexable
+class QuickSettings : SettingsPreferenceFragment(),
+    Preference.OnPreferenceChangeListener, Indexable {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        addPreferencesFromResource(R.xml.extensions_quicksettings)
+    }
+
+    override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
+        return false
+    }
+
+    override fun getMetricsCategory(): Int {
+        return MetricsEvent.LUMINEDROID
+    }
+
+    companion object {
+        @JvmField
+        val SEARCH_INDEX_DATA_PROVIDER = object : BaseSearchIndexProvider(R.xml.extensions_quicksettings) {
+            override fun getNonIndexableKeys(context: Context): List<String> {
+                val keys = super.getNonIndexableKeys(context)
+                return keys
+            }
+        }
+    }
+}

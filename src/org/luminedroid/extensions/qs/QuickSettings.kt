@@ -5,8 +5,11 @@
 
 package org.luminedroid.extensions.qs
 
+import android.content.ContentResolver
 import android.content.Context
 import android.os.Bundle
+import android.os.UserHandle
+import android.provider.Settings
 import androidx.preference.Preference
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent
 import com.android.settings.R
@@ -14,25 +17,60 @@ import com.android.settings.SettingsPreferenceFragment
 import com.android.settings.search.BaseSearchIndexProvider
 import com.android.settingslib.search.Indexable
 import com.android.settingslib.search.SearchIndexable
+import org.luminedroid.preferences.CustomSeekBarPreference
 
 @SearchIndexable
 class QuickSettings :
-    SettingsPreferenceFragment(),
-    Preference.OnPreferenceChangeListener,
-    Indexable {
+    SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener, Indexable {
+    private lateinit var ShadeBlurRadiusPref: CustomSeekBarPreference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.extensions_quicksettings)
+
+        val resolver: ContentResolver = requireActivity().contentResolver
+
+        ShadeBlurRadiusPref = findPreference<CustomSeekBarPreference>(SHADE_BLUR_RADIUS)!!
+        ShadeBlurRadiusPref.onPreferenceChangeListener = this
+        val shadeBlurRadius =
+            Settings.System.getIntForUser(resolver, SHADE_BLUR_RADIUS, 48, UserHandle.USER_CURRENT)
+        ShadeBlurRadiusPref.value = shadeBlurRadius
+
+        val blurEnabled =
+            Settings.Global.getInt(resolver, Settings.Global.DISABLE_WINDOW_BLURS, 0) == 0
+
+        ShadeBlurRadiusPref.isEnabled = blurEnabled
+        if (!blurEnabled) {
+            ShadeBlurRadiusPref.summary = "System blur is disabled"
+        } else {
+            ShadeBlurRadiusPref.setSummary(R.string.shade_blur_radius_summary)
+        }
     }
 
-    override fun onPreferenceChange(
-        preference: Preference,
-        newValue: Any?,
-    ): Boolean = false
+    override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
+        val resolver = requireActivity().contentResolver
+
+        return when (preference) {
+            ShadeBlurRadiusPref -> {
+                val value = newValue as Int
+                Settings.System.putIntForUser(
+                    resolver,
+                    SHADE_BLUR_RADIUS,
+                    value,
+                    UserHandle.USER_CURRENT,
+                )
+                true
+            }
+
+            else -> false
+        }
+    }
 
     override fun getMetricsCategory(): Int = MetricsEvent.LUMINEDROID
 
     companion object {
+        private const val SHADE_BLUR_RADIUS = "shade_blur_radius"
+
         @JvmField
         val SEARCH_INDEX_DATA_PROVIDER =
             object : BaseSearchIndexProvider(R.xml.extensions_quicksettings) {

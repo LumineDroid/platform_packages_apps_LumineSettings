@@ -324,4 +324,8 @@
     <string name="status_bar_battery_percent_text_next">Next to the icon</string> 
     <string name="status_bar_battery_percent_text_next_right">Next to the icon (right)</string> 
     <string name="status_bar_battery_percent_text_next_left">Next to the icon (left)</string>
+
+    <!-- QS Shade Blur -->
+    <string name="shade_blur_radius_title">Notification shade blur</string>
+    <string name="shade_blur_radius_summary">Adjust the blur intensity behind the notification shade</string>
 </resources>

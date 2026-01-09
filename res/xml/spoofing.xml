@@ -92,5 +92,12 @@
             android:title="@string/spoofing_snap_title"
             android:summary="@string/spoofing_snap_summary"
             android:defaultValue="false" />
+
+        <!-- Vbmeta hash attestation -->
+        <org.luminedroid.preferences.SystemPropertySwitchPreference
+            android:key="persist.sys.vbmeta.update"
+            android:title="@string/vbmeta_attestation_title"
+            android:summary="@string/vbmeta_attestation_summary"
+            android:defaultValue="true" />
     </PreferenceCategory>
 </PreferenceScreen>

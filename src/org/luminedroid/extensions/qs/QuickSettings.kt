@@ -7,6 +7,8 @@ package org.luminedroid.extensions.qs
 
 import android.content.ContentResolver
 import android.content.Context
+import android.content.pm.PackageManager.NameNotFoundException
+import android.content.res.Resources
 import android.os.Bundle
 import android.os.UserHandle
 import android.provider.Settings
@@ -17,6 +19,7 @@ import com.android.settings.SettingsPreferenceFragment
 import com.android.settings.search.BaseSearchIndexProvider
 import com.android.settingslib.search.Indexable
 import com.android.settingslib.search.SearchIndexable
+import kotlin.math.roundToInt
 import org.luminedroid.preferences.CustomSeekBarPreference
 
 @SearchIndexable
@@ -30,10 +33,36 @@ class QuickSettings :
 
         val resolver: ContentResolver = requireActivity().contentResolver
 
+        // Get max_shade_window_blur_radius from SystemUI
+        val sysUiContext: Context =
+            try {
+                requireContext()
+                    .createPackageContext(
+                        SYSTEMUI_PKG,
+                        Context.CONTEXT_IGNORE_SECURITY or Context.CONTEXT_INCLUDE_CODE,
+                    )
+            } catch (e: NameNotFoundException) {
+                requireContext()
+            }
+
+        val sysUiRes: Resources = sysUiContext.resources
+        val resId = sysUiRes.getIdentifier(CONFIG, "dimen", SYSTEMUI_PKG)
+        val defBlurRadiusPx = sysUiRes.getDimensionPixelSize(resId)
+        val density = resources.displayMetrics.density
+        val defBlurRadius = (defBlurRadiusPx / density).roundToInt()
+
+
         ShadeBlurRadiusPref = findPreference<CustomSeekBarPreference>(SHADE_BLUR_RADIUS)!!
+        ShadeBlurRadiusPref.setDefaultValue(defBlurRadius)
         ShadeBlurRadiusPref.onPreferenceChangeListener = this
+
         val shadeBlurRadius =
-            Settings.System.getIntForUser(resolver, SHADE_BLUR_RADIUS, 48, UserHandle.USER_CURRENT)
+            Settings.System.getIntForUser(
+                resolver,
+                SHADE_BLUR_RADIUS,
+                defBlurRadius,
+                UserHandle.USER_CURRENT,
+            )
         ShadeBlurRadiusPref.value = shadeBlurRadius
 
         val blurEnabled =
@@ -69,6 +98,8 @@ class QuickSettings :
     override fun getMetricsCategory(): Int = MetricsEvent.LUMINEDROID
 
     companion object {
+        private const val SYSTEMUI_PKG = "com.android.systemui"
+        private const val CONFIG = "max_shade_window_blur_radius"
         private const val SHADE_BLUR_RADIUS = "shade_blur_radius"
 
         @JvmField

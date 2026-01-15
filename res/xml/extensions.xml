@@ -9,11 +9,6 @@
     android:title=" ">
 
     <com.android.settingslib.widget.LayoutPreference
-        android:key="extensions_header"
-        android:layout="@layout/extensions_homepage_header"
-        android:selectable="false"/>
-
-    <com.android.settingslib.widget.LayoutPreference
         android:key="extensions_homepage"
         android:layout="@layout/extensions_homepage_layout"
         android:selectable="false"/>

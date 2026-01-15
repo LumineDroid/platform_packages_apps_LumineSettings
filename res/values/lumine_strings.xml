@@ -5,8 +5,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- LumineDroid version -->
-    <string name="lumine_version_title">LumineDroid version</string>
+    <!-- LumineDroid -->
+    <string name="luminedroid_title">LumineDroid</string>
+    <string name="maintainer_official">Verified maintainer</string>
+    <string name="maintainer_unofficial">Unverified maintainer</string>
+    <string name="maintainer_by">Maintained by %1$s</string>
+    <string name="maintainer_unknown">Maintained by Unknown</string>
 
     <!-- Extensions -->
     <string name="extensions_title">Extensions</string>

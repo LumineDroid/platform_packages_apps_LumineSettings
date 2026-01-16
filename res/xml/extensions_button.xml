@@ -8,10 +8,13 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/extensions_button_title">
 
-    <org.luminedroid.preferences.SystemSettingSwitchPreference
-        android:key="advanced_reboot"
-        android:title="@string/global_actions_advanced_reboot_title"
-        android:summary="@string/global_actions_advanced_reboot_summary"
-        android:defaultValue="false" />
+    <com.android.settingslib.widget.UntitledPreferenceCategory
+        android:key="advanced_reboot_category">
+        <org.luminedroid.preferences.SystemSettingSwitchPreference
+            android:key="advanced_reboot"
+            android:title="@string/global_actions_advanced_reboot_title"
+            android:summary="@string/global_actions_advanced_reboot_summary"
+            android:defaultValue="false" />
+    </com.android.settingslib.widget.UntitledPreferenceCategory>
 
 </PreferenceScreen>

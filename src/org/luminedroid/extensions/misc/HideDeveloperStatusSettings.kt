@@ -36,22 +36,17 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.SearchView
 import android.widget.TextView
-
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-
 import com.android.internal.util.luminedroid.HideDeveloperStatusUtils
-
 import com.android.settings.R
-
 import com.google.android.material.appbar.AppBarLayout
 
-class HideDeveloperStatusSettings: Fragment(R.layout.hide_developer_status_layout) {
-
+class HideDeveloperStatusSettings : Fragment(R.layout.hide_developer_status_layout) {
     private lateinit var activityManager: ActivityManager
     private lateinit var packageManager: PackageManager
     private lateinit var recyclerView: RecyclerView
@@ -60,7 +55,7 @@ class HideDeveloperStatusSettings: Fragment(R.layout.hide_developer_status_layou
     private lateinit var userManager: UserManager
     private lateinit var userInfos: List<UserInfo>
 
-    private val appBarLayout: AppBarLayout by lazy{
+    private val appBarLayout: AppBarLayout by lazy {
         requireActivity().findViewById(R.id.app_bar)
     }
 
@@ -76,7 +71,7 @@ class HideDeveloperStatusSettings: Fragment(R.layout.hide_developer_status_layou
         updateOptionsMenu()
         val host = getActivity()
         if (host != null) {
-            host.invalidateOptionsMenu();
+            host.invalidateOptionsMenu()
         }
     }
 
@@ -95,16 +90,18 @@ class HideDeveloperStatusSettings: Fragment(R.layout.hide_developer_status_layou
         }
     }
 
-    private fun getTitle(): Int {
-        return R.string.hide_developer_status_title
-    }
+    private fun getTitle(): Int = R.string.hide_developer_status_title
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         adapter = AppListAdapter()
-        recyclerView = view.findViewById<RecyclerView>(R.id.apps_list).also {
-            it.layoutManager = LinearLayoutManager(context)
-            it.adapter = adapter
-        }
+        recyclerView =
+            view.findViewById<RecyclerView>(R.id.apps_list).also {
+                it.layoutManager = LinearLayoutManager(context)
+                it.adapter = adapter
+            }
         refreshList()
     }
 
@@ -112,53 +109,64 @@ class HideDeveloperStatusSettings: Fragment(R.layout.hide_developer_status_layou
      * @return an initial list of packages that should appear as selected.
      */
     private fun getInitialCheckedList(): List<String> {
-        val flattenedString = Settings.Secure.getString(
-            requireContext().contentResolver, getKey()
-        )
-        return flattenedString?.takeIf {
-            it.isNotBlank()
-        }?.split(",")?.toList() ?: emptyList()
+        val flattenedString =
+            Settings.Secure.getString(
+                requireContext().contentResolver,
+                getKey(),
+            )
+        return flattenedString
+            ?.takeIf {
+                it.isNotBlank()
+            }?.split(",")
+            ?.toList() ?: emptyList()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    override fun onCreateOptionsMenu(
+        menu: Menu,
+        inflater: MenuInflater,
+    ) {
         val activity = getActivity()
         if (activity == null) {
-            return;
+            return
         }
-        optionsMenu = menu;
+        optionsMenu = menu
         inflater.inflate(R.menu.hide_developer_status_menu, menu)
 
         menu.findItem(R.id.show_system).setVisible(showSystem)
         menu.findItem(R.id.hide_system).setVisible(!showSystem)
 
         val searchMenuItem = menu.findItem(R.id.search) as MenuItem
-        searchMenuItem.setOnActionExpandListener(object: MenuItem.OnActionExpandListener {
-            override fun onMenuItemActionExpand(item: MenuItem): Boolean {
-                // To prevent a large space on tool bar.
-                appBarLayout.setExpanded(false /*expanded*/, false /*animate*/)
-                // To prevent user can expand the collapsing tool bar view.
-                ViewCompat.setNestedScrollingEnabled(recyclerView, false)
-                return true
-            }
+        searchMenuItem.setOnActionExpandListener(
+            object : MenuItem.OnActionExpandListener {
+                override fun onMenuItemActionExpand(item: MenuItem): Boolean {
+                    // To prevent a large space on tool bar.
+                    appBarLayout.setExpanded(false /*expanded*/, false /*animate*/)
+                    // To prevent user can expand the collapsing tool bar view.
+                    ViewCompat.setNestedScrollingEnabled(recyclerView, false)
+                    return true
+                }
 
-            override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
-                // We keep the collapsed status after user cancel the search function.
-                appBarLayout.setExpanded(false /*expanded*/, false /*animate*/)
-                ViewCompat.setNestedScrollingEnabled(recyclerView, true)
-                return true
-            }
-        })
+                override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
+                    // We keep the collapsed status after user cancel the search function.
+                    appBarLayout.setExpanded(false /*expanded*/, false /*animate*/)
+                    ViewCompat.setNestedScrollingEnabled(recyclerView, true)
+                    return true
+                }
+            },
+        )
         val searchView = searchMenuItem.actionView as SearchView
         searchView.queryHint = getString(R.string.search_apps)
-        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String) = false
+        searchView.setOnQueryTextListener(
+            object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String) = false
 
-            override fun onQueryTextChange(newText: String): Boolean {
-                searchText = newText
-                refreshList()
-                return true
-            }
-        })
+                override fun onQueryTextChange(newText: String): Boolean {
+                    searchText = newText
+                    refreshList()
+                    return true
+                }
+            },
+        )
 
         updateOptionsMenu()
     }
@@ -166,8 +174,8 @@ class HideDeveloperStatusSettings: Fragment(R.layout.hide_developer_status_layou
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         var i = item.getItemId()
         if (i == R.id.show_system || i == R.id.hide_system) {
-            showSystem = !showSystem;
-            refreshList();
+            showSystem = !showSystem
+            refreshList()
         }
         updateOptionsMenu()
         return true
@@ -178,12 +186,12 @@ class HideDeveloperStatusSettings: Fragment(R.layout.hide_developer_status_layou
     }
 
     override fun onDestroyOptionsMenu() {
-        optionsMenu = null;
+        optionsMenu = null
     }
 
     private fun updateOptionsMenu() {
         if (optionsMenu == null) {
-            return;
+            return
         }
 
         var menu = optionsMenu as Menu
@@ -197,7 +205,10 @@ class HideDeveloperStatusSettings: Fragment(R.layout.hide_developer_status_layou
      *
      * @param list a [List<String>] of selected items.
      */
-    private fun onListUpdate(packageName: String, isChecked: Boolean) {
+    private fun onListUpdate(
+        packageName: String,
+        isChecked: Boolean,
+    ) {
         if (packageName.isBlank()) return
         for (info in userInfos) {
             if (isChecked) {
@@ -207,32 +218,36 @@ class HideDeveloperStatusSettings: Fragment(R.layout.hide_developer_status_layou
             }
         }
         try {
-            activityManager.forceStopPackage(packageName);
+            activityManager.forceStopPackage(packageName)
         } catch (ignored: Exception) {
         }
     }
 
-    private fun getKey(): String {
-        return Settings.Secure.HIDE_DEVELOPER_STATUS
-    }
+    private fun getKey(): String = Settings.Secure.HIDE_DEVELOPER_STATUS
 
     private fun refreshList() {
-        var list = packageList.filter {
-            val appInfo = it.applicationInfo
-            if (!showSystem) {
-                appInfo?.isSystemApp() == false &&
-                !resources.getStringArray(R.array.hide_developer_status_hidden_apps)
-                    .asList().contains(appInfo?.packageName) &&
-                !appInfo?.packageName?.contains("android.settings")!!
-            } else {
-                !resources.getStringArray(R.array.hide_developer_status_hidden_apps)
-                    .asList().contains(appInfo?.packageName) &&
-                !appInfo?.packageName?.contains("android.settings")!! &&
-                appInfo?.isResourceOverlay() == false
-            }
-        }.filter {
-            getLabel(it).contains(searchText, true)
-        }
+        var list =
+            packageList
+                .filter {
+                    val appInfo = it.applicationInfo
+                    if (!showSystem) {
+                        appInfo?.isSystemApp() == false &&
+                            !resources
+                                .getStringArray(R.array.hide_developer_status_hidden_apps)
+                                .asList()
+                                .contains(appInfo?.packageName) &&
+                            !appInfo?.packageName?.contains("android.settings")!!
+                    } else {
+                        !resources
+                            .getStringArray(R.array.hide_developer_status_hidden_apps)
+                            .asList()
+                            .contains(appInfo?.packageName) &&
+                            !appInfo?.packageName?.contains("android.settings")!! &&
+                            appInfo?.isResourceOverlay() == false
+                    }
+                }.filter {
+                    getLabel(it).contains(searchText, true)
+                }
         list = customFilter?.let { customFilter ->
             list.filter {
                 customFilter(it)
@@ -253,18 +268,23 @@ class HideDeveloperStatusSettings: Fragment(R.layout.hide_developer_status_layou
             packageInfo.applicationInfo?.loadIcon(packageManager)!!,
         )
 
-    private fun getLabel(packageInfo: PackageInfo) =
-        packageInfo.applicationInfo?.loadLabel(packageManager)?.toString() ?: ""
+    private fun getLabel(packageInfo: PackageInfo) = packageInfo.applicationInfo?.loadLabel(packageManager)?.toString() ?: ""
 
-    private inner class AppListAdapter: ListAdapter<AppInfo, AppListViewHolder>(itemCallback) {
+    private inner class AppListAdapter : ListAdapter<AppInfo, AppListViewHolder>(itemCallback) {
         private val selectedIndices = mutableSetOf<Int>()
         private var initialList = getInitialCheckedList().toMutableList()
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            AppListViewHolder(layoutInflater.inflate(
-                R.layout.hide_developer_status_list_item, parent, false))
+        override fun onCreateViewHolder(
+            parent: ViewGroup,
+            viewType: Int,
+        ) = AppListViewHolder(
+            layoutInflater.inflate(R.layout.hide_developer_status_list_item, parent, false),
+        )
 
-        override fun onBindViewHolder(holder: AppListViewHolder, position: Int) {
+        override fun onBindViewHolder(
+            holder: AppListViewHolder,
+            position: Int,
+        ) {
             getItem(position).let {
                 holder.label.text = it.label
                 holder.packageName.text = it.packageName
@@ -294,7 +314,9 @@ class HideDeveloperStatusSettings: Fragment(R.layout.hide_developer_status_layou
         }
     }
 
-    private class AppListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    private class AppListViewHolder(
+        itemView: View,
+    ) : RecyclerView.ViewHolder(itemView) {
         val icon: ImageView = itemView.findViewById(R.id.icon)
         val label: TextView = itemView.findViewById(R.id.label)
         val packageName: TextView = itemView.findViewById(R.id.packageName)
@@ -308,12 +330,17 @@ class HideDeveloperStatusSettings: Fragment(R.layout.hide_developer_status_layou
     )
 
     companion object {
-        private val itemCallback = object: DiffUtil.ItemCallback<AppInfo>() {
-            override fun areItemsTheSame(oldInfo: AppInfo, newInfo: AppInfo) =
-                oldInfo.packageName == newInfo.packageName
-            
-            override fun areContentsTheSame(oldInfo: AppInfo, newInfo: AppInfo) =
-                oldInfo == newInfo
-        }
+        private val itemCallback =
+            object : DiffUtil.ItemCallback<AppInfo>() {
+                override fun areItemsTheSame(
+                    oldInfo: AppInfo,
+                    newInfo: AppInfo,
+                ) = oldInfo.packageName == newInfo.packageName
+
+                override fun areContentsTheSame(
+                    oldInfo: AppInfo,
+                    newInfo: AppInfo,
+                ) = oldInfo == newInfo
+            }
     }
 }

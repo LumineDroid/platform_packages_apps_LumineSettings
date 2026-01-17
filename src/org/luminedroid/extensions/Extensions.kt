@@ -16,41 +16,37 @@ import com.android.settingslib.core.lifecycle.Lifecycle
 import com.android.settingslib.search.SearchIndexable
 
 class Extensions : DashboardFragment() {
-
     companion object {
         const val CATEGORY_KEY = "com.android.settings.category.ia.extensions"
         private const val LOG_TAG = "Extensions"
 
-        val SEARCH_INDEX_DATA_PROVIDER: BaseSearchIndexProvider = object : BaseSearchIndexProvider(R.xml.extensions) {
-            override fun createPreferenceControllers(context: Context): List<AbstractPreferenceController> {
-                return buildPreferenceControllers(context, null, null)
+        val SEARCH_INDEX_DATA_PROVIDER: BaseSearchIndexProvider =
+            object : BaseSearchIndexProvider(R.xml.extensions) {
+                override fun createPreferenceControllers(context: Context): List<AbstractPreferenceController> =
+                    buildPreferenceControllers(context, null, null)
             }
-        }
 
-        private fun buildPreferenceControllers(context: Context, fragment: Extensions?, lifecycle: Lifecycle?): List<AbstractPreferenceController> {
+        private fun buildPreferenceControllers(
+            context: Context,
+            fragment: Extensions?,
+            lifecycle: Lifecycle?,
+        ): List<AbstractPreferenceController> {
             val controllers = mutableListOf<AbstractPreferenceController>()
             controllers.add(ExtensionsController(context))
             return controllers
         }
     }
 
-    override fun getPreferenceScreenResId(): Int {
-        return R.xml.extensions
-    }
+    override fun getPreferenceScreenResId(): Int = R.xml.extensions
 
-    override fun getMetricsCategory(): Int {
-        return MetricsProto.MetricsEvent.LUMINEDROID
-    }
+    override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.LUMINEDROID
 
     override fun onStart() {
         super.onStart()
     }
 
-    override fun getLogTag(): String {
-        return LOG_TAG
-    }
+    override fun getLogTag(): String = LOG_TAG
 
-    override fun createPreferenceControllers(context: Context): List<AbstractPreferenceController> {
-        return buildPreferenceControllers(context, this, getSettingsLifecycle())
-    }
+    override fun createPreferenceControllers(context: Context): List<AbstractPreferenceController> =
+        buildPreferenceControllers(context, this, getSettingsLifecycle())
 }

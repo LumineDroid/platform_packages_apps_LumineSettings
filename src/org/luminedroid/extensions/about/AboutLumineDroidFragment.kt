@@ -25,8 +25,10 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class AboutLumineDroidFragment : SettingsPreferenceFragment() {
-
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+    override fun onCreatePreferences(
+        savedInstanceState: Bundle?,
+        rootKey: String?,
+    ) {
         addPreferencesFromResource(R.xml.about_luminedroid)
         loadTeamData()
     }
@@ -35,8 +37,11 @@ class AboutLumineDroidFragment : SettingsPreferenceFragment() {
 
     private fun loadTeamData() {
         val context = requireContext()
-        val json = context.resources.openRawResource(R.raw.luminedroid)
-            .bufferedReader().use { it.readText() }
+        val json =
+            context.resources
+                .openRawResource(R.raw.luminedroid)
+                .bufferedReader()
+                .use { it.readText() }
 
         val jsonObj = JSONObject(json)
         val devCat = findPreference<PreferenceCategory>("luminedroid_dev_category")
@@ -51,8 +56,8 @@ class AboutLumineDroidFragment : SettingsPreferenceFragment() {
                         d.getString("name"),
                         d.getString("role"),
                         d.getString("username"),
-                        d.getString("link")
-                    )
+                        d.getString("link"),
+                    ),
                 )
             }
         }
@@ -66,8 +71,8 @@ class AboutLumineDroidFragment : SettingsPreferenceFragment() {
                         c.getString("name"),
                         c.getString("role"),
                         c.getString("username"),
-                        c.getString("link")
-                    )
+                        c.getString("link"),
+                    ),
                 )
             }
         }
@@ -78,14 +83,16 @@ class AboutLumineDroidFragment : SettingsPreferenceFragment() {
         name: String,
         role: String,
         username: String,
-        link: String
+        link: String,
     ): Preference {
         val pref = Preference(context)
         pref.title = name
         pref.summary = role
         pref.icon = ResourcesCompat.getDrawable(context.resources, R.drawable.ic_person, null)
-        pref.intent = android.content.Intent(android.content.Intent.ACTION_VIEW)
-            .setData(Uri.parse(link))
+        pref.intent =
+            android.content
+                .Intent(android.content.Intent.ACTION_VIEW)
+                .setData(Uri.parse(link))
 
         lifecycleScope.launch(Dispatchers.IO) {
             val avatar = fetchGithubAvatar(username)
@@ -97,8 +104,8 @@ class AboutLumineDroidFragment : SettingsPreferenceFragment() {
         return pref
     }
 
-    private fun fetchGithubAvatar(username: String): Drawable? {
-        return try {
+    private fun fetchGithubAvatar(username: String): Drawable? =
+        try {
             val url = URL("https://github.com/$username.png?size=64")
             (url.openConnection() as HttpURLConnection).run {
                 connectTimeout = 1200
@@ -112,7 +119,6 @@ class AboutLumineDroidFragment : SettingsPreferenceFragment() {
         } catch (_: Exception) {
             null
         }
-    }
 
     private fun Bitmap.toRoundedBitmap(): Bitmap {
         val size = minOf(width, height)

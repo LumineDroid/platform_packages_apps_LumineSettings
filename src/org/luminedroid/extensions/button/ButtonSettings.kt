@@ -16,30 +16,30 @@ import com.android.settingslib.search.Indexable
 import com.android.settingslib.search.SearchIndexable
 
 @SearchIndexable
-class ButtonSettings : SettingsPreferenceFragment(),
-    Preference.OnPreferenceChangeListener, Indexable {
-
+class ButtonSettings :
+    SettingsPreferenceFragment(),
+    Preference.OnPreferenceChangeListener,
+    Indexable {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.extensions_button)
     }
 
-    override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
-        return false
-    }
+    override fun onPreferenceChange(
+        preference: Preference,
+        newValue: Any?,
+    ): Boolean = false
 
-    override fun getMetricsCategory(): Int {
-        return MetricsEvent.LUMINEDROID
-    }
+    override fun getMetricsCategory(): Int = MetricsEvent.LUMINEDROID
 
     companion object {
         @JvmField
-        val SEARCH_INDEX_DATA_PROVIDER = object : BaseSearchIndexProvider(R.xml.extensions_button) {
-            override fun getNonIndexableKeys(context: Context): List<String> {
-                val keys = super.getNonIndexableKeys(context)
-                return keys
+        val SEARCH_INDEX_DATA_PROVIDER =
+            object : BaseSearchIndexProvider(R.xml.extensions_button) {
+                override fun getNonIndexableKeys(context: Context): List<String> {
+                    val keys = super.getNonIndexableKeys(context)
+                    return keys
+                }
             }
-        }
     }
 }
-

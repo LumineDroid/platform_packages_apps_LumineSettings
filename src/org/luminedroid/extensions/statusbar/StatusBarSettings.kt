@@ -18,9 +18,10 @@ import org.luminedroid.preferences.SystemSettingSwitchPreference
 import org.luminedroid.utils.SystemUtils
 
 @SearchIndexable
-class StatusBarSettings : SettingsPreferenceFragment(),
-    Preference.OnPreferenceChangeListener, Indexable {
-
+class StatusBarSettings :
+    SettingsPreferenceFragment(),
+    Preference.OnPreferenceChangeListener,
+    Indexable {
     private lateinit var coloredIcons: SystemSettingSwitchPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +32,10 @@ class StatusBarSettings : SettingsPreferenceFragment(),
         coloredIcons.onPreferenceChangeListener = this
     }
 
-    override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
+    override fun onPreferenceChange(
+        preference: Preference,
+        newValue: Any?,
+    ): Boolean {
         val context = requireContext()
 
         when (preference) {
@@ -43,19 +47,18 @@ class StatusBarSettings : SettingsPreferenceFragment(),
         return false
     }
 
-    override fun getMetricsCategory(): Int {
-        return MetricsEvent.LUMINEDROID
-    }
+    override fun getMetricsCategory(): Int = MetricsEvent.LUMINEDROID
 
     companion object {
         private const val KEY_COLORED_ICONS = "statusbar_colored_icons"
 
         @JvmField
-        val SEARCH_INDEX_DATA_PROVIDER = object : BaseSearchIndexProvider(R.xml.extensions_statusbar) {
-            override fun getNonIndexableKeys(context: Context): List<String> {
-                val keys = super.getNonIndexableKeys(context)
-                return keys
+        val SEARCH_INDEX_DATA_PROVIDER =
+            object : BaseSearchIndexProvider(R.xml.extensions_statusbar) {
+                override fun getNonIndexableKeys(context: Context): List<String> {
+                    val keys = super.getNonIndexableKeys(context)
+                    return keys
+                }
             }
-        }
     }
 }

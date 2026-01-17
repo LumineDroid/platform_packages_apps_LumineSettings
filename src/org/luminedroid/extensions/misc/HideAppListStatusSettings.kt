@@ -33,11 +33,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.internal.util.luminedroid.HideAppListUtils
-import com.google.android.material.appbar.AppBarLayout
 import com.android.settings.R
+import com.google.android.material.appbar.AppBarLayout
 
 class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
-
     private lateinit var activityManager: ActivityManager
     private lateinit var packageManager: PackageManager
     private lateinit var recyclerView: RecyclerView
@@ -81,11 +80,12 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
         }
     }
 
-    private fun getTitle(): Int {
-        return R.string.hide_applist_title
-    }
+    private fun getTitle(): Int = R.string.hide_applist_title
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         adapter = AppListAdapter()
         recyclerView =
             view.findViewById<RecyclerView>(R.id.user_list_view).also {
@@ -101,7 +101,10 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
         return flattenedString?.takeIf { it.isNotBlank() }?.split(",")?.toList() ?: emptyList()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    override fun onCreateOptionsMenu(
+        menu: Menu,
+        inflater: MenuInflater,
+    ) {
         val activity = getActivity()
         if (activity == null) {
             return
@@ -131,7 +134,7 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
                     ViewCompat.setNestedScrollingEnabled(recyclerView, true)
                     return true
                 }
-            }
+            },
         )
         val searchView = searchMenuItem.actionView as SearchView
         searchView.queryHint = getString(R.string.search_apps)
@@ -144,7 +147,7 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
                     refreshList()
                     return true
                 }
-            }
+            },
         )
 
         updateOptionsMenu()
@@ -153,15 +156,18 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.getItemId()) {
             R.id.show_system,
-            R.id.hide_system -> {
+            R.id.hide_system,
+            -> {
                 showSystem = !showSystem
                 if (!showSystem) {
                     showOverlay = false
                 }
                 refreshList()
             }
+
             R.id.show_overlay,
-            R.id.hide_overlay -> {
+            R.id.hide_overlay,
+            -> {
                 showOverlay = !showOverlay
                 refreshList()
             }
@@ -196,7 +202,10 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
      *
      * @param list a [List<String>] of selected items.
      */
-    private fun onListUpdate(packageName: String, isChecked: Boolean) {
+    private fun onListUpdate(
+        packageName: String,
+        isChecked: Boolean,
+    ) {
         if (packageName.isBlank()) return
         for (info in userInfos) {
             if (isChecked) {
@@ -207,12 +216,11 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
         }
         try {
             activityManager.forceStopPackage(packageName)
-        } catch (ignored: Exception) {}
+        } catch (ignored: Exception) {
+        }
     }
 
-    private fun getKey(): String {
-        return Settings.Secure.HIDE_APPLIST
-    }
+    private fun getKey(): String = Settings.Secure.HIDE_APPLIST
 
     private fun refreshList() {
         var list =
@@ -241,8 +249,7 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
                                 !it.applicationInfo!!.packageName.contains("android.settings")
                         }
                     }
-                }
-                .filter { getLabel(it).contains(searchText, true) }
+                }.filter { getLabel(it).contains(searchText, true) }
         list = customFilter?.let { customFilter -> list.filter { customFilter(it) } } ?: list
         list =
             comparator?.let { list.sortedWith(it) }
@@ -257,19 +264,23 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
             packageInfo.applicationInfo!!.loadIcon(packageManager),
         )
 
-    private fun getLabel(packageInfo: PackageInfo) =
-        packageInfo.applicationInfo!!.loadLabel(packageManager).toString()
+    private fun getLabel(packageInfo: PackageInfo) = packageInfo.applicationInfo!!.loadLabel(packageManager).toString()
 
     private inner class AppListAdapter : ListAdapter<AppInfo, AppListViewHolder>(itemCallback) {
         private val selectedIndices = mutableSetOf<Int>()
         private var initialList = getInitialCheckedList().toMutableList()
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            AppListViewHolder(
-                layoutInflater.inflate(R.layout.hide_applist_list_item, parent, false)
-            )
+        override fun onCreateViewHolder(
+            parent: ViewGroup,
+            viewType: Int,
+        ) = AppListViewHolder(
+            layoutInflater.inflate(R.layout.hide_applist_list_item, parent, false),
+        )
 
-        override fun onBindViewHolder(holder: AppListViewHolder, position: Int) {
+        override fun onBindViewHolder(
+            holder: AppListViewHolder,
+            position: Int,
+        ) {
             getItem(position).let {
                 holder.label!!.text = it.label
                 holder.packageName!!.text = it.packageName
@@ -299,23 +310,33 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
         }
     }
 
-    private class AppListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private class AppListViewHolder(
+        itemView: View,
+    ) : RecyclerView.ViewHolder(itemView) {
         val icon: ImageView? = itemView.findViewById(R.id.app_icon)
         val label: TextView? = itemView.findViewById(R.id.app_name)
         val packageName: TextView? = itemView.findViewById(R.id.package_name)
         val checkBox: CheckBox? = itemView.findViewById(R.id.check_box)
     }
 
-    private data class AppInfo(val packageName: String, val label: String, val icon: Drawable)
+    private data class AppInfo(
+        val packageName: String,
+        val label: String,
+        val icon: Drawable,
+    )
 
     companion object {
         private val itemCallback =
             object : DiffUtil.ItemCallback<AppInfo>() {
-                override fun areItemsTheSame(oldInfo: AppInfo, newInfo: AppInfo) =
-                    oldInfo.packageName == newInfo.packageName
+                override fun areItemsTheSame(
+                    oldInfo: AppInfo,
+                    newInfo: AppInfo,
+                ) = oldInfo.packageName == newInfo.packageName
 
-                override fun areContentsTheSame(oldInfo: AppInfo, newInfo: AppInfo) =
-                    oldInfo == newInfo
+                override fun areContentsTheSame(
+                    oldInfo: AppInfo,
+                    newInfo: AppInfo,
+                ) = oldInfo == newInfo
             }
     }
 }

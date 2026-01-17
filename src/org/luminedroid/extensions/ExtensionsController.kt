@@ -15,8 +15,9 @@ import com.android.settings.R
 import com.android.settingslib.core.AbstractPreferenceController
 import com.android.settingslib.widget.LayoutPreference
 
-class ExtensionsController(context: Context) : AbstractPreferenceController(context) {
-
+class ExtensionsController(
+    context: Context,
+) : AbstractPreferenceController(context) {
     override fun displayPreference(screen: PreferenceScreen) {
         super.displayPreference(screen)
         screen.findPreference<LayoutPreference>(KEY_EXTENSIONS_HOMEPAGE)?.let { extensionsPref ->
@@ -25,14 +26,15 @@ class ExtensionsController(context: Context) : AbstractPreferenceController(cont
     }
 
     private fun setupExtensionsClickListeners(preference: LayoutPreference) {
-        val extensionsClickMap = mapOf(
-            R.id.extensions_statusbar to "com.android.settings.Settings\$ExtensionsStatusbarActivity",
-            R.id.extensions_quicksettings to "com.android.settings.Settings\$ExtensionsQuickSettingsActivity",
-            R.id.extensions_button to "com.android.settings.Settings\$ExtensionsButtonActivity",
-            R.id.extensions_lockscreen to "com.android.settings.Settings\$ExtensionsLockScreenActivity",
-            R.id.extensions_about to "com.android.settings.Settings\$ExtensionsAboutActivity",
-            R.id.extensions_misc to "com.android.settings.Settings\$ExtensionsMiscActivity"
-        )
+        val extensionsClickMap =
+            mapOf(
+                R.id.extensions_statusbar to "com.android.settings.Settings\$ExtensionsStatusbarActivity",
+                R.id.extensions_quicksettings to "com.android.settings.Settings\$ExtensionsQuickSettingsActivity",
+                R.id.extensions_button to "com.android.settings.Settings\$ExtensionsButtonActivity",
+                R.id.extensions_lockscreen to "com.android.settings.Settings\$ExtensionsLockScreenActivity",
+                R.id.extensions_about to "com.android.settings.Settings\$ExtensionsAboutActivity",
+                R.id.extensions_misc to "com.android.settings.Settings\$ExtensionsMiscActivity",
+            )
         extensionsClickMap.forEach { (viewId, activityName) ->
             preference.findViewById<View>(viewId)?.setOnClickListener {
                 mContext.startActivity(createIntent(activityName))
@@ -40,12 +42,11 @@ class ExtensionsController(context: Context) : AbstractPreferenceController(cont
         }
     }
 
-    private fun createIntent(activityName: String): Intent {
-        return Intent().apply {
+    private fun createIntent(activityName: String): Intent =
+        Intent().apply {
             component = ComponentName("com.android.settings", activityName)
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
-    }
 
     override fun isAvailable(): Boolean = true
 

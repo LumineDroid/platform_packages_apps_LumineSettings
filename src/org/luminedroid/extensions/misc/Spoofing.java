@@ -15,9 +15,11 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.SystemProperties;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -36,11 +38,13 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.luminedroid.preferences.KeyboxDataPreference;
 import org.luminedroid.preferences.SystemPropertySwitchPreference;
+import org.luminedroid.utils.SpoofingUtils;
 
 @SearchIndexable
 public class Spoofing extends SettingsPreferenceFragment
@@ -53,6 +57,7 @@ public class Spoofing extends SettingsPreferenceFragment
       "game_props_json_file_preference";
   private static final String KEY_SYSTEM_WIDE_CATEGORY = "spoofing_system_wide_category";
   private static final String KEY_UPDATE_JSON_BUTTON = "update_pif_json";
+  private static final String KEY_RANDOM_PROPERTIES_BUTTON = "update_pif_auto_random";
   private static final String SYS_GMS_SPOOF = "persist.sys.pp.gms";
   private static final String SYS_VENDING_SPOOF = "persist.sys.pp.vending";
   private static final String SYS_GOOGLE_SPOOF = "persist.sys.pp";
@@ -70,6 +75,7 @@ public class Spoofing extends SettingsPreferenceFragment
   private Preference mPifJsonFilePreference;
   private Preference mGamePropsJsonFilePreference;
   private Preference mUpdateJsonButton;
+  private Preference mRandomPropertiesButton;
   private PreferenceCategory mSystemWideCategory;
   private SystemPropertySwitchPreference mGmsSpoof;
   private SystemPropertySwitchPreference mVendingSpoof;
@@ -101,6 +107,7 @@ public class Spoofing extends SettingsPreferenceFragment
     mGamePropsJsonFilePreference = findPreference(KEY_GAME_PROPS_JSON_FILE_PREFERENCE);
     mSnapchatSpoof = (SystemPropertySwitchPreference) findPreference(SYS_SNAPCHAT_SPOOF);
     mUpdateJsonButton = findPreference(KEY_UPDATE_JSON_BUTTON);
+    mRandomPropertiesButton = findPreference(KEY_RANDOM_PROPERTIES_BUTTON);
 
     String model = SystemProperties.get("ro.product.model");
     boolean isTensorDevice = model.matches("Pixel (6|7|8|9|10)[a-zA-Z ]*");
@@ -153,6 +160,12 @@ public class Spoofing extends SettingsPreferenceFragment
         preference -> {
           updatePropertiesFromUrl(
               "https://raw.githubusercontent.com/LumineDroid/platform_vendor_certification/refs/heads/bellflower/gms_certified_props.json");
+          return true;
+        });
+
+    mRandomPropertiesButton.setOnPreferenceClickListener(
+        preference -> {
+          getRandomFingerprint();
           return true;
         });
 
@@ -332,6 +345,47 @@ public class Spoofing extends SettingsPreferenceFragment
       Log.e(TAG, "Error reading PIF JSON or setting properties", e);
       Toast.makeText(getContext(), "Error loading PIF JSON", Toast.LENGTH_SHORT).show();
     }
+  }
+
+  private void getRandomFingerprint() {
+    final AlertDialog dialog =
+        new AlertDialog.Builder(requireContext())
+            .setTitle("Please wait")
+            .setMessage("Fetching PIF properties...")
+            .setCancelable(false)
+            .setView(new ProgressBar(requireContext()))
+            .create();
+    dialog.show();
+
+    new Thread(
+            () -> {
+              try {
+                Map<String, String> newValues =
+                    SpoofingUtils.getRandomFingerprint(
+                        SystemProperties.get("persist.sys.pihooks_DEVICE"));
+                String spoofedModel = newValues.get("MODEL");
+                for (Map.Entry<String, String> entry : newValues.entrySet()) {
+                  String key = entry.getKey();
+                  String value = entry.getValue();
+                  Log.d(TAG, "Setting PIF property: persist.sys.pihooks_" + key + " = " + value);
+                  SystemProperties.set("persist.sys.pihooks_" + key, value);
+                }
+                mHandler.post(
+                    () -> {
+                      String toastMessage =
+                          getString(R.string.toast_spoofing_success, spoofedModel);
+                      Toast.makeText(getContext(), toastMessage, Toast.LENGTH_LONG).show();
+                      killGMSPackages();
+                    });
+              } catch (Exception e) {
+                Log.e(TAG, "Error fetching PIF properties!", e);
+                Toast.makeText(getContext(), "Error fetching PIF properties!", Toast.LENGTH_SHORT)
+                    .show();
+              } finally {
+                new Handler(Looper.getMainLooper()).post(dialog::dismiss);
+              }
+            })
+        .start();
   }
 
   private void loadGameSpoofingJson(Uri uri) {

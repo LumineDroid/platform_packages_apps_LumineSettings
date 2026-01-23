@@ -1,7 +1,7 @@
-/*
- * Copyright (C) 2025 LumineDroid
- * SPDX-License-Identifier: Apache-2.0
- */
+//
+// SPDX-FileCopyrightText: 2026 LumineDroid
+// SPDX-License-Identifier: Apache-2.0
+//
 
 package org.luminedroid.extensions.misc;
 

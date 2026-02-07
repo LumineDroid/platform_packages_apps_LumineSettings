@@ -17,18 +17,13 @@ import com.android.settingslib.search.SearchIndexable
 
 @SearchIndexable
 class LockScreenSettings :
-    SettingsPreferenceFragment(),
-    Preference.OnPreferenceChangeListener,
-    Indexable {
+    SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener, Indexable {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.extensions_lockscreen)
     }
 
-    override fun onPreferenceChange(
-        preference: Preference,
-        newValue: Any?,
-    ): Boolean = false
+    override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean = false
 
     override fun getMetricsCategory(): Int = MetricsEvent.LUMINEDROID
 

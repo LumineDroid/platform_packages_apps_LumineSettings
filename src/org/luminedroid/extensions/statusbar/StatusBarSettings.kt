@@ -19,9 +19,7 @@ import org.luminedroid.utils.SystemUtils
 
 @SearchIndexable
 class StatusBarSettings :
-    SettingsPreferenceFragment(),
-    Preference.OnPreferenceChangeListener,
-    Indexable {
+    SettingsPreferenceFragment(), Preference.OnPreferenceChangeListener, Indexable {
     private lateinit var coloredIcons: SystemSettingSwitchPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,10 +30,7 @@ class StatusBarSettings :
         coloredIcons.onPreferenceChangeListener = this
     }
 
-    override fun onPreferenceChange(
-        preference: Preference,
-        newValue: Any?,
-    ): Boolean {
+    override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
         val context = requireContext()
 
         when (preference) {

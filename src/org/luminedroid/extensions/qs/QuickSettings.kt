@@ -51,7 +51,6 @@ class QuickSettings :
         val density = resources.displayMetrics.density
         val defBlurRadius = (defBlurRadiusPx / density).roundToInt()
 
-
         ShadeBlurRadiusPref = findPreference<CustomSeekBarPreference>(SHADE_BLUR_RADIUS)!!
         ShadeBlurRadiusPref.setDefaultValue(defBlurRadius)
         ShadeBlurRadiusPref.onPreferenceChangeListener = this

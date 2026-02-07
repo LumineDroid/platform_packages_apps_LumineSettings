@@ -28,9 +28,8 @@ import org.luminedroid.extensions.statusbar.StatusBarSettings
 
 object LumineSettingsGateway {
     /**
-     * A list of fragments that can be hosted by LumineSettingsActivity.
-     * SettingsActivity will throw a security exception if the fragment it
-     * needs to display is not in this list.
+     * A list of fragments that can be hosted by LumineSettingsActivity. SettingsActivity will throw
+     * a security exception if the fragment it needs to display is not in this list.
      */
     val ENTRY_FRAGMENTS =
         arrayOf(

@@ -6,14 +6,12 @@
 package org.luminedroid.extensions
 
 import android.content.Context
-import android.os.Bundle
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
 import com.android.settings.dashboard.DashboardFragment
 import com.android.settings.search.BaseSearchIndexProvider
 import com.android.settingslib.core.AbstractPreferenceController
 import com.android.settingslib.core.lifecycle.Lifecycle
-import com.android.settingslib.search.SearchIndexable
 
 class Extensions : DashboardFragment() {
     companion object {
@@ -22,7 +20,9 @@ class Extensions : DashboardFragment() {
 
         val SEARCH_INDEX_DATA_PROVIDER: BaseSearchIndexProvider =
             object : BaseSearchIndexProvider(R.xml.extensions) {
-                override fun createPreferenceControllers(context: Context): List<AbstractPreferenceController> =
+                override fun createPreferenceControllers(
+                    context: Context
+                ): List<AbstractPreferenceController> =
                     buildPreferenceControllers(context, null, null)
             }
 

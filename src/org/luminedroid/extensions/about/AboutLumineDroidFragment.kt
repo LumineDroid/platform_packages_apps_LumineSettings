@@ -18,17 +18,13 @@ import androidx.preference.PreferenceCategory
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
-import kotlinx.coroutines.*
-import org.json.JSONObject
-import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
+import kotlinx.coroutines.*
+import org.json.JSONObject
 
 class AboutLumineDroidFragment : SettingsPreferenceFragment() {
-    override fun onCreatePreferences(
-        savedInstanceState: Bundle?,
-        rootKey: String?,
-    ) {
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.about_luminedroid)
         loadTeamData()
     }
@@ -38,10 +34,9 @@ class AboutLumineDroidFragment : SettingsPreferenceFragment() {
     private fun loadTeamData() {
         val context = requireContext()
         val json =
-            context.resources
-                .openRawResource(R.raw.luminedroid)
-                .bufferedReader()
-                .use { it.readText() }
+            context.resources.openRawResource(R.raw.luminedroid).bufferedReader().use {
+                it.readText()
+            }
 
         val jsonObj = JSONObject(json)
         val devCat = findPreference<PreferenceCategory>("luminedroid_dev_category")
@@ -57,7 +52,7 @@ class AboutLumineDroidFragment : SettingsPreferenceFragment() {
                         d.getString("role"),
                         d.getString("username"),
                         d.getString("link"),
-                    ),
+                    )
                 )
             }
         }
@@ -72,7 +67,7 @@ class AboutLumineDroidFragment : SettingsPreferenceFragment() {
                         c.getString("role"),
                         c.getString("username"),
                         c.getString("link"),
-                    ),
+                    )
                 )
             }
         }
@@ -90,15 +85,11 @@ class AboutLumineDroidFragment : SettingsPreferenceFragment() {
         pref.summary = role
         pref.icon = ResourcesCompat.getDrawable(context.resources, R.drawable.ic_person, null)
         pref.intent =
-            android.content
-                .Intent(android.content.Intent.ACTION_VIEW)
-                .setData(Uri.parse(link))
+            android.content.Intent(android.content.Intent.ACTION_VIEW).setData(Uri.parse(link))
 
         lifecycleScope.launch(Dispatchers.IO) {
             val avatar = fetchGithubAvatar(username)
-            withContext(Dispatchers.Main) {
-                if (avatar != null) pref.icon = avatar
-            }
+            withContext(Dispatchers.Main) { if (avatar != null) pref.icon = avatar }
         }
 
         return pref

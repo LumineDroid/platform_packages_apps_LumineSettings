@@ -11,7 +11,6 @@ import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,7 +26,6 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.util.android.SystemRestartUtils;
-import com.android.internal.util.android.VibrationUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -36,10 +34,8 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -57,17 +53,17 @@ public class Spoofing extends SettingsPreferenceFragment
       "game_props_json_file_preference";
   private static final String KEY_SYSTEM_WIDE_CATEGORY = "spoofing_system_wide_category";
   private static final String KEY_UPDATE_JSON_BUTTON = "update_pif_json";
-  private static final String SYS_GMS_SPOOF = "persist.sys.pixelprops.gms";
-  private static final String SYS_GOOGLE_SPOOF = "persist.sys.pixelprops";
-  private static final String SYS_GPHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
-  private static final String SYS_QSB_SPOOF = "persist.sys.pixelprops.qsb";
-  private static final String SYS_SNAP_SPOOF = "persist.sys.pixelprops.snap";
-  private static final String SYS_NETF_SPOOF = "persist.sys.pixelprops.netflix";
-  private static final String SYS_VENDING_SPOOF = "persist.sys.pixelprops.vending";
-  private static final String SYS_ENABLE_TENSOR_FEATURES = "persist.sys.features.tensor";
+  private static final String SYS_GMS_SPOOF = "persist.sys.pp.gms";
+  private static final String SYS_VENDING_SPOOF = "persist.sys.pp.vending";
+  private static final String SYS_GOOGLE_SPOOF = "persist.sys.pp";
   private static final String SYS_GAMEPROP_ENABLED = "persist.sys.gameprops.enabled";
-  private static final String SYS_KEYBOX_CHECK_ENABLED = "persist.sys.keybox.check.enabled";
+  private static final String SYS_PHOTOS_SPOOF = "persist.sys.pp.photos";
+  private static final String SYS_SNAPCHAT_SPOOF = "persist.sys.pp.snapchat";
   private static final String KEYBOX_DATA_KEY = "keybox_data_setting";
+
+  private static final String GOOGLE_PHOTOS_PACKAGE = "com.google.android.apps.photos";
+  private static final String SNAPCHAT_PACKAGE = "com.snapchat.android";
+  private static final String VENDING_PACKAGE = "com.android.vending";
 
   private ActivityResultLauncher<Intent> mKeyboxFilePickerLauncher;
   private KeyboxDataPreference mKeyboxDataPreference;
@@ -76,15 +72,11 @@ public class Spoofing extends SettingsPreferenceFragment
   private Preference mUpdateJsonButton;
   private PreferenceCategory mSystemWideCategory;
   private SystemPropertySwitchPreference mGmsSpoof;
-  private SystemPropertySwitchPreference mGoogleSpoof;
-  private SystemPropertySwitchPreference mGphotosSpoof;
-  private SystemPropertySwitchPreference mQsbSpoof;
-  private SystemPropertySwitchPreference mSnapSpoof;
-  private SystemPropertySwitchPreference mNetfSpoof;
   private SystemPropertySwitchPreference mVendingSpoof;
-  private SystemPropertySwitchPreference mTensorFeaturesToggle;
+  private SystemPropertySwitchPreference mGoogleSpoof;
   private SystemPropertySwitchPreference mGamePropsEnabled;
-  private SystemPropertySwitchPreference mKeyboxCheckEnabled;
+  private SystemPropertySwitchPreference mPhotosSpoof;
+  private SystemPropertySwitchPreference mSnapchatSpoof;
 
   private Handler mHandler;
 
@@ -100,25 +92,19 @@ public class Spoofing extends SettingsPreferenceFragment
     final Resources resources = context.getResources();
 
     mSystemWideCategory = (PreferenceCategory) findPreference(KEY_SYSTEM_WIDE_CATEGORY);
-    mGphotosSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GPHOTOS_SPOOF);
+    mGamePropsEnabled = (SystemPropertySwitchPreference) findPreference(SYS_GAMEPROP_ENABLED);
+    mPhotosSpoof = (SystemPropertySwitchPreference) findPreference(SYS_PHOTOS_SPOOF);
     mGmsSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GMS_SPOOF);
+    mVendingSpoof = (SystemPropertySwitchPreference) findPreference(SYS_VENDING_SPOOF);
     mGoogleSpoof = (SystemPropertySwitchPreference) findPreference(SYS_GOOGLE_SPOOF);
     mPifJsonFilePreference = findPreference(KEY_PIF_JSON_FILE_PREFERENCE);
     mGamePropsJsonFilePreference = findPreference(KEY_GAME_PROPS_JSON_FILE_PREFERENCE);
-    mQsbSpoof = (SystemPropertySwitchPreference) findPreference(SYS_QSB_SPOOF);
-    mSnapSpoof = (SystemPropertySwitchPreference) findPreference(SYS_SNAP_SPOOF);
-    mNetfSpoof = (SystemPropertySwitchPreference) findPreference(SYS_NETF_SPOOF);
-    mVendingSpoof = (SystemPropertySwitchPreference) findPreference(SYS_VENDING_SPOOF);
+    mSnapchatSpoof = (SystemPropertySwitchPreference) findPreference(SYS_SNAPCHAT_SPOOF);
     mUpdateJsonButton = findPreference(KEY_UPDATE_JSON_BUTTON);
-    mTensorFeaturesToggle =
-        (SystemPropertySwitchPreference) findPreference(SYS_ENABLE_TENSOR_FEATURES);
-    mGamePropsEnabled = (SystemPropertySwitchPreference) findPreference(SYS_GAMEPROP_ENABLED);
-    mKeyboxCheckEnabled = (SystemPropertySwitchPreference) findPreference(SYS_KEYBOX_CHECK_ENABLED);
 
     String model = SystemProperties.get("ro.product.model");
     boolean isTensorDevice = model.matches("Pixel (6|7|8|9|10)[a-zA-Z ]*");
-    boolean isPixelGmsEnabled =
-        SystemProperties.getBoolean(SYS_GMS_SPOOF, true); // Default to Pixel GMS
+    boolean isPixelGmsEnabled = SystemProperties.getBoolean(SYS_GMS_SPOOF, true);
 
     if (isCurrentlySupportedPixel()) {
       mGoogleSpoof.setDefaultValue(false);
@@ -127,24 +113,14 @@ public class Spoofing extends SettingsPreferenceFragment
       }
     }
 
-    if (isTensorDevice) {
-      mSystemWideCategory.removePreference(mTensorFeaturesToggle);
-    }
-
     mGmsSpoof.setOnPreferenceChangeListener(this);
-    mGoogleSpoof.setOnPreferenceChangeListener(this);
-    mGphotosSpoof.setOnPreferenceChangeListener(this);
-    mQsbSpoof.setOnPreferenceChangeListener(this);
-    mSnapSpoof.setOnPreferenceChangeListener(this);
-    mNetfSpoof.setOnPreferenceChangeListener(this);
     mVendingSpoof.setOnPreferenceChangeListener(this);
-    mTensorFeaturesToggle.setOnPreferenceChangeListener(this);
+    mGoogleSpoof.setOnPreferenceChangeListener(this);
+    mPhotosSpoof.setOnPreferenceChangeListener(this);
     if (mGamePropsEnabled != null) {
       mGamePropsEnabled.setOnPreferenceChangeListener(this);
     }
-    if (mKeyboxCheckEnabled != null) {
-      mKeyboxCheckEnabled.setOnPreferenceChangeListener(this);
-    }
+    mSnapchatSpoof.setOnPreferenceChangeListener(this);
 
     mKeyboxFilePickerLauncher =
         registerForActivityResult(
@@ -243,11 +219,8 @@ public class Spoofing extends SettingsPreferenceFragment
         "persist.sys.pihooks_PRODUCT",
         "persist.sys.pihooks_SECURITY_PATCH",
         "persist.sys.pihooks_DEVICE_INITIAL_SDK_INT",
-        "persist.sys.pihooks_TYPE",
-        "persist.sys.pihooks_TAG",
         "persist.sys.pihooks_RELEASE",
-        "persist.sys.pihooks_SDK_INT",
-        "persist.sys.pihooks_DEBUG"
+        "persist.sys.pihooks_SDK_INT"
       };
       for (String key : keys) {
         String value = SystemProperties.get(key, null);
@@ -268,48 +241,33 @@ public class Spoofing extends SettingsPreferenceFragment
         .show();
   }
 
-  /** Kill packages that need to be restarted to pick up new PIF properties */
-  private void killGMSPackages() {
+  private void killPackage(String pkg) {
     try {
       ActivityManager am =
           (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
-      String[] packages = {"com.google.android.gms", "com.android.vending"};
-      for (String pkg : packages) {
-        am.getClass().getMethod("forceStopPackage", String.class).invoke(am, pkg);
-        Log.i(TAG, pkg + " process killed");
-      }
+      am.getClass().getMethod("forceStopPackage", String.class).invoke(am, pkg);
+      Log.i(TAG, pkg + " process killed");
     } catch (Exception e) {
-      Log.e(TAG, "Failed to kill packages", e);
+      Log.e(TAG, "Failed to kill package", e);
     }
   }
 
-  /** Kill specific game packages to apply new game properties */
-  private int killGamePackages(Set<String> gamePackages) {
-    int killedCount = 0;
-    try {
-      ActivityManager am =
-          (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
-      PackageManager pm = getContext().getPackageManager();
+  private void killVending() {
+    killPackage(VENDING_PACKAGE);
+  }
 
-      for (String packageName : gamePackages) {
-        try {
-          pm.getPackageInfo(packageName, 0); // check if installed
-          am.getClass().getMethod("forceStopPackage", String.class).invoke(am, packageName);
-          Log.i(TAG, "Game package killed: " + packageName);
-          killedCount++;
-        } catch (PackageManager.NameNotFoundException e) {
-          Log.d(TAG, "Game package not installed: " + packageName);
-        } catch (Exception e) {
-          Log.e(TAG, "Failed to kill game package: " + packageName, e);
-        }
-      }
-      Log.i(
-          TAG,
-          "Successfully killed " + killedCount + " game packages out of " + gamePackages.size());
-    } catch (Exception e) {
-      Log.e(TAG, "Failed to kill game packages", e);
+  /** Kill packages that need to be restarted to pick up new PIF properties */
+  private void killGMSPackages() {
+    String[] packages = {
+      "com.google.android.apps.nbu.paisa.user",
+      "com.google.android.apps.walletnfcrel",
+      "com.google.android.gms",
+      "com.google.android.googlequicksearchbox"
+    };
+    for (String pkg : packages) {
+      killPackage(pkg);
     }
-    return killedCount;
+    killVending();
   }
 
   private void updatePropertiesFromUrl(String urlString) {
@@ -383,9 +341,6 @@ public class Spoofing extends SettingsPreferenceFragment
         String json = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
         Log.d(TAG, "Game Props JSON data: " + json);
         JSONObject jsonObject = new JSONObject(json);
-
-        Set<String> packagesToKill = new HashSet<>();
-
         for (Iterator<String> it = jsonObject.keys(); it.hasNext(); ) {
           String key = it.next();
           if (key.startsWith("PACKAGES_") && !key.endsWith("_DEVICE")) {
@@ -397,30 +352,14 @@ public class Spoofing extends SettingsPreferenceFragment
                 String packageName = packages.getString(i);
                 Log.d(TAG, "Spoofing package: " + packageName);
                 setGameProps(packageName, deviceProps);
-                packagesToKill.add(packageName);
               }
             }
           }
         }
-
-        int killed = 0;
-        if (!packagesToKill.isEmpty()) {
-          killed = killGamePackages(packagesToKill);
-        }
-
-        Toast.makeText(
-                getContext(),
-                "Game Json loaded, Killed "
-                    + killed
-                    + " out of "
-                    + packagesToKill.size()
-                    + " game apps",
-                Toast.LENGTH_LONG)
-            .show();
       }
     } catch (Exception e) {
       Log.e(TAG, "Error reading Game Props JSON or setting properties", e);
-      Toast.makeText(getContext(), "Error loading Game Props JSON", Toast.LENGTH_SHORT).show();
+      Toast.makeText(getContext(), "Error loading PIF JSON", Toast.LENGTH_SHORT).show();
     }
   }
 
@@ -442,30 +381,24 @@ public class Spoofing extends SettingsPreferenceFragment
   public boolean onPreferenceChange(Preference preference, Object newValue) {
     final Context context = getContext();
     final ContentResolver resolver = context.getContentResolver();
-    if (preference == mGmsSpoof || preference == mVendingSpoof) {
+    if (preference == mGmsSpoof) {
       killGMSPackages();
       return true;
     }
-    if (preference == mGoogleSpoof
-        || preference == mGphotosSpoof
-        || preference == mQsbSpoof
-        || preference == mSnapSpoof
-        || preference == mNetfSpoof) {
-      SystemRestartUtils.showSystemRestartDialog(getContext());
+    if (preference == mVendingSpoof) {
+      killVending();
       return true;
     }
-    if (preference == mTensorFeaturesToggle) {
-      boolean enabled = (Boolean) newValue;
-      SystemProperties.set(SYS_ENABLE_TENSOR_FEATURES, enabled ? "true" : "false");
-      SystemRestartUtils.showSystemRestartDialog(getContext());
+    if (preference == mSnapchatSpoof) {
+      killPackage(SNAPCHAT_PACKAGE);
       return true;
     }
-    if (preference == mGamePropsEnabled) {
-      SystemRestartUtils.showSystemRestartDialog(getContext());
+    if (preference == mPhotosSpoof) {
+      killPackage(GOOGLE_PHOTOS_PACKAGE);
       return true;
     }
-    if (preference == mKeyboxCheckEnabled) {
-      killGMSPackages();
+    if (preference == mGoogleSpoof || preference == mGamePropsEnabled) {
+      SystemRestartUtils.showSystemRestartDialog(getContext());
       return true;
     }
     return false;
@@ -474,14 +407,6 @@ public class Spoofing extends SettingsPreferenceFragment
   @Override
   public int getMetricsCategory() {
     return MetricsEvent.LUMINEDROID;
-  }
-
-  @Override
-  public boolean onPreferenceTreeClick(Preference preference) {
-    if (preference != null && preference.getKey() != null) {
-      VibrationUtils.triggerVibration(getContext(), 3);
-    }
-    return super.onPreferenceTreeClick(preference);
   }
 
   public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

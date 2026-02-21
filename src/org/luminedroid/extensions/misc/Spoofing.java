@@ -159,7 +159,7 @@ public class Spoofing extends SettingsPreferenceFragment
     mUpdateJsonButton.setOnPreferenceClickListener(
         preference -> {
           updatePropertiesFromUrl(
-              "https://raw.githubusercontent.com/LumineDroid/platform_vendor_certification/refs/heads/bellflower/gms_certified_props.json");
+              "https://raw.githubusercontent.com/LumineDroid/pif/refs/heads/main/pif.json");
           return true;
         });
 

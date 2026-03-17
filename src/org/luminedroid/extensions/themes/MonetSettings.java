@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.luminedroid.extensions.misc;
+package org.luminedroid.extensions.themes;
 
 import android.content.ContentResolver;
 import android.content.Context;

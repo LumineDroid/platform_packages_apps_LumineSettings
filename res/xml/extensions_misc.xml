@@ -9,18 +9,6 @@
     android:title="@string/extensions_misc_title">
 
     <PreferenceCategory
-        android:key="themes_monet_category"
-        android:title="@string/themes_monet_category">
-
-        <!-- Monet engine -->
-        <Preference
-            android:key="monet_engine"
-            android:title="@string/themes_monet_title"
-            android:summary="@string/themes_monet_summary"
-            android:fragment="org.luminedroid.extensions.misc.MonetSettings" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="spoofing_category"
         android:title="@string/spoofing_category" >
 

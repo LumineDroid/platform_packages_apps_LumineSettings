@@ -30,6 +30,8 @@
     <string name="extensions_quicksettings_summary">Personalize and manage quick settings tiles</string>
     <string name="extensions_statusbar_title">Status bar</string>
     <string name="extensions_statusbar_summary">Customize status bar icons and indicators</string>
+    <string name="extensions_themes_title">Themes</string>
+    <string name="extensions_themes_summary">Dynamic color, monet, fonts and etc</string>
 
     <!-- Spoofing -->
     <string name="spoofing_category">Spoofing</string>

@@ -27,6 +27,8 @@ class ExtensionsController(context: Context) : AbstractPreferenceController(cont
             mapOf(
                 R.id.extensions_statusbar to
                     "com.android.settings.Settings\$ExtensionsStatusbarActivity",
+                R.id.extensions_themes to
+                    "com.android.settings.Settings\$ExtensionsThemesActivity",
                 R.id.extensions_quicksettings to
                     "com.android.settings.Settings\$ExtensionsQuickSettingsActivity",
                 R.id.extensions_button to "com.android.settings.Settings\$ExtensionsButtonActivity",

@@ -14,6 +14,7 @@ import org.luminedroid.extensions.lockscreen.LockScreenSettings
 import org.luminedroid.extensions.misc.MiscSettings
 import org.luminedroid.extensions.qs.QuickSettings
 import org.luminedroid.extensions.statusbar.StatusBarSettings
+import org.luminedroid.extensions.themes.ThemesSettings
 
 object LumineSettingsGateway {
     /**
@@ -24,6 +25,7 @@ object LumineSettingsGateway {
         arrayOf(
             Extensions::class.java.name,
             StatusBarSettings::class.java.name,
+            ThemesSettings::class.java.name,
             QuickSettings::class.java.name,
             ButtonSettings::class.java.name,
             LockScreenSettings::class.java.name,
@@ -35,6 +37,7 @@ object LumineSettingsGateway {
         arrayOf(
             Settings.ExtensionsActivity::class.java.name,
             Settings.ExtensionsStatusbarActivity::class.java.name,
+            Settings.ExtensionsThemesActivity::class.java.name,
             Settings.ExtensionsQuickSettingsActivity::class.java.name,
             Settings.ExtensionsButtonActivity::class.java.name,
             Settings.ExtensionsLockScreenActivity::class.java.name,

@@ -93,6 +93,17 @@
          </activity-alias>
 
          <activity-alias
+             android:name="Settings$ExtensionsThemesActivity"
+             android:targetActivity="com.android.settings.SubSettings"
+             android:label="@string/extensions_themes_title"
+             android:icon="@drawable/ic_themes"
+             android:exported="true">
+             <meta-data
+                 android:name="com.android.settings.FRAGMENT_CLASS"
+                 android:value="org.luminedroid.extensions.themes.ThemesSettings" />
+         </activity-alias>
+
+         <activity-alias
              android:name="Settings$ExtensionsAboutActivity"
              android:targetActivity="com.android.settings.SubSettings"
              android:label="@string/extensions_about_title"

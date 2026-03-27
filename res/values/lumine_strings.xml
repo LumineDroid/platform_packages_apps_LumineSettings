@@ -594,4 +594,8 @@
     <!-- Miscellaneous Pair IP -->
     <string name="miscellaneous_pairip_activity_block_title">Block PairIP license verification</string>
     <string name="miscellaneous_pairip_activity_block_summary">Prevent Play Store apps from launching the \"Get this app from Play\" screen when not installed by the Play Store</string>
+
+    <!-- Flash SMS -->
+    <string name="disable_flash_sms_title">Disable Flash SMS</string>
+    <string name="disable_flash_sms_summary">Converts full-screen flash messages into standard text SMS.</string>
 </resources>

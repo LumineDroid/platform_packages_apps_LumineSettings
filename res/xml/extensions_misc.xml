@@ -130,6 +130,12 @@
             android:title="@string/miscellaneous_pairip_activity_block_title"
             android:summary="@string/miscellaneous_pairip_activity_block_summary"
             android:defaultValue="false" />
-        </PreferenceCategory>
 
+        <!-- Disable flash sms -->
+        <org.luminedroid.preferences.SystemSettingSwitchPreference
+            android:key="disable_flash_sms"
+            android:title="@string/disable_flash_sms_title"
+            android:summary="@string/disable_flash_sms_summary"
+            android:defaultValue="false"/>
+        </PreferenceCategory>
 </PreferenceScreen>

@@ -211,12 +211,14 @@ class HideAppListSettings : Fragment(R.layout.hide_applist_layout) {
     private fun getKey(): String = Settings.Secure.HIDE_APPLIST
 
     private fun refreshList() {
+        if (!isAdded || context == null) return
+
         var list =
             packageList
                 .filter {
                     if (!showSystem) {
                         !it.applicationInfo!!.isSystemApp() &&
-                            !resources
+                            !requireContext().resources
                                 .getStringArray(R.array.hide_applist_hidden_apps)
                                 .asList()
                                 .contains(it.applicationInfo!!.packageName) &&

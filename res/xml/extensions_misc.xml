@@ -137,5 +137,12 @@
             android:title="@string/disable_flash_sms_title"
             android:summary="@string/disable_flash_sms_summary"
             android:defaultValue="false"/>
+
+        <!-- Notification bubble apps -->
+        <org.luminedroid.preferences.SystemSettingSwitchPreference
+            android:key="notification_bubble_apps"
+            android:title="@string/notification_bubble_apps_title"
+            android:summary="@string/notification_bubble_apps_summary"
+            android:defaultValue="false" />
         </PreferenceCategory>
 </PreferenceScreen>

@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Battery customizations -->
+  <string name="battery_options">Baterai</string>
+  <string name="battery_settings_title">Pengaturan Baterai</string>
+  <string name="battery_style_title">Gaya Baterai</string>
+  <string name="bluetooth_battery_summary">Tampilkan status baterai untuk perangkat Bluetooth yang terhubung, jika tersedia</string>
+  <!-- Bluetooth status -->
+  <string name="bluetooth_battery_title">Status baterai Bluetooth</string>
+  <string name="clock_date_left">Waktu sebelah kiri</string>
+  <string name="clock_date_position">Posisi Tanggal</string>
+  <string name="clock_date_right">Waktu sebelah kanan</string>
+  <string name="data_disabled_icon_summary">Tampilkan indikator di samping ikon sinyal ketika data dimatikan</string>
+  <!-- Data disabled indicator -->
+  <string name="data_disabled_icon_title">Indikator data nonaktif</string>
+  <string name="error_loading_properties">Kesalahan memuat properti PIF</string>
+  <string name="extensions_about_summary">\"Kami bukan orang yang hebat kami hanyalah individu yang gigih dengan keteguhan tekad\"</string>
+  <!-- Categories -->
+  <string name="extensions_about_title">Tentang</string>
+  <string name="extensions_button_summary">Konfigurasi tombol perangkat keras dan navigasi</string>
+  <string name="extensions_button_title">Tombol</string>
+  <string name="extensions_homepage_summary">Akses semua fitur kustomisasi dan penyesuaian sistem di satu tempat</string>
+  <string name="extensions_lockscreen_summary">Sesuaikan gaya dan pintasan layar kunci</string>
+  <string name="extensions_lockscreen_title">Layar kunci</string>
+  <string name="extensions_misc_summary">Pilihan kustomisasi lanjutan dan eksperimental</string>
+  <string name="extensions_misc_title">Lain-lain</string>
+  <string name="extensions_quicksettings_summary">Personalisasi dan atur ubin pengaturan cepat</string>
+  <string name="extensions_quicksettings_title">Pengaturan cepat</string>
+  <string name="extensions_statusbar_summary">Sesuaikan ikon dan indikator bilah status</string>
+  <string name="extensions_statusbar_title">Bilah status</string>
+  <string name="extensions_summary">Kustomisasi tambahan</string>
+  <!-- Extensions -->
+  <string name="extensions_title">Ekstensi</string>
+  <string name="gameprops_load_json_summary">Pilih file JSON Properti Game untuk menyamar permainan</string>
+  <string name="gameprops_load_json_title">Pilih berkas JSON Properti Permainan</string>
+  <string name="gameprops_summary">Samarkan perangkat Anda sebagai model yang berbeda untuk game tertentu guna membuka FPS lebih tinggi</string>
+  <string name="gameprops_title">Aktifkan pemalsuan Game Props</string>
+  <string name="global_actions_advanced_reboot_summary">Tampilkan opsi untuk pemulihan dan bootloader di menu daya</string>
+  <!-- Global Actions -->
+  <string name="global_actions_advanced_reboot_title">Aktifkan mulai ulang lanjutan</string>
+  <string name="gms_spoof_summary">Memalsukan perangkat Anda untuk lolos Penilaian Google Play</string>
+  <string name="gms_spoof_title">Perbaikan Integritas</string>
+  <string name="hide_applist_summary">Mencegah aplikasi memeriksa aplikasi yang dipilih dari appslist</string>
+  <string name="hide_applist_title">Sembunyikan Daftar Aplikasi</string>
+  <string name="hide_developer_status_summary">Sembunyikan status pengembang dari aplikasi</string>
+  <!-- Hide developer status -->
+  <string name="hide_developer_status_title">Sembunyikan status pengembang</string>
+  <string name="hide_screen_capture_status_summary">Sembunyikan status tangkapan layar dan perekaman layar dari semua aplikasi. Dapat berguna dalam beberapa kasus tetapi dapat menyebabkan kebocoran privasi.</string>
+  <!-- Hide screen capture status -->
+  <string name="hide_screen_capture_status_title">Sembunyikan status penangkapan layar</string>
+  <string name="icon_manager_summary">Mengendalikan visibilitas ikon bilah status</string>
+  <!-- Status bar Icon Manager -->
+  <string name="icon_manager_title">Pengelola Ikon</string>
+  <string name="ignore_window_secure_summary">Hapus batas tangkapan layar dan rekaman layar untuk semua aplikasi. Ini bisa nyaman dalam beberapa kasus tetapi mungkin menyebabkan kebocoran privasi.</string>
+  <!-- Ignore window secure -->
+  <string name="ignore_window_secure_title">Abaikan bendera aman jendela</string>
+  <string name="keybox_data_loaded_summary">Kustom keybox XML dimuat. Hapus untuk mengosongkan.</string>
+  <string name="keybox_data_summary">Muat XML keybox khusus untuk mengganti atestasi kunci perangkat</string>
+  <!-- Spoofing - Keybox Data -->
+  <string name="keybox_data_title">Penggantian atestasi keybox</string>
+  <string name="keybox_delete_content_description">Bersihkan data kotak kunci</string>
+  <string name="keybox_toast_file_cleared">Kotak kunci dibersihkan</string>
+  <string name="keybox_toast_file_loaded">Keybox dimuat</string>
+  <string name="keybox_toast_invalid_file_selected">Bukan file XML. Pilih keybox XML yang valid.</string>
+  <string name="keybox_toast_missing_data">XML keybox tidak valid: bidang yang diperlukan hilang</string>
+  <string name="location_privacy_indicator_summary">Tampilkan indikator saat aplikasi menggunakan lokasi</string>
+  <string name="location_privacy_indicator_title">Indikator privasi lokasi</string>
+  <string name="lockscreen_enable_power_menu_summary">Izinkan akses menu daya pada layar kunci aman</string>
+  <!-- Power menu on secure lockscreen -->
+  <string name="lockscreen_enable_power_menu_title">Menu daya</string>
+  <string name="lock_screen_fingerprint_ripple_summary">Tampilkan animasi gelombang ketika dibuka menggunakan sidik jari</string>
+  <!-- Ripple effect on unlock -->
+  <string name="lock_screen_fingerprint_ripple_title">Animasi riak</string>
+  <!-- Lockscreen category -->
+  <string name="lock_screen_interface_category">Antarmuka</string>
+  <string name="lockscreen_smartspace_summary">Tampilkan Google Smartspace saat tersedia</string>
+  <!-- Smartspace -->
+  <string name="lockscreen_smartspace_title">Ruang Cerdas</string>
+  <string name="lockscreen_weather_category">Cuaca</string>
+  <string name="lockscreen_weather_enabled_info">Memerlukan layanan cuaca khusus dikonfigurasi dan smartspace dinonaktifkan</string>
+  <string name="lockscreen_weather_humidity_info_summary">Tampilkan kelembaban saat ini dalam persentase</string>
+  <string name="lockscreen_weather_humidity_info_title">Info kelembapan</string>
+  <string name="lockscreen_weather_location_summary">Tampilkan lokasi cuaca saat ini</string>
+  <string name="lockscreen_weather_location_title">Lokasi saat ini</string>
+  <string name="lockscreen_weather_summary">Tampilkan pembaruan cuaca saat ini</string>
+  <string name="lockscreen_weather_text_summary">Tampilkan rangkuman kondisi cuaca saat ini</string>
+  <string name="lockscreen_weather_text_title">Kondisi saat ini</string>
+  <string name="lockscreen_weather_title">Pembaruan Cuaca</string>
+  <string name="lockscreen_weather_wind_info_summary">Tampilkan kecepatan angin dan arah saat ini</string>
+  <string name="lockscreen_weather_wind_info_title">Info Angin</string>
+  <string name="ls_media_art_blur_level_summary">Tingkat kesamaran saat filter kabur diterapkan</string>
+  <!-- Lock screen media art blur level -->
+  <string name="ls_media_art_blur_level_title">Tingkat blur karya seni media</string>
+  <string name="ls_media_art_fade_level_summary">Atur tingkat pengaburan sampul seni media</string>
+  <!-- Lock screen media art fade level -->
+  <string name="ls_media_art_fade_level_title">Tingkat pudar sampul seni media</string>
+  <string name="ls_media_art_filter_blur">Blur</string>
+  <string name="ls_media_art_filter_grayblur">Abu-abu dan blur</string>
+  <string name="ls_media_art_filter_grayscale">Abu-abu</string>
+  <string name="ls_media_art_filter_invert">Balikkan</string>
+  <string name="ls_media_art_filter_none">Tidak ada</string>
+  <string name="ls_media_art_filter_sepia">Sepia</string>
+  <string name="ls_media_art_filter_tint">Warna aksen</string>
+  <!-- Lock screen album art filter -->
+  <string name="ls_media_art_filter_title">Filter seni sampul media</string>
+  <string name="ls_media_art_summary">Tampilkan karya seni sampul media jika tersedia</string>
+  <!-- Lock screen media art -->
+  <string name="ls_media_art_title">Sampul seni media</string>
+  <!-- LumineDroid -->
+  <string name="luminedroid_title">LumineDroid</string>
+  <string name="maintainer_by">Dikelola oleh %1$s</string>
+  <string name="maintainer_official">Pengelola terverifikasi</string>
+  <string name="maintainer_unknown">Dikelola oleh Tidak dikenal</string>
+  <string name="maintainer_unofficial">Pengelola yang tidak diverifikasi</string>
+  <string name="menu_hide_overlay">Sembunyikan overlay</string>
+  <string name="menu_show_overlay">Tampilkan overlay</string>
+  <string name="mic_camera_privacy_indicator_summary">Tampilkan indikator saat aplikasi menggunakan mikrofon atau kamera</string>
+  <!-- Privacy Indicator -->
+  <string name="mic_camera_privacy_indicator_title">Indikator Privasi Mikrofon dan Kamera</string>
+  <string name="miscellaneous_app_downgrade_summary">Izinkan menurunkan versi aplikasi sistem, yang dapat mengakibatkan kerusakan dan hilangnya data</string>
+  <!-- Allow application downgrade -->
+  <string name="miscellaneous_app_downgrade_title">Izinkan penurunan versi aplikasi</string>
+  <!-- Miscellaneous Category -->
+  <string name="miscellaneous_developer_options_category">Opsi pengembang</string>
+  <string name="monet_engine_chroma_factor_summary">Nilai yang lebih tinggi menghasilkan warna yang lebih kuat</string>
+  <string name="monet_engine_chroma_factor_title">Faktor Kroma</string>
+  <string name="monet_engine_color_override_title">Warna khusus</string>
+  <string name="monet_engine_color_source_both">Keduanya (Bawaan)</string>
+  <string name="monet_engine_color_source_home">Wallpaper beranda</string>
+  <string name="monet_engine_color_source_lock">Kunci wallpaper</string>
+  <string name="monet_engine_color_source_preset">Preset</string>
+  <string name="monet_engine_color_source_title">Sumber Warna</string>
+  <string name="monet_engine_custom_bgcolor_summary">Pilih warna kustom untuk latar belakang</string>
+  <string name="monet_engine_custom_bgcolor_title">Warna latar belakang</string>
+  <string name="monet_engine_custom_color_summary">Pilih warna kustom untuk aksen</string>
+  <!-- Themes/Monet Engine -->
+  <string name="monet_engine_custom_color_title">Warna aksen</string>
+  <string name="monet_engine_luminance_factor_summary">Nilai lebih tinggi menghasilkan warna lebih terang</string>
+  <string name="monet_engine_luminance_factor_title">Kecerahan</string>
+  <string name="monet_engine_style_content">Konten</string>
+  <string name="monet_engine_style_expressive">Ekspresif</string>
+  <string name="monet_engine_style_fruit_salad">Salad Buah</string>
+  <string name="monet_engine_style_monochromatic">Monokromatik</string>
+  <string name="monet_engine_style_rainbow">Pelangi</string>
+  <string name="monet_engine_style_spritz">Spritz</string>
+  <string name="monet_engine_style_title">Gaya tema</string>
+  <string name="monet_engine_style_tonal_spot">Titik Tonal (Default)</string>
+  <string name="monet_engine_style_vibrant">Bersemangat</string>
+  <string name="monet_engine_tint_background_summary">Jadikan pemilihan luminansi dan chroma mempengaruhi warna latar belakang juga</string>
+  <string name="monet_engine_tint_background_title">Pewarnaan latar belakang</string>
+  <string name="monet_engine_whole_palette_summary">Jadikan pemilihan Luminasi dan Chroma mempengaruhi warna sekunder juga</string>
+  <string name="monet_engine_whole_palette_title">Seluruh palet</string>
+  <string name="network_traffic_autohide">Sembunyi otomatis</string>
+  <string name="network_traffic_autohide_kilobits">Kb/d</string>
+  <string name="network_traffic_autohide_kilobytes">KB/d</string>
+  <string name="network_traffic_autohide_summary">Sembunyikan monitor lalu lintas saat tidak aktif</string>
+  <string name="network_traffic_autohide_threshold">Ambang batas ketidakaktifan</string>
+  <string name="network_traffic_hidearrow">Sembunyikan panah</string>
+  <string name="network_traffic_hidearrow_summary">Sembunyikan panah indikator lalu lintas jaringan</string>
+  <string name="network_traffic_location_disable">Dinonaktifkan</string>
+  <string name="network_traffic_location_quick_statusbar">Bilah Status Cepat</string>
+  <string name="network_traffic_location_statusbar">Bilah Status</string>
+  <string name="network_traffic_location_title">Lokasi</string>
+  <string name="network_traffic_mode_all">Unggah dan unduh</string>
+  <string name="network_traffic_mode_down">Hanya unduhan</string>
+  <string name="network_traffic_mode_title">Mode tampilan</string>
+  <string name="network_traffic_mode_up">Unggah saja</string>
+  <string name="network_traffic_refresh_interval_summary">Durasi setelah kecepatan diukur ulang</string>
+  <string name="network_traffic_refresh_interval_title">Interval pembaruan</string>
+  <string name="network_traffic_settings_summary">Tampilkan dan sesuaikan tingkat lalu lintas jaringan saat ini</string>
+  <!-- Network traffic -->
+  <string name="network_traffic_settings_title">Monitor lalu lintas jaringan</string>
+  <string name="network_traffic_units_bits">Bit per detik (b/s)</string>
+  <string name="network_traffic_units_bytes">Byte per detik (B/dtk)</string>
+  <string name="network_traffic_units_kilobits">Kilobit per detik (kb/s)</string>
+  <string name="network_traffic_units_kilobytes">Kilobyte per detik (kB/dtk)</string>
+  <string name="network_traffic_units_megabits">Megabit per detik (Mb/dtk)</string>
+  <string name="network_traffic_units_megabytes">Megabyte per detik (MB/dtk)</string>
+  <string name="network_traffic_units_title">Unit pengukuran lalu lintas</string>
+  <string name="no_storage_restrict_summary">Hapus batasan saat memilih folder melalui Kerangka Akses Penyimpanan. Dapat bermanfaat dalam beberapa kasus tetapi mungkin menyebabkan kebocoran privasi.</string>
+  <!-- No storage restrict -->
+  <string name="no_storage_restrict_title">Tidak ada batas penyimpanan</string>
+  <string name="ongoing_action_chip_summary">Tampilkan indikator kemajuan untuk tindakan yang sedang berlangsung seperti unduhan</string>
+  <string name="ongoing_action_chip_title">Chip tindakan yang sedang berlangsung</string>
+  <string name="ongoing_chip_color_mode_accent">Warna aksen sistem</string>
+  <string name="ongoing_chip_color_mode_album_art">Warna seni album</string>
+  <string name="ongoing_chip_color_mode_icon">Warna ikon aplikasi</string>
+  <string name="ongoing_chip_color_mode_title">Warna latar belakang chip media</string>
+  <string name="ongoing_compact_mode_summary">Gunakan indikator melingkar kompak untuk tindakan yang sedang berlangsung</string>
+  <string name="ongoing_compact_mode_title">Indikator kemajuan ringkas</string>
+  <string name="ongoing_media_progress_summary">Tampilkan kemajuan pemutaran media</string>
+  <string name="ongoing_media_progress_title">Kemajuan Media</string>
+  <string name="ongoing_progress_footer_text">
+"Chip action statusbar menyediakan pembaruan waktu nyata untuk pemutaran media dan unduhan/upload aktif.
+
+Kemajuan Media:
+• Menampilkan kemajuan pemutaran untuk musik dan video ketika media sedang diputar.
+• Ketukan tunggal membuka kontrol pemutaran.
+• Ketukan ganda mengaktifkan/mematikan putar/jeda.
+• Geser kiri melewati ke trek sebelumnya.
+• Geser kanan melewati ke trek berikutnya.
+• Tekan lama membuka aplikasi media.
+
+Kemajuan Unduhan/Upload:
+• Menampilkan kemajuan untuk unduhan dan upload yang sedang berlangsung.
+• Secara otomatis tersembunyi ketika tidak ada transfer aktif yang terdeteksi.
+• Ketukan tunggal membuka aplikasi yang bertanggung jawab atas unduhan.
+
+Bilah kemajuan dinamis beralih antara status media dan unduhan, memastikan Anda selalu memiliki informasi paling relevan sekilas."</string>
+  <string name="ongoing_progress_settings_summary">Sesuaikan chip tindakan untuk menampilkan indikator kemajuan</string>
+  <!-- Ongoing action chip -->
+  <string name="ongoing_progress_settings_title">Chip aksi status bar</string>
+  <string name="pif_spoofing_summary">Pilih file JSON PIF yang akan digunakan untuk menipu Play Integrity</string>
+  <string name="pif_spoofing_title">Pilih berkas JSON PIF</string>
+  <string name="projection_privacy_indicator_summary">Tampilkan indikator saat layar perangkat diproyeksikan</string>
+  <string name="projection_privacy_indicator_title">Indikator privasi proyeksi media</string>
+  <string name="pulse_bar_count_summary">Tetapkan jumlah batang yang ditampilkan di visualizer</string>
+  <string name="pulse_bar_count_title">Jumlah batang</string>
+  <string name="pulse_bar_count_units">batang</string>
+  <string name="pulse_color">Warna visualisasi</string>
+  <string name="pulse_color_accent">Warna aksen</string>
+  <string name="pulse_color_album">Sampul album</string>
+  <string name="pulse_color_lavalamp">lavalamp</string>
+  <string name="pulse_rounded_bars_summary">Tampilkan batang visual dengan sudut melingkar</string>
+  <string name="pulse_rounded_bars_title">Batang membulat</string>
+  <string name="pulse_settings_summary">Tampilkan visualisasi bar di layar kunci saat musik diputar</string>
+  <!-- Pulse music visualizer -->
+  <string name="pulse_settings_title">Visualizer Pulsa</string>
+  <!-- Quick Settings brightness slider -->
+  <string name="qs_brightness_slider_category">Penggeser kecerahan</string>
+  <string name="qs_brightness_slider_haptic_summary">Memberikan umpan balik haptic saat mengubah kecerahan menggunakan penggeser</string>
+  <!-- Brightness slider / QS tile haptic feedback -->
+  <string name="qs_brightness_slider_haptic_title">Umpan balik haptik</string>
+  <string name="qs_brightness_slider_position_bottom">Bawah</string>
+  <string name="qs_brightness_slider_position_title">Posisi</string>
+  <string name="qs_brightness_slider_position_top">Atas</string>
+  <string name="qs_show_auto_brightness_summary">Tampilkan tombol pengaturan kecerahan adaptif di dekat penggeser</string>
+  <!-- Quick Settings brightness icon -->
+  <string name="qs_show_auto_brightness_title">Ikon kecerahan otomatis</string>
+  <string name="qs_show_brightness_slider_always">Selalu tampilkan</string>
+  <string name="qs_show_brightness_slider_expanded">Perlihatkan ketika diperluas</string>
+  <string name="qs_show_brightness_slider_never">Jangan pernah tampilkan</string>
+  <string name="qs_show_brightness_slider_not_expanded">Perlihatkan ketika tidak diperluas</string>
+  <string name="qs_show_brightness_slider_title">Kapan ditampilkan</string>
+  <string name="qs_tile_haptic_summary">Memberikan umpan balik haptik saat mengetuk ubin QS</string>
+  <string name="quick_settings_data_usage_summary">Tampilkan ringkasan penggunaan data di footer pengaturan cepat</string>
+  <!-- Quick settings -->
+  <string name="quick_settings_data_usage_title">Penggunaan Data</string>
+  <!-- Hide applist -->
+  <string name="search">Cari</string>
+  <string name="search_apps">Cari aplikasi</string>
+  <string name="shade_blur_radius_summary">Sesuaikan intensitas blur di belakang bayangan notifikasi</string>
+  <!-- QS Shade Blur -->
+  <string name="shade_blur_radius_title">Buram bayang notifikasi</string>
+  <string name="show_fourg_icon_summary">Tampilkan ikon 4G pada ikon sinyal bukan LTE</string>
+  <!-- 4G icon -->
+  <string name="show_fourg_icon_title">Ikon 4G</string>
+  <string name="show_pif_properties_summary">Tampilkan semua properti PIF yang diatur saat ini</string>
+  <string name="show_pif_properties_title">Properti Perbaikan Integritas</string>
+  <string name="sidebar_summary">Cepat membuka aplikasi dalam jendela mengambang</string>
+  <!-- Sidebar -->
+  <string name="sidebar_title">Bilah Samping</string>
+  <string name="spoofing_app_specific_category">Aplikasi-Spesifik</string>
+  <!-- Spoofing -->
+  <string name="spoofing_category">Pemalsuan</string>
+  <string name="spoofing_photos_summary">Palsukan aplikasi Google Foto sebagai Pixel XL</string>
+  <string name="spoofing_photos_title">Google Foto</string>
+  <string name="spoofing_pixel_props_summary">Menyamarkan beberapa aplikasi Google terpilih ke perangkat Pixel terbaru</string>
+  <string name="spoofing_pixel_props_title">Properti Piksel</string>
+  <string name="spoofing_snap_summary">Menyamar Snapchat sebagai Pixel XL untuk memperbaiki kemungkinan masalah obrolan</string>
+  <string name="spoofing_snap_title">Snapchat</string>
+  <string name="spoofing_summary">Melewati pembatasan aplikasi dengan memalsukan komponen</string>
+  <string name="spoofing_system_wide_category">Seluruh Sistem</string>
+  <string name="spoofing_title">Penyamaran Komponen</string>
+  <string name="spoof_storage_encryption_status_summary">Mencegah aplikasi agar tetap beroperasi meskipun penyimpanan tidak terenkripsi</string>
+  <!-- Spoof storage encryption status -->
+  <string name="spoof_storage_encryption_status_title">Nonaktifkan status enkripsi penyimpanan</string>
+  <string name="status_bar_am_pm_hidden">Tersembunyi</string>
+  <string name="status_bar_am_pm_info">Format waktu 24 jam diaktifkan</string>
+  <string name="status_bar_am_pm_normal">Biasa</string>
+  <string name="status_bar_am_pm_small">Kecil</string>
+  <string name="status_bar_am_pm_title">gaya AM/PM</string>
+  <string name="status_bar_battery_percent_hidden">Tersembunyi</string>
+  <string name="status_bar_battery_percent_text_inside">Di dalam ikon</string>
+  <string name="status_bar_battery_percent_text_next">Di sebelah ikon</string>
+  <string name="status_bar_battery_percent_text_next_left">Di sebelah ikon (kiri)</string>
+  <string name="status_bar_battery_percent_text_next_right">Di sebelah ikon (kanan)</string>
+  <string name="status_bar_battery_percent_title">Persentase baterai</string>
+  <string name="status_bar_battery_style_circle">Lingkaran</string>
+  <string name="status_bar_battery_style_dotted_circle">Lingkaran bertitik</string>
+  <string name="status_bar_battery_style_filled_circle">Lingkaran terisi</string>
+  <string name="status_bar_battery_style_hidden">Tersembunyi</string>
+  <string name="status_bar_battery_style_icon_landscape">Ikon lanskap (Kiri)</string>
+  <string name="status_bar_battery_style_icon_portrait">Ikon potret</string>
+  <string name="status_bar_battery_style_icon_rlandscape">Ikon lanskap (Kanan)</string>
+  <string name="status_bar_battery_style_text">Teks</string>
+  <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Gaya Baterai</string>
+  <string name="status_bar_clock_auto_hide_summary">Sembunyikan jam jika peluncur terlihat</string>
+  <string name="status_bar_clock_auto_hide_title">Sembunyi otomatis</string>
+  <string name="status_bar_clock_position_center">Tengah</string>
+  <string name="status_bar_clock_position_left">Kiri</string>
+  <string name="status_bar_clock_position_right">Kanan</string>
+  <string name="status_bar_clock_position_title">Gaya jam</string>
+  <string name="status_bar_clock_seconds_summary">Tampilkan detik di sebelah jam di bilah status</string>
+  <string name="status_bar_clock_seconds_title">Detik jam</string>
+  <string name="status_bar_clock_summary">Sesuaikan jam &amp; tanggal</string>
+  <!-- Status bar - Clock -->
+  <string name="status_bar_clock_title">Jam &amp; tanggal</string>
+  <string name="statusbar_colored_icons_summary">Gunakan ikon aplikasi yang sesuai untuk ikon notifikasi di statusbar</string>
+  <!-- Statusbar colored icons -->
+  <string name="statusbar_colored_icons_title">Ikon berwarna</string>
+  <string name="status_bar_date_format_custom">Format java kustom</string>
+  <string name="status_bar_date_format_title">Format Tanggal</string>
+  <string name="status_bar_date_none">Tersembunyi</string>
+  <string name="status_bar_date_normal">Biasa</string>
+  <string name="status_bar_date_small">Kecil</string>
+  <string name="status_bar_date_string_edittext_summary">Masukkan string</string>
+  <string name="status_bar_date_string_edittext_title">Wajib dalam DateFormat misalnya MM/dd/yy</string>
+  <string name="status_bar_date_style">Gaya tanggal</string>
+  <string name="status_bar_date_style_lowercase">Huruf kecil</string>
+  <string name="status_bar_date_style_normal">Biasa</string>
+  <string name="status_bar_date_style_uppercase">Huruf besar</string>
+  <string name="status_bar_date_title">Tanggal</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Ketuk dua kali pada bilah status atau layar kunci untuk mematikan layar</string>
+  <!-- Double tap to sleep on status bar or lockscreen -->
+  <string name="status_bar_double_tap_to_sleep_title">Ketuk untuk tidur</string>
+  <string name="status_bar_notif_count_summary">Menampilkan jumlah notifikasi yang belum dibaca pada setiap ikon aplikasi</string>
+  <!-- Notification counter -->
+  <string name="status_bar_notif_count_title">Jumlah notifikasi</string>
+  <string name="systemui_restart_message">Untuk menerapkan perubahan, diperlukan restart SystemUI. Restart SystemUI sekarang?</string>
+  <string name="systemui_restart_not_now">Tidak sekarang</string>
+  <string name="systemui_restart_process">Memulai ulang SystemUI untuk menerapkan perubahan...</string>
+  <!-- SystemUI restart dialog -->
+  <string name="systemui_restart_title">Diperlukan restart pada SystemUI</string>
+  <string name="systemui_restart_yes">Ya</string>
+  <!-- Themes -->
+  <string name="themes_monet_category">Monet</string>
+  <string name="themes_monet_summary">Sesuaikan mesin tema bawaan Android</string>
+  <string name="themes_monet_title">Pengaturan Monet</string>
+  <string name="toast_spoofing_failure">Gagal memalsukan properti.</string>
+  <!-- Spoofing - Play Integrity fix JSON update -->
+  <string name="toast_spoofing_success">Berhasil mengunduh pif.json. Memalsukan sebagai %1$s untuk Play Integrity.</string>
+  <string name="unit_milliseconds">milidetik</string>
+  <string name="unit_pixels">px</string>
+  <!-- Units -->
+  <string name="unit_seconds">detik</string>
+  <string name="update_pif_auto_random_summary">Dapatkan perangkat spoofing acak dari daftar Google. (Memerlukan koneksi internet.)</string>
+  <string name="update_pif_auto_random_title">Perbarui perbaikan Integritas Game (Acak)</string>
+  <string name="update_pif_json_summary">Perbarui perangkat spoofing PIF (Memerlukan koneksi internet.)</string>
+  <string name="update_pif_json_title">Perbarui Perbaikan Integritas</string>
+  <string name="vbmeta_attestation_summary">Lakukan penilaian kunci untuk menghasilkan hash boot terverifikasi pada saat boot. Membutuhkan restart sistem.</string>
+  <!-- Vbmeta hash attestation -->
+  <string name="vbmeta_attestation_title">Perbaikan Otomatis Deteksi VBMeta</string>
+  <string name="vending_spoof_summary">Terapkan pemalsuan perangkat ke Google Play Store</string>
+  <string name="vending_spoof_title">Pemalsuan vending</string>
+  <string name="weather_settings_summary">Atur paket ikon dan layanan cuaca</string>
+  <!-- Weather -->
+  <string name="weather_settings_title">Pengaturan Cuaca</string>
+</resources>

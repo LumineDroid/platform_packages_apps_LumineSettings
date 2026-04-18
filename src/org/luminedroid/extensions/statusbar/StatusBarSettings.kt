@@ -5,7 +5,6 @@
 
 package org.luminedroid.extensions.statusbar
 
-import android.content.ContentResolver
 import android.content.Context
 import android.os.Bundle
 import androidx.preference.Preference
@@ -47,12 +46,6 @@ class StatusBarSettings :
 
     companion object {
         private const val KEY_COLORED_ICONS = "statusbar_colored_icons"
-
-        fun reset(context: Context) {
-            val resolver: ContentResolver = context.contentResolver
-
-            OngoingProgressBar.reset(context)
-        }
 
         @JvmField
         val SEARCH_INDEX_DATA_PROVIDER =

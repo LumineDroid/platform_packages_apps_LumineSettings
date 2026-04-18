@@ -9,14 +9,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:gravity="center_vertical"
+    android:paddingHorizontal="16dp"
     android:paddingVertical="8dp">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        app:cardCornerRadius="24dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="28dp"
         app:cardElevation="0dp">
 
         <FrameLayout
@@ -26,47 +26,47 @@
             <org.luminedroid.utils.WallpaperView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:gravity="center"
-                android:elevation="0dp"
-                android:orientation="vertical"/>
+                android:scaleType="centerCrop"/>
 
-            <LinearLayout
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:alpha="0.4"
-                android:background="@color/extensions_header_bg" />
+                android:alpha="0.45"
+                android:background="@color/extensions_header_bg"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:paddingVertical="45dp"
+                android:paddingTop="40dp"
+                android:paddingBottom="40dp"
                 android:paddingHorizontal="24dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ellipsize="marquee"
-                    android:gravity="center"
-                    android:singleLine="true"
                     android:text="@string/extensions_title"
                     android:textColor="@color/extensions_text_color"
                     android:fontFamily="@*android:string/config_headlineFontFamily"
-                    android:textSize="40sp"
-                    android:textStyle="bold"/>
+                    android:textSize="38sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
                     android:text="@string/extensions_homepage_summary"
-                    android:maxLines="3"
-                    android:alpha="0.8"
-                    android:textSize="13sp"
                     android:textColor="@color/extensions_text_color"
+                    android:textSize="13sp"
+                    android:alpha="0.8"
+                    android:maxLines="3"
                     android:gravity="center"
                     android:textAlignment="center"/>
+
             </LinearLayout>
         </FrameLayout>
     </com.google.android.material.card.MaterialCardView>
@@ -75,320 +75,373 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="12dp"
-        android:weightSum="2"
-        android:gravity="center_vertical">
+        android:layout_marginBottom="10dp">
 
         <!-- Statusbar -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/extensions_statusbar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginEnd="6dp"
-            android:gravity="start|center_vertical"
-            android:padding="16dp"
-            android:background="@drawable/extensions_homepage_bg"
-            android:orientation="vertical">
+            android:layout_marginEnd="5dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:layout_marginBottom="12dp"
-                android:src="@drawable/ic_statusbar"
-                android:background="@drawable/adaptive_icon_shape"
-                android:backgroundTint="?android:colorAccent"
-                android:tint="?android:colorPrimary"
-                android:padding="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="start"
+                android:padding="16dp"
+                android:background="@drawable/extensions_homepage_bg">
 
-            <TextView
-                android:id="@+id/extensions_statusbar_title"
-                android:ellipsize="marquee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:text="@string/extensions_statusbar_title"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="?android:attr/textColorPrimary"
-                android:fontFamily="@*android:string/config_headlineFontFamily" />
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/ic_statusbar"
+                    android:background="@drawable/adaptive_icon_shape"
+                    android:backgroundTint="?android:colorAccent"
+                    android:tint="?android:colorPrimary"
+                    android:padding="8dp"/>
 
-            <TextView
-                android:id="@+id/extensions_statusbar_summary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:maxLines="4"
-                android:alpha="0.7"
-                android:text="@string/extensions_statusbar_summary"
-                android:textSize="13sp"
-                android:textColor="?android:attr/textColorSecondary"
-                android:textAlignment="viewStart"
-                android:layout_below="@id/extensions_statusbar_title"
-                android:layout_alignStart="@id/extensions_statusbar_title" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/extensions_statusbar_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/extensions_statusbar_title"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:fontFamily="@*android:string/config_headlineFontFamily"
+                    android:singleLine="true"
+                    android:ellipsize="end"/>
+
+                <TextView
+                    android:id="@+id/extensions_statusbar_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/extensions_statusbar_summary"
+                    android:textSize="12sp"
+                    android:alpha="0.65"
+                    android:maxLines="3"
+                    android:textColor="?android:attr/textColorSecondary"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- Quick Settings -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/extensions_quicksettings"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginStart="6dp"
-            android:gravity="start|center_vertical"
-            android:background="@drawable/extensions_homepage_bg"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_marginStart="5dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
-            <ImageView
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:layout_marginBottom="12dp"
-                android:src="@drawable/ic_quicksettings"
-                android:background="@drawable/adaptive_icon_shape"
-                android:backgroundTint="?android:colorAccent"
-                android:tint="?android:colorPrimary"
-                android:padding="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="start"
+                android:padding="16dp"
+                android:background="@drawable/extensions_homepage_bg">
 
-            <TextView
-                android:id="@+id/extensions_quicksettings_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:ellipsize="marquee"
-                android:text="@string/extensions_quicksettings_title"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="?android:attr/textColorPrimary"
-                android:fontFamily="@*android:string/config_headlineFontFamily" />
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/ic_quicksettings"
+                    android:background="@drawable/adaptive_icon_shape"
+                    android:backgroundTint="?android:colorAccent"
+                    android:tint="?android:colorPrimary"
+                    android:padding="8dp"/>
 
-            <TextView
-                android:id="@+id/extensions_quicksettings_summary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:maxLines="4"
-                android:alpha="0.7"
-                android:text="@string/extensions_quicksettings_summary"
-                android:textSize="13sp"
-                android:textColor="?android:attr/textColorSecondary"
-                android:textAlignment="viewStart"
-                android:layout_below="@id/extensions_quicksettings_title"
-                android:layout_alignStart="@id/extensions_quicksettings_title" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/extensions_quicksettings_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/extensions_quicksettings_title"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:fontFamily="@*android:string/config_headlineFontFamily"
+                    android:singleLine="true"
+                    android:ellipsize="end"/>
+
+                <TextView
+                    android:id="@+id/extensions_quicksettings_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/extensions_quicksettings_summary"
+                    android:textSize="12sp"
+                    android:alpha="0.65"
+                    android:maxLines="3"
+                    android:textColor="?android:attr/textColorSecondary"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginEnd="5dp"
             android:orientation="vertical">
 
             <!-- Button -->
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/extensions_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="6dp"
-                android:gravity="start|center_vertical"
-                android:background="@drawable/extensions_homepage_bg"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
-                <ImageView
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:layout_marginBottom="12dp"
-                    android:src="@drawable/ic_button"
-                    android:background="@drawable/adaptive_icon_shape"
-                    android:backgroundTint="?android:colorAccent"
-                    android:tint="?android:colorPrimary"
-                    android:padding="8dp"/>
-
-                <TextView
-                    android:id="@+id/extensions_button_title"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ellipsize="marquee"
-                    android:singleLine="true"
-                    android:text="@string/extensions_button_title"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:fontFamily="@*android:string/config_headlineFontFamily" />
+                    android:orientation="vertical"
+                    android:gravity="start"
+                    android:padding="16dp"
+                    android:background="@drawable/extensions_homepage_bg">
 
-                <TextView
-                    android:id="@+id/extensions_button_summary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:maxLines="4"
-                    android:alpha="0.7"
-                    android:text="@string/extensions_button_summary"
-                    android:textSize="13sp"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textAlignment="viewStart"
-                    android:layout_below="@id/extensions_button_title"
-                    android:layout_alignStart="@id/extensions_button_title" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/ic_button"
+                        android:background="@drawable/adaptive_icon_shape"
+                        android:backgroundTint="?android:colorAccent"
+                        android:tint="?android:colorPrimary"
+                        android:padding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/extensions_button_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/extensions_button_title"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:fontFamily="@*android:string/config_headlineFontFamily"
+                        android:singleLine="true"
+                        android:ellipsize="end"/>
+
+                    <TextView
+                        android:id="@+id/extensions_button_summary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/extensions_button_summary"
+                        android:textSize="12sp"
+                        android:alpha="0.65"
+                        android:maxLines="3"
+                        android:textColor="?android:attr/textColorSecondary"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- Lockscreen -->
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/extensions_lockscreen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="6dp"
-                android:gravity="start|center_vertical"
-                android:background="@drawable/extensions_homepage_bg"
-                android:orientation="vertical"
-                android:padding="16dp">
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
 
-                <ImageView
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:layout_marginBottom="12dp"
-                    android:src="@drawable/ic_lockscreen"
-                    android:background="@drawable/adaptive_icon_shape"
-                    android:backgroundTint="?android:colorAccent"
-                    android:tint="?android:colorPrimary"
-                    android:padding="8dp"/>
-
-                <TextView
-                    android:id="@+id/extensions_lockscreen_title"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ellipsize="marquee"
-                    android:singleLine="true"
-                    android:text="@string/extensions_lockscreen_title"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:fontFamily="@*android:string/config_headlineFontFamily" />
+                    android:orientation="vertical"
+                    android:gravity="start"
+                    android:padding="16dp"
+                    android:background="@drawable/extensions_homepage_bg">
 
-                <TextView
-                    android:id="@+id/extensions_lockscreen_summary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:maxLines="4"
-                    android:alpha="0.7"
-                    android:text="@string/extensions_lockscreen_summary"
-                    android:textSize="13sp"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textAlignment="viewStart"
-                    android:layout_below="@id/extensions_lockscreen_title"
-                    android:layout_alignStart="@id/extensions_lockscreen_title" />
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/ic_lockscreen"
+                        android:background="@drawable/adaptive_icon_shape"
+                        android:backgroundTint="?android:colorAccent"
+                        android:tint="?android:colorPrimary"
+                        android:padding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/extensions_lockscreen_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/extensions_lockscreen_title"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:fontFamily="@*android:string/config_headlineFontFamily"
+                        android:singleLine="true"
+                        android:ellipsize="end"/>
+
+                    <TextView
+                        android:id="@+id/extensions_lockscreen_summary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/extensions_lockscreen_summary"
+                        android:textSize="12sp"
+                        android:alpha="0.65"
+                        android:maxLines="3"
+                        android:textColor="?android:attr/textColorSecondary"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
 
-        <!-- About -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/extensions_about"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginStart="6dp"
-            android:background="@drawable/extensions_homepage_bg"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="16dp">
+            android:layout_marginStart="5dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp"
+                android:background="@drawable/extensions_homepage_bg">
+
+                <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_about"
+                    android:background="@drawable/adaptive_icon_shape"
+                    android:backgroundTint="?android:colorAccent"
+                    android:tint="?android:colorPrimary"
+                    android:padding="8dp"/>
+
+                <TextView
+                    android:id="@+id/extensions_about_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/extensions_about_title"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:fontFamily="@*android:string/config_headlineFontFamily"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="end"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/extensions_about_summary"
+                    android:textSize="12sp"
+                    android:alpha="0.65"
+                    android:maxLines="5"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="?android:attr/textColorSecondary"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/extensions_misc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="18dp"
+            android:background="@drawable/extensions_homepage_bg">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginEnd="12dp">
+
+                <TextView
+                    android:id="@+id/extensions_misc_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/extensions_misc_title"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:fontFamily="@*android:string/config_headlineFontFamily"
+                    android:singleLine="true"
+                    android:ellipsize="end"/>
+
+                <TextView
+                    android:id="@+id/extensions_misc_summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/extensions_misc_summary"
+                    android:textSize="12sp"
+                    android:alpha="0.65"
+                    android:maxLines="2"
+                    android:textColor="?android:attr/textColorSecondary"/>
+
+            </LinearLayout>
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginBottom="12dp"
+                android:id="@+id/extensions_misc_icon"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/ic_misc"
                 android:background="@drawable/adaptive_icon_shape"
                 android:backgroundTint="?android:colorAccent"
                 android:tint="?android:colorPrimary"
-                android:padding="8.0dip"
-                android:src="@drawable/ic_about" />
-
-            <TextView
-                android:id="@+id/extensions_about_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="marquee"
-                android:gravity="center"
-                android:singleLine="true"
-                android:text="@string/extensions_about_title"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="?android:attr/textColorPrimary"
-                android:fontFamily="@*android:string/config_headlineFontFamily" />       
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/extensions_about_title"
-                android:alpha="0.7"
-                android:gravity="center"
-                android:text="@string/extensions_about_summary"
-                android:textSize="13sp"
-                android:textColor="?android:attr/textColorSecondary"
-                android:textAlignment="center"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/extensions_misc"
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:layout_marginTop="12dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:background="@drawable/extensions_homepage_bg">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="6dp"
-            android:padding="16dp"
-            android:orientation="vertical"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/extensions_misc_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="marquee"
-                android:singleLine="true"
-                android:text="@string/extensions_misc_title"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="?android:attr/textColorPrimary"
-                android:fontFamily="@*android:string/config_headlineFontFamily" />
-
-            <TextView
-                android:id="@+id/extensions_misc_summary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/extensions_misc_title"
-                android:layout_alignStart="@id/extensions_misc_title"
-                android:layout_toStartOf="@id/extensions_misc_icon"
-                android:maxLines="4"
-                android:alpha="0.7"
-                android:text="@string/extensions_misc_summary"
-                android:textSize="13sp"
-                android:textColor="?android:attr/textColorSecondary"/>
+                android:scaleType="center"
+                android:padding="8dp"/>
 
         </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-        <ImageView
-            android:id="@+id/extensions_misc_icon"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/adaptive_icon_shape"
-            android:backgroundTint="?android:colorAccent"
-            android:tint="?android:colorPrimary"
-            android:src="@drawable/ic_misc"
-            android:scaleType="center" />
-    </LinearLayout>
 </LinearLayout>

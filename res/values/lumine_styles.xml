@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-FileCopyrightText: 2026 LumineDroid
+  SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+
+    <style name="LumineDroid.TextAppearance.PageTitle" parent="android:TextAppearance">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/luminedroid_text_page_title</item>
+    </style>
+    <style name="LumineDroid.TextAppearance.PageSubtitle" parent="android:TextAppearance">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/luminedroid_text_page_subtitle</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+    </style>
+    <style name="LumineDroid.TextAppearance.SectionTitle" parent="android:TextAppearance">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/luminedroid_text_section_title</item>
+    </style>
+    <style name="LumineDroid.TextAppearance.SectionSubtitle" parent="android:TextAppearance">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/luminedroid_text_section_subtitle</item>
+    </style>
+    <style name="LumineDroid.TextAppearance.PersonName" parent="android:TextAppearance">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/luminedroid_text_primary</item>
+    </style>
+    <style name="LumineDroid.TextAppearance.PersonRole" parent="android:TextAppearance">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/luminedroid_text_role</item>
+    </style>
+    <style name="LumineDroid.TextAppearance.PersonHandle" parent="android:TextAppearance">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/luminedroid_text_handle</item>
+    </style>
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-FileCopyrightText: 2026 LumineDroid
+  SPDX-License-Identifier: Apache-2.0
+
+  Circular background that also acts as the clip mask for the avatar.
+  The ring stroke mirrors: ring-1 ring-pink-200/30 from web.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#FF1a1f2e" />
+    <stroke
+        android:width="1.5dp"
+        android:color="@color/luminedroid_avatar_ring" />
+</shape>

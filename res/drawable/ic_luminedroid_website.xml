@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  SPDX-FileCopyrightText: 2026 LumineDroid
+  SPDX-License-Identifier: Apache-2.0
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+    <path
+        android:strokeColor="@color/luminedroid_badge_pink_stroke"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@color/luminedroid_badge_pink_text"
+        android:pathData="M12,2a10,10 0,1 0,20 0a10,10 0,1 0,-20 0"
+        android:translateX="-1" android:translateY="0"/>
+    <path
+        android:strokeColor="@color/luminedroid_badge_pink_stroke"
+        android:strokeWidth="1.8"
+        android:fillColor="@color/luminedroid_badge_pink_text"
+        android:pathData="M2,12a10,10 0,1 0,20 0a10,10 0,1 0,-20 0" />
+    <path
+        android:strokeColor="@color/luminedroid_badge_pink_stroke"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:fillColor="@color/luminedroid_badge_pink_text"
+        android:pathData="M2,12H22" />
+    <path
+        android:strokeColor="@color/luminedroid_badge_pink_stroke"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@color/luminedroid_badge_pink_text"
+        android:pathData="M12,2c-2.76,3.56 -4.34,7.69 -4.34,10s1.58,6.44 4.34,10" />
+    <path
+        android:strokeColor="@color/luminedroid_badge_pink_stroke"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="@color/luminedroid_badge_pink_text"
+        android:pathData="M12,2c2.76,3.56 4.34,7.69 4.34,10s-1.58,6.44 -4.34,10" />
+</vector>

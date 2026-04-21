@@ -5,122 +5,171 @@
 
 package org.luminedroid.extensions.about
 
-import android.content.Context
-import android.graphics.*
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.core.content.res.ResourcesCompat
+import android.view.*
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
-import androidx.preference.Preference
-import androidx.preference.PreferenceCategory
-import com.android.internal.logging.nano.MetricsProto
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.settings.R
-import com.android.settings.SettingsPreferenceFragment
-import java.net.HttpURLConnection
-import java.net.URL
+import com.android.settings.dashboard.DashboardFragment
 import kotlinx.coroutines.*
 import org.json.JSONObject
 
-class AboutLumineDroidFragment : SettingsPreferenceFragment() {
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        addPreferencesFromResource(R.xml.about_luminedroid)
+class AboutLumineDroidFragment : DashboardFragment() {
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: TeamAdapter
+    private lateinit var tabDevs: LinearLayout
+    private lateinit var tabContribs: LinearLayout
+    private lateinit var iconDevs: ImageView
+    private lateinit var iconContribs: ImageView
+    private lateinit var textDevs: TextView
+    private lateinit var textContribs: TextView
+    private lateinit var sectionLabel: TextView
+    private lateinit var sectionCount: TextView
+    private lateinit var btnSocialGithub: LinearLayout
+    private lateinit var btnSocialTelegram: LinearLayout
+    private lateinit var btnSocialWebsite: LinearLayout
+
+    enum class Tab {
+        DEVS,
+        CONTRIBS,
+    }
+
+    override fun getPreferenceScreenResId(): Int = 0
+
+    override fun getLogTag(): String = "AboutLumineDroid"
+
+    override fun getMetricsCategory(): Int = 0
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        return inflater.inflate(R.layout.about_luminedroid, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super<DashboardFragment>.onViewCreated(view, savedInstanceState)
+
+        btnSocialGithub = view.findViewById(R.id.btn_social_github)
+        btnSocialTelegram = view.findViewById(R.id.btn_social_telegram)
+        btnSocialWebsite = view.findViewById(R.id.btn_social_website)
+
+        tabDevs = view.findViewById(R.id.tab_devs)
+        tabContribs = view.findViewById(R.id.tab_contribs)
+
+        iconDevs = tabDevs.getChildAt(0) as ImageView
+        textDevs = tabDevs.getChildAt(1) as TextView
+        iconContribs = tabContribs.getChildAt(0) as ImageView
+        textContribs = tabContribs.getChildAt(1) as TextView
+
+        sectionLabel = view.findViewById(R.id.section_label)
+        sectionCount = view.findViewById(R.id.section_count)
+        recyclerView = view.findViewById(R.id.team_recycler)
+
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        recyclerView.setHasFixedSize(false)
+        recyclerView.isNestedScrollingEnabled = false
+
+        adapter = TeamAdapter(requireContext(), lifecycleScope)
+        recyclerView.adapter = adapter
+
+        btnSocialGithub.setOnClickListener { openUrl(getString(R.string.luminedroid_url_github)) }
+        btnSocialTelegram.setOnClickListener {
+            openUrl(getString(R.string.luminedroid_url_telegram))
+        }
+        btnSocialWebsite.setOnClickListener { openUrl(getString(R.string.luminedroid_url_website)) }
+
+        tabDevs.setOnClickListener { switchTab(Tab.DEVS) }
+        tabContribs.setOnClickListener { switchTab(Tab.CONTRIBS) }
+
         loadTeamData()
     }
 
-    override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.LUMINEDROID
-
     private fun loadTeamData() {
-        val context = requireContext()
+        val ctx = requireContext()
         val json =
-            context.resources.openRawResource(R.raw.luminedroid).bufferedReader().use {
-                it.readText()
-            }
+            ctx.resources.openRawResource(R.raw.luminedroid).bufferedReader().use { it.readText() }
 
-        val jsonObj = JSONObject(json)
-        val devCat = findPreference<PreferenceCategory>("luminedroid_dev_category")
-        val contribCat = findPreference<PreferenceCategory>("luminedroid_contrib_category")
+        val root = JSONObject(json)
 
-        jsonObj.getJSONArray("developers").let { devs ->
-            for (i in 0 until devs.length()) {
-                val d = devs.getJSONObject(i)
-                devCat?.addPreference(
-                    createPersonPref(
-                        context,
-                        d.getString("name"),
-                        d.getString("role"),
-                        d.getString("username"),
-                        d.getString("link"),
+        val devItems = mutableListOf<TeamItem.Person>()
+        root.getJSONArray("developers").let { arr ->
+            for (i in 0 until arr.length()) {
+                val d = arr.getJSONObject(i)
+                devItems +=
+                    TeamItem.Person(
+                        name = d.getString("name"),
+                        role = d.getString("role"),
+                        username = d.getString("username"),
+                        link = d.getString("link"),
+                        telegram = d.optString("telegram", ""),
+                        badgeLabel = ctx.getString(R.string.luminedroid_badge_core_dev),
+                        badgeStyle = BadgeStyle.PINK,
                     )
-                )
             }
         }
 
-        jsonObj.getJSONArray("contributors").let { cons ->
-            for (i in 0 until cons.length()) {
-                val c = cons.getJSONObject(i)
-                contribCat?.addPreference(
-                    createPersonPref(
-                        context,
-                        c.getString("name"),
-                        c.getString("role"),
-                        c.getString("username"),
-                        c.getString("link"),
+        val contribItems = mutableListOf<TeamItem.Person>()
+        root.getJSONArray("contributors").let { arr ->
+            for (i in 0 until arr.length()) {
+                val c = arr.getJSONObject(i)
+                contribItems +=
+                    TeamItem.Person(
+                        name = c.getString("name"),
+                        role = c.getString("role"),
+                        username = c.getString("username"),
+                        link = c.getString("link"),
+                        telegram = c.optString("telegram", ""),
+                        badgeLabel = ctx.getString(R.string.luminedroid_badge_contributor),
+                        badgeStyle = BadgeStyle.BLUE,
                     )
-                )
             }
         }
+
+        adapter.setData(devItems, contribItems)
+        switchTab(Tab.DEVS)
     }
 
-    private fun createPersonPref(
-        context: Context,
-        name: String,
-        role: String,
-        username: String,
-        link: String,
-    ): Preference {
-        val pref = Preference(context)
-        pref.title = name
-        pref.summary = role
-        pref.icon = ResourcesCompat.getDrawable(context.resources, R.drawable.ic_person, null)
-        pref.intent =
-            android.content.Intent(android.content.Intent.ACTION_VIEW).setData(Uri.parse(link))
+    private fun switchTab(tab: Tab) {
+        val ctx = requireContext()
+        val activeColor = ContextCompat.getColor(ctx, R.color.luminedroid_tab_active_text)
+        val defaultColor = ContextCompat.getColor(ctx, R.color.luminedroid_tab_default_text)
 
-        lifecycleScope.launch(Dispatchers.IO) {
-            val avatar = fetchGithubAvatar(username)
-            withContext(Dispatchers.Main) { if (avatar != null) pref.icon = avatar }
+        tabDevs.isSelected = (tab == Tab.DEVS)
+        tabContribs.isSelected = (tab == Tab.CONTRIBS)
+
+        iconDevs.setColorFilter(if (tab == Tab.DEVS) activeColor else defaultColor)
+        textDevs.setTextColor(if (tab == Tab.DEVS) activeColor else defaultColor)
+        iconContribs.setColorFilter(if (tab == Tab.CONTRIBS) activeColor else defaultColor)
+        textContribs.setTextColor(if (tab == Tab.CONTRIBS) activeColor else defaultColor)
+
+        when (tab) {
+            Tab.DEVS -> {
+                sectionLabel.setText(R.string.luminedroid_dev_section_title)
+                sectionCount.text = adapter.devCount.toString()
+            }
+            Tab.CONTRIBS -> {
+                sectionLabel.setText(R.string.luminedroid_contrib_section_title)
+                sectionCount.text = adapter.contribCount.toString()
+            }
         }
 
-        return pref
+        adapter.showTab(tab)
+        recyclerView.scrollToPosition(0)
     }
 
-    private fun fetchGithubAvatar(username: String): Drawable? =
-        try {
-            val url = URL("https://github.com/$username.png?size=64")
-            (url.openConnection() as HttpURLConnection).run {
-                connectTimeout = 1200
-                readTimeout = 1200
-                doInput = true
-                connect()
-                val bitmap = BitmapFactory.decodeStream(inputStream)
-                inputStream.close()
-                BitmapDrawable(resources, bitmap.toRoundedBitmap())
-            }
-        } catch (_: Exception) {
-            null
-        }
-
-    private fun Bitmap.toRoundedBitmap(): Bitmap {
-        val size = minOf(width, height)
-        val out = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(out)
-        val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-        val rect = Rect(0, 0, size, size)
-        val rectF = RectF(rect)
-        canvas.drawOval(rectF, paint)
-        paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
-        canvas.drawBitmap(this, null, rect, paint)
-        return out
+    private fun openUrl(url: String) {
+        startActivity(
+            Intent(Intent.ACTION_VIEW, Uri.parse(url)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        )
     }
 }

@@ -1,28 +1,32 @@
 {
   "developers": [
     {
-      "name": "Egii",
+      "name": "Hexaboo",
       "username": "Hexaboo",
-      "role": "Founder / Lead Developer",
-      "link": "https://github.com/Hexaboo"
+      "role": "Founder",
+      "link": "https://github.com/Hexaboo",
+      "telegram": "Kizziama"
     },
     {
       "name": "Luigiee",
       "username": "fourninesix",
       "role": "Co Founder",
-      "link": "https://github.com/fourninesix"
+      "link": "https://github.com/fourninesix",
+      "telegram": "Luigiee"
     },
     {
       "name": "Mikazuuu07",
       "username": "Mikazuuu07",
       "role": "Core Developer",
-      "link": "https://github.com/Mikazuuu07"
+      "link": "https://github.com/Mikazuuu07",
+      "telegram": "Mikazuuu07"
     },
     {
       "name": "Byben",
       "username": "heybyben",
       "role": "Core Developer",
-      "link": "https://github.com/heybyben"
+      "link": "https://github.com/heybyben",
+      "telegram": "heybyben"
     }
   ],
   "contributors": [
@@ -30,13 +34,15 @@
       "name": "Soni Dharma",
       "username": "Hikari-Soni",
       "role": "Contributor",
-      "link": "https://github.com/Hikari-Soni"
+      "link": "https://github.com/Hikari-Soni",
+      "telegram": "StartTrueDreams"
     },
     {
       "name": "Piyyy",
       "username": "Piyyy",
       "role": "Contributor",
-      "link": "https://github.com/Piyyy"
+      "link": "https://github.com/Piyyy",
+      "telegram": "trxxstxrr"
     }
   ]
 }

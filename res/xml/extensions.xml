@@ -10,7 +10,7 @@
 
     <com.android.settingslib.widget.LayoutPreference
         android:key="extensions_homepage"
-        android:layout="@layout/extensions_homepage_layout"
+        android:layout="@layout/extensions_homepage_compose_container"
         android:selectable="false"/>
 
 </PreferenceScreen>

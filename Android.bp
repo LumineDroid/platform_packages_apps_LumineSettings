@@ -40,6 +40,10 @@ java_defaults {
     additional_manifests: [":LumineSettings-manifest"],
 
     static_libs: [
+        "androidx.compose.runtime_runtime",
+        "androidx.compose.ui_ui",
+        "androidx.compose.foundation_foundation",
+        "androidx.compose.material3_material3",
         "vendor-preference",
     ],
 

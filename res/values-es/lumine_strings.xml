@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 LumineDroid
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Battery customizations -->
+  <string name="battery_options">Batería</string>
+  <string name="battery_settings_title">Configuración de la batería</string>
+  <string name="battery_style_title">Estilo de la batería</string>
+  <string name="bluetooth_battery_summary">Mostrar el estado de la batería del dispositivo bluetooth conectado, si está disponible</string>
+  <!-- Bluetooth status -->
+  <string name="bluetooth_battery_title">Estado de la batería Bluetooth</string>
+  <string name="clock_date_left">A la izquierda de la hora</string>
+  <string name="clock_date_position">Posición de la fecha</string>
+  <string name="clock_date_right">A la derecha de la hora</string>
+  <string name="data_disabled_icon_summary">Mostrar un indicador junto al icono de señal cuando los datos están desactivados</string>
+  <!-- Data disabled indicator -->
+  <string name="data_disabled_icon_title">Indicador de datos desactivados</string>
+  <string name="error_loading_properties">Error al cargar las propiedades PIF</string>
+  <string name="extensions_about_summary">No somos grandes personas, somos simplemente individuos persistentes con una determinación inquebrantable</string>
+  <!-- Categories -->
+  <string name="extensions_about_title">Acerca de</string>
+  <string name="extensions_button_summary">Configurar botones de hardware y navegación</string>
+  <string name="extensions_button_title">Botones</string>
+  <string name="extensions_homepage_summary">Accede a todas las funciones de personalización y ajustes del sistema en un solo lugar</string>
+  <string name="extensions_lockscreen_summary">Personalizar el estilo y los accesos directos de la pantalla de bloqueo</string>
+  <string name="extensions_lockscreen_title">Pantalla de bloqueo</string>
+  <string name="extensions_misc_summary">Opciones de personalización avanzadas y experimentales</string>
+  <string name="extensions_misc_title">Miscelánea</string>
+  <string name="extensions_quicksettings_summary">Personalizar y administrar los mosaicos de ajustes rápidos</string>
+  <string name="extensions_quicksettings_title">Ajustes rápidos</string>
+  <string name="extensions_statusbar_summary">Personalizar iconos e indicadores de la barra de estado</string>
+  <string name="extensions_statusbar_title">Barra de estado</string>
+  <string name="extensions_summary">Personalización adicional</string>
+  <!-- Extensions -->
+  <string name="extensions_title">Extensiones</string>
+  <string name="gameprops_load_json_summary">Elige el archivo JSON de Game Props que se usará para falsificar juegos</string>
+  <string name="gameprops_load_json_title">Seleccionar archivo JSON de Game Props</string>
+  <string name="gameprops_summary">Falsifica tu dispositivo como un modelo diferente para juegos específicos para desbloquear más FPS</string>
+  <string name="gameprops_title">Habilitar falsificación de Game Props</string>
+  <string name="global_actions_advanced_reboot_summary">Mostrar opciones para recovery y bootloader en el menú de encendido</string>
+  <!-- Global Actions -->
+  <string name="global_actions_advanced_reboot_title">Habilitar reinicio avanzado</string>
+  <string name="gms_spoof_summary">Falsifica tu dispositivo para pasar la certificación de Google Play</string>
+  <string name="gms_spoof_title">Corrección de Play Integrity</string>
+  <string name="hide_applist_summary">Evitar que las aplicaciones verifiquen aplicaciones seleccionadas de la lista de aplicaciones</string>
+  <string name="hide_applist_title">Ocultar lista de aplicaciones</string>
+  <string name="hide_developer_status_summary">Ocultar estado de desarrollador de las aplicaciones</string>
+  <!-- Hide developer status -->
+  <string name="hide_developer_status_title">Ocultar estado de desarrollador</string>
+  <string name="hide_screen_capture_status_summary">Ocultar el estado de captura y grabación de pantalla a todas las aplicaciones. Puede ser conveniente en algunos casos, pero puede provocar filtraciones de privacidad.</string>
+  <!-- Hide screen capture status -->
+  <string name="hide_screen_capture_status_title">Ocultar estado de captura de pantalla</string>
+  <string name="icon_manager_summary">Controlar la visibilidad de los iconos de la barra de estado</string>
+  <!-- Status bar Icon Manager -->
+  <string name="icon_manager_title">Administrador de iconos</string>
+  <string name="ignore_window_secure_summary">Eliminar los límites de captura y grabación de pantalla para todas las aplicaciones. Esto puede ser conveniente en algunos casos, pero puede provocar filtraciones de privacidad.</string>
+  <!-- Ignore window secure -->
+  <string name="ignore_window_secure_title">Ignorar marcas de seguridad de ventanas</string>
+  <string name="keybox_data_loaded_summary">XML de keybox personalizado cargado. Eliminar para borrar.</string>
+  <string name="keybox_data_summary">Cargar un XML de keybox personalizado para anular la certificación de claves del dispositivo</string>
+  <!-- Spoofing - Keybox Data -->
+  <string name="keybox_data_title">Anulación de certificación de Keybox</string>
+  <string name="keybox_delete_content_description">Borrar datos de keybox</string>
+  <string name="keybox_toast_file_cleared">Keybox borrado</string>
+  <string name="keybox_toast_file_loaded">Keybox cargado</string>
+  <string name="keybox_toast_invalid_file_selected">No es un archivo XML. Elige un XML de keybox válido.</string>
+  <string name="keybox_toast_missing_data">XML de keybox no válido: faltan campos obligatorios</string>
+  <string name="location_privacy_indicator_summary">Mostrar indicador cuando cualquier aplicación use la ubicación</string>
+  <string name="location_privacy_indicator_title">Indicador de privacidad de ubicación</string>
+  <string name="lockscreen_enable_power_menu_summary">Permitir acceder al menú de encendido en la pantalla de bloqueo segura</string>
+  <!-- Power menu on secure lockscreen -->
+  <string name="lockscreen_enable_power_menu_title">Menú de encendido</string>
+  <string name="lock_screen_fingerprint_ripple_summary">Mostrar animación de onda al desbloquear con huella digital</string>
+  <!-- Ripple effect on unlock -->
+  <string name="lock_screen_fingerprint_ripple_title">Animación de onda</string>
+  <!-- Lockscreen category -->
+  <string name="lock_screen_interface_category">Interfaz</string>
+  <string name="lockscreen_smartspace_summary">Mostrar Google Smartspace cuando esté disponible</string>
+  <!-- Smartspace -->
+  <string name="lockscreen_smartspace_title">Smartspace</string>
+  <string name="lockscreen_weather_category">Clima</string>
+  <string name="lockscreen_weather_enabled_info">Requiere configurar un servicio de clima personalizado y deshabilitar Smartspace</string>
+  <string name="lockscreen_weather_humidity_info_summary">Mostrar la humedad actual en porcentaje</string>
+  <string name="lockscreen_weather_humidity_info_title">Información de humedad</string>
+  <string name="lockscreen_weather_location_summary">Mostrar ubicación del clima actual</string>
+  <string name="lockscreen_weather_location_title">Ubicación actual</string>
+  <string name="lockscreen_weather_summary">Mostrar actualización del clima actual</string>
+  <string name="lockscreen_weather_text_summary">Mostrar el resumen de las condiciones climáticas actuales</string>
+  <string name="lockscreen_weather_text_title">Condición actual</string>
+  <string name="lockscreen_weather_title">Actualización del clima</string>
+  <string name="lockscreen_weather_wind_info_summary">Mostrar velocidad y dirección del viento actual</string>
+  <string name="lockscreen_weather_wind_info_title">Información del viento</string>
+  <string name="ls_media_art_blur_level_summary">Intensidad de desenfoque cuando se aplica el filtro de desenfoque</string>
+  <!-- Lock screen media art blur level -->
+  <string name="ls_media_art_blur_level_title">Nivel de desenfoque de arte multimedia</string>
+  <string name="ls_media_art_fade_level_summary">Establecer el nivel de atenuación de la carátula multimedia</string>
+  <!-- Lock screen media art fade level -->
+  <string name="ls_media_art_fade_level_title">Nivel de atenuación de carátula multimedia</string>
+  <string name="ls_media_art_filter_blur">Desenfoque</string>
+  <string name="ls_media_art_filter_grayblur">Escala de grises y desenfoque</string>
+  <string name="ls_media_art_filter_grayscale">Escala de grises</string>
+  <string name="ls_media_art_filter_invert">Invertir</string>
+  <string name="ls_media_art_filter_none">Ninguno</string>
+  <string name="ls_media_art_filter_sepia">Sepia</string>
+  <string name="ls_media_art_filter_tint">Tinte de acento</string>
+  <!-- Lock screen album art filter -->
+  <string name="ls_media_art_filter_title">Filtro de carátula multimedia</string>
+  <string name="ls_media_art_summary">Mostrar la carátula del contenido multimedia cuando esté disponible</string>
+  <!-- Lock screen media art -->
+  <string name="ls_media_art_title">Carátula multimedia</string>
+  <!-- LumineDroid -->
+  <string name="luminedroid_title">LumineDroid</string>
+  <string name="maintainer_by">Mantenido por %1$s</string>
+  <string name="maintainer_official">Mantenedor verificado</string>
+  <string name="maintainer_unknown">Mantenido por Desconocido</string>
+  <string name="maintainer_unofficial">Mantenedor no verificado</string>
+  <string name="menu_hide_overlay">Ocultar superposición</string>
+  <string name="menu_show_overlay">Mostrar superposición</string>
+  <string name="mic_camera_privacy_indicator_summary">Mostrar indicador cuando cualquier aplicación use el micrófono o la cámara</string>
+  <!-- Privacy Indicator -->
+  <string name="mic_camera_privacy_indicator_title">Indicador de privacidad de micrófono y cámara</string>
+  <string name="miscellaneous_app_downgrade_summary">Permitir instalar versiones anteriores de aplicaciones del sistema, lo que puede provocar bloqueos y pérdida de datos</string>
+  <!-- Allow application downgrade -->
+  <string name="miscellaneous_app_downgrade_title">Permitir instalar versión anterior de aplicaciones</string>
+  <!-- Miscellaneous Category -->
+  <string name="miscellaneous_developer_options_category">Opciones de desarrollador</string>
+  <string name="monet_engine_chroma_factor_summary">Valores más altos producen colores más fuertes</string>
+  <string name="monet_engine_chroma_factor_title">Factor de croma</string>
+  <string name="monet_engine_color_override_title">Color personalizado</string>
+  <string name="monet_engine_color_source_both">Ambos (Predeterminado)</string>
+  <string name="monet_engine_color_source_home">Fondo de pantalla de inicio</string>
+  <string name="monet_engine_color_source_lock">Fondo de pantalla de bloqueo</string>
+  <string name="monet_engine_color_source_preset">Preajuste</string>
+  <string name="monet_engine_color_source_title">Origen del color</string>
+  <string name="monet_engine_custom_bgcolor_summary">Elegir color personalizado para el fondo</string>
+  <string name="monet_engine_custom_bgcolor_title">Color de fondo</string>
+  <string name="monet_engine_custom_color_summary">Elegir color personalizado para el acento</string>
+  <!-- Themes/Monet Engine -->
+  <string name="monet_engine_custom_color_title">Color de acento</string>
+  <string name="monet_engine_luminance_factor_summary">Valores más altos producen colores más brillantes</string>
+  <string name="monet_engine_luminance_factor_title">Luminancia</string>
+  <string name="monet_engine_style_content">Contenido</string>
+  <string name="monet_engine_style_expressive">Expresivo</string>
+  <string name="monet_engine_style_fruit_salad">Ensalada de frutas</string>
+  <string name="monet_engine_style_monochromatic">Monocromático</string>
+  <string name="monet_engine_style_rainbow">Arcoíris</string>
+  <string name="monet_engine_style_spritz">Spritz</string>
+  <string name="monet_engine_style_title">Estilo del tema</string>
+  <string name="monet_engine_style_tonal_spot">Punto tonal (Predeterminado)</string>
+  <string name="monet_engine_style_vibrant">Vibrante</string>
+  <string name="monet_engine_tint_background_summary">Hacer que la selección de luminancia y croma también afecte a los colores de fondo</string>
+  <string name="monet_engine_tint_background_title">Teñir fondo</string>
+  <string name="monet_engine_whole_palette_summary">Hacer que la selección de luminancia y croma también afecte a los colores secundarios</string>
+  <string name="monet_engine_whole_palette_title">Paleta completa</string>
+  <string name="network_traffic_autohide">Ocultar automáticamente</string>
+  <string name="network_traffic_autohide_kilobits">Kb/s</string>
+  <string name="network_traffic_autohide_kilobytes">KB/s</string>
+  <string name="network_traffic_autohide_summary">Ocultar el monitor de tráfico cuando esté inactivo</string>
+  <string name="network_traffic_autohide_threshold">Umbral de inactividad</string>
+  <string name="network_traffic_hidearrow">Ocultar flechas</string>
+  <string name="network_traffic_hidearrow_summary">Ocultar las flechas indicadoras de tráfico de red</string>
+  <string name="network_traffic_location_disable">Desactivado</string>
+  <string name="network_traffic_location_quick_statusbar">Barra de estado rápida</string>
+  <string name="network_traffic_location_statusbar">Barra de estado</string>
+  <string name="network_traffic_location_title">Ubicación</string>
+  <string name="network_traffic_mode_all">Subida y bajada</string>
+  <string name="network_traffic_mode_down">Solo bajada</string>
+  <string name="network_traffic_mode_title">Modo de visualización</string>
+  <string name="network_traffic_mode_up">Solo subida</string>
+  <string name="network_traffic_refresh_interval_summary">Duración después de la cual se vuelve a medir la velocidad</string>
+  <string name="network_traffic_refresh_interval_title">Intervalo de actualización</string>
+  <string name="network_traffic_settings_summary">Mostrar y personalizar los niveles de tráfico de red actuales</string>
+  <!-- Network traffic -->
+  <string name="network_traffic_settings_title">Monitor de tráfico de red</string>
+  <string name="network_traffic_units_bits">Bits por segundo (b/s)</string>
+  <string name="network_traffic_units_bytes">Bytes por segundo (B/s)</string>
+  <string name="network_traffic_units_kilobits">Kilobits por segundo (kb/s)</string>
+  <string name="network_traffic_units_kilobytes">Kilobytes por segundo (kB/s)</string>
+  <string name="network_traffic_units_megabits">Megabits por segundo (Mb/s)</string>
+  <string name="network_traffic_units_megabytes">Megabytes por segundo (MB/s)</string>
+  <string name="network_traffic_units_title">Unidades de medida de tráfico</string>
+  <string name="no_storage_restrict_summary">Eliminar la restricción al seleccionar carpetas a través de Storage Access Framework. Puede ser conveniente en algunos casos, pero puede provocar filtraciones de privacidad.</string>
+  <!-- No storage restrict -->
+  <string name="no_storage_restrict_title">Sin restricciones de almacenamiento</string>
+  <string name="ongoing_action_chip_summary">Mostrar indicador de progreso para acciones en curso como descargas</string>
+  <string name="ongoing_action_chip_title">Chip de acción en curso</string>
+  <string name="ongoing_chip_color_mode_accent">Color de acento del sistema</string>
+  <string name="ongoing_chip_color_mode_album_art">Color de la carátula del álbum</string>
+  <string name="ongoing_chip_color_mode_icon">Color del icono de la aplicación</string>
+  <string name="ongoing_chip_color_mode_title">Color de fondo del chip multimedia</string>
+  <string name="ongoing_compact_mode_summary">Usar un indicador circular compacto para las acciones en curso</string>
+  <string name="ongoing_compact_mode_title">Indicador de progreso compacto</string>
+  <string name="ongoing_media_progress_summary">Mostrar el progreso de reproducción multimedia</string>
+  <string name="ongoing_media_progress_title">Progreso multimedia</string>
+  <string name="ongoing_progress_footer_text">
+"El chip de acción de la barra de estado proporciona actualizaciones en tiempo real tanto para la reproducción multimedia como para las descargas/subidas activas.
+
+Progreso multimedia:
+• Muestra el progreso de reproducción de música y video cuando se reproduce contenido multimedia.
+• Un toque abre los controles de reproducción.
+• Dos toques alternan entre reproducir/pausar.
+• Deslizar hacia la izquierda salta a la pista anterior.
+• Deslizar hacia la derecha salta a la pista siguiente.
+• Una pulsación larga abre la aplicación multimedia.
+
+Progreso de descarga/subida:
+• Muestra el progreso de las descargas y subidas en curso.
+• Se oculta automáticamente cuando no se detectan transferencias activas.
+• Un toque abre la aplicación responsable de la descarga.
+
+La barra de progreso cambia dinámicamente entre el estado multimedia y el de descarga, asegurando que siempre tengas la información más relevante de un vistazo."</string>
+  <string name="ongoing_progress_settings_summary">Personalizar el chip de acción para mostrar el indicador de progreso</string>
+  <!-- Ongoing action chip -->
+  <string name="ongoing_progress_settings_title">Chip de acción de la barra de estado</string>
+  <string name="pif_spoofing_summary">Elige el archivo JSON PIF que se usará para falsificar Play Integrity</string>
+  <string name="pif_spoofing_title">Seleccionar archivo JSON PIF</string>
+  <string name="projection_privacy_indicator_summary">Mostrar indicador cuando se proyecta la pantalla del dispositivo</string>
+  <string name="projection_privacy_indicator_title">Indicador de privacidad de proyección multimedia</string>
+  <string name="pulse_bar_count_summary">Establecer cuántas barras se muestran en el visualizador</string>
+  <string name="pulse_bar_count_title">Número de barras</string>
+  <string name="pulse_bar_count_units">barras</string>
+  <string name="pulse_color">Color del visualizador</string>
+  <string name="pulse_color_accent">Color de acento</string>
+  <string name="pulse_color_album">Carátula del álbum</string>
+  <string name="pulse_color_lavalamp">Lámpara de lava</string>
+  <string name="pulse_rounded_bars_summary">Mostrar barras del visualizador con esquinas redondeadas</string>
+  <string name="pulse_rounded_bars_title">Barras redondeadas</string>
+  <string name="pulse_settings_summary">Mostrar un visualizador de barras en la pantalla de bloqueo mientras se reproduce música</string>
+  <!-- Pulse music visualizer -->
+  <string name="pulse_settings_title">Visualizador Pulse</string>
+  <!-- Quick Settings brightness slider -->
+  <string name="qs_brightness_slider_category">Control deslizante de brillo</string>
+  <string name="qs_brightness_slider_haptic_summary">Proporcionar retroalimentación háptica al cambiar el brillo usando el control deslizante</string>
+  <!-- Brightness slider / QS tile haptic feedback -->
+  <string name="qs_brightness_slider_haptic_title">Retroalimentación háptica</string>
+  <string name="qs_brightness_slider_position_bottom">Abajo</string>
+  <string name="qs_brightness_slider_position_title">Posición</string>
+  <string name="qs_brightness_slider_position_top">Arriba</string>
+  <string name="qs_show_auto_brightness_summary">Mostrar interruptor de brillo adaptativo cerca del control deslizante</string>
+  <!-- Quick Settings brightness icon -->
+  <string name="qs_show_auto_brightness_title">Icono de brillo automático</string>
+  <string name="qs_show_brightness_slider_always">Mostrar siempre</string>
+  <string name="qs_show_brightness_slider_expanded">Mostrar al expandir</string>
+  <string name="qs_show_brightness_slider_never">No mostrar nunca</string>
+  <string name="qs_show_brightness_slider_not_expanded">Mostrar cuando no está expandido</string>
+  <string name="qs_show_brightness_slider_title">Cuándo mostrar</string>
+  <string name="qs_tile_haptic_summary">Proporcionar retroalimentación háptica al tocar los mosaicos de ajustes rápidos</string>
+  <string name="quick_settings_data_usage_summary">Mostrar el resumen del uso de datos en el pie de página de ajustes rápidos</string>
+  <!-- Quick settings -->
+  <string name="quick_settings_data_usage_title">Uso de datos</string>
+  <!-- Hide applist -->
+  <string name="search">Buscar</string>
+  <string name="search_apps">Buscar aplicaciones</string>
+  <string name="shade_blur_radius_summary">Ajustar la intensidad de desenfoque detrás del panel de notificaciones</string>
+  <!-- QS Shade Blur -->
+  <string name="shade_blur_radius_title">Desenfoque del panel de notificaciones</string>
+  <string name="show_fourg_icon_summary">Mostrar el icono 4G en el icono de señal en lugar de LTE</string>
+  <!-- 4G icon -->
+  <string name="show_fourg_icon_title">Icono 4G</string>
+  <string name="show_pif_properties_summary">Mostrar todas las propiedades PIF configuradas actualmente</string>
+  <string name="show_pif_properties_title">Propiedades de corrección de Play Integrity</string>
+  <string name="sidebar_summary">Abrir aplicaciones rápidamente en una ventana flotante</string>
+  <!-- Sidebar -->
+  <string name="sidebar_title">Barra lateral</string>
+  <string name="spoofing_app_specific_category">Específico de la aplicación</string>
+  <!-- Spoofing -->
+  <string name="spoofing_category">Falsificación (Spoofing)</string>
+  <string name="spoofing_photos_summary">Falsificar la aplicación Google Fotos como un Pixel XL</string>
+  <string name="spoofing_photos_title">Google Fotos</string>
+  <string name="spoofing_pixel_props_summary">Falsificar un grupo selecto de aplicaciones de Google al último dispositivo Pixel</string>
+  <string name="spoofing_pixel_props_title">Propiedades de Pixel</string>
+  <string name="spoofing_snap_summary">Falsificar Snapchat como un Pixel XL para solucionar posibles problemas de chat</string>
+  <string name="spoofing_snap_title">Snapchat</string>
+  <string name="spoofing_summary">Omitir las restricciones de la aplicación falsificando componentes</string>
+  <string name="spoofing_system_wide_category">Todo el sistema</string>
+  <string name="spoofing_title">Falsificación de componentes</string>
+  <string name="spoof_storage_encryption_status_summary">Evitar que las aplicaciones no funcionen debido a almacenamiento no encriptado</string>
+  <!-- Spoof storage encryption status -->
+  <string name="spoof_storage_encryption_status_title">Deshabilitar el estado de encriptación del almacenamiento</string>
+  <string name="status_bar_am_pm_hidden">Oculto</string>
+  <string name="status_bar_am_pm_info">El reloj de 24 horas está habilitado</string>
+  <string name="status_bar_am_pm_normal">Normal</string>
+  <string name="status_bar_am_pm_small">Pequeño</string>
+  <string name="status_bar_am_pm_title">Estilo AM/PM</string>
+  <string name="status_bar_battery_percent_hidden">Oculto</string>
+  <string name="status_bar_battery_percent_text_inside">Dentro del icono</string>
+  <string name="status_bar_battery_percent_text_next">Junto al icono</string>
+  <string name="status_bar_battery_percent_text_next_left">Junto al icono (izquierda)</string>
+  <string name="status_bar_battery_percent_text_next_right">Junto al icono (derecha)</string>
+  <string name="status_bar_battery_percent_title">Porcentaje de batería</string>
+  <string name="status_bar_battery_style_circle">Círculo</string>
+  <string name="status_bar_battery_style_dotted_circle">Círculo punteado</string>
+  <string name="status_bar_battery_style_filled_circle">Círculo relleno</string>
+  <string name="status_bar_battery_style_hidden">Oculto</string>
+  <string name="status_bar_battery_style_icon_landscape">Icono horizontal (Izquierda)</string>
+  <string name="status_bar_battery_style_icon_portrait">Icono vertical</string>
+  <string name="status_bar_battery_style_icon_rlandscape">Icono horizontal (Derecha)</string>
+  <string name="status_bar_battery_style_text">Texto</string>
+  <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Estilo de la batería</string>
+  <string name="status_bar_clock_auto_hide_summary">Ocultar reloj si el lanzador es visible</string>
+  <string name="status_bar_clock_auto_hide_title">Ocultar automáticamente</string>
+  <string name="status_bar_clock_position_center">Centro</string>
+  <string name="status_bar_clock_position_left">Izquierda</string>
+  <string name="status_bar_clock_position_right">Derecha</string>
+  <string name="status_bar_clock_position_title">Estilo de reloj</string>
+  <string name="status_bar_clock_seconds_summary">Mostrar los segundos junto al reloj en la barra de estado</string>
+  <string name="status_bar_clock_seconds_title">Segundos del reloj</string>
+  <string name="status_bar_clock_summary">Personalizar reloj y fecha</string>
+  <!-- Status bar - Clock -->
+  <string name="status_bar_clock_title">Reloj y fecha</string>
+  <string name="statusbar_colored_icons_summary">Usar iconos de aplicaciones correctos para los iconos de notificación en la barra de estado</string>
+  <!-- Statusbar colored icons -->
+  <string name="statusbar_colored_icons_title">Iconos coloreados</string>
+  <string name="status_bar_date_format_custom">Formato java personalizado</string>
+  <string name="status_bar_date_format_title">Formato de fecha</string>
+  <string name="status_bar_date_none">Oculto</string>
+  <string name="status_bar_date_normal">Normal</string>
+  <string name="status_bar_date_small">Pequeño</string>
+  <string name="status_bar_date_string_edittext_summary">Introduce la cadena</string>
+  <string name="status_bar_date_string_edittext_title">Debe estar en formato de fecha, p. ej. MM/dd/yy</string>
+  <string name="status_bar_date_style">Estilo de fecha</string>
+  <string name="status_bar_date_style_lowercase">Minúsculas</string>
+  <string name="status_bar_date_style_normal">Normal</string>
+  <string name="status_bar_date_style_uppercase">Mayúsculas</string>
+  <string name="status_bar_date_title">Fecha</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Toca dos veces en la barra de estado o en la pantalla de bloqueo para apagar la pantalla</string>
+  <!-- Double tap to sleep on status bar or lockscreen -->
+  <string name="status_bar_double_tap_to_sleep_title">Tocar para apagar</string>
+  <string name="status_bar_notif_count_summary">Mostrar el número de notificaciones no leídas en el icono de cada aplicación</string>
+  <!-- Notification counter -->
+  <string name="status_bar_notif_count_title">Recuento de notificaciones</string>
+  <string name="systemui_restart_message">Para que los cambios surtan efecto, es necesario reiniciar SystemUI. ¿Reiniciar SystemUI ahora?</string>
+  <string name="systemui_restart_not_now">Ahora no</string>
+  <string name="systemui_restart_process">Reiniciando SystemUI para aplicar los cambios...</string>
+  <!-- SystemUI restart dialog -->
+  <string name="systemui_restart_title">Se requiere reiniciar SystemUI</string>
+  <string name="systemui_restart_yes">Sí</string>
+  <!-- Themes -->
+  <string name="themes_monet_category">Monet</string>
+  <string name="themes_monet_summary">Personalizar el motor de temas integrado de Android</string>
+  <string name="themes_monet_title">Ajustes de Monet</string>
+  <string name="toast_spoofing_failure">Error al falsificar propiedades.</string>
+  <!-- Spoofing - Play Integrity fix JSON update -->
+  <string name="toast_spoofing_success">pif.json descargado con éxito. Falsificando como %1$s para Play Integrity.</string>
+  <string name="unit_milliseconds">milisegundos</string>
+  <string name="unit_pixels">dp</string>
+  <!-- Units -->
+  <string name="unit_seconds">segundos</string>
+  <string name="update_pif_auto_random_summary">Obtener un dispositivo de falsificación aleatorio de la lista de Google. (Requiere conexión a Internet).</string>
+  <string name="update_pif_auto_random_title">Actualizar corrección de Play Integrity (Aleatorio)</string>
+  <string name="update_pif_json_summary">Actualizar dispositivo de falsificación PIF (Requiere conexión a Internet).</string>
+  <string name="update_pif_json_title">Actualizar corrección de Play Integrity</string>
+  <string name="vbmeta_attestation_summary">Realizar la certificación de claves para generar el hash de inicio verificado en el arranque. Requiere reiniciar el sistema.</string>
+  <!-- Vbmeta hash attestation -->
+  <string name="vbmeta_attestation_title">Corrección automática de detección de VBMeta</string>
+  <string name="vending_spoof_summary">Aplicar falsificación de dispositivo a Google Play Store</string>
+  <string name="vending_spoof_title">Falsificación de Vending</string>
+  <string name="weather_settings_summary">Configurar paquete de iconos y servicio meteorológico</string>
+  <!-- Weather -->
+  <string name="weather_settings_title">Ajustes del clima</string>
+</resources>

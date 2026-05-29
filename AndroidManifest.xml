@@ -41,7 +41,6 @@
              android:name="Settings$ExtensionsStatusbarActivity"
              android:targetActivity="com.android.settings.SubSettings"
              android:label="@string/extensions_statusbar_title"
-             android:icon="@drawable/ic_statusbar"
              android:exported="true">
              <meta-data
                  android:name="com.android.settings.FRAGMENT_CLASS"
@@ -52,7 +51,6 @@
              android:name="Settings$ExtensionsQuickSettingsActivity"
              android:targetActivity="com.android.settings.SubSettings"
              android:label="@string/extensions_quicksettings_title"
-             android:icon="@drawable/ic_quicksettings"
              android:exported="true">
              <meta-data
                  android:name="com.android.settings.FRAGMENT_CLASS"
@@ -63,7 +61,6 @@
              android:name="Settings$ExtensionsButtonActivity"
              android:targetActivity="com.android.settings.SubSettings"
              android:label="@string/extensions_button_title"
-             android:icon="@drawable/ic_button"
              android:exported="true">
              <meta-data
                  android:name="com.android.settings.FRAGMENT_CLASS"
@@ -74,7 +71,6 @@
              android:name="Settings$ExtensionsLockScreenActivity"
              android:targetActivity="com.android.settings.SubSettings"
              android:label="@string/extensions_lockscreen_title"
-             android:icon="@drawable/ic_lockscreen"
              android:exported="true">
              <meta-data
                  android:name="com.android.settings.FRAGMENT_CLASS"
@@ -85,7 +81,6 @@
              android:name="Settings$ExtensionsMiscActivity"
              android:targetActivity="com.android.settings.SubSettings"
              android:label="@string/extensions_misc_title"
-             android:icon="@drawable/ic_misc"
              android:exported="true">
              <meta-data
                  android:name="com.android.settings.FRAGMENT_CLASS"
@@ -96,7 +91,6 @@
              android:name="Settings$ExtensionsAboutActivity"
              android:targetActivity="com.android.settings.SubSettings"
              android:label="@string/extensions_about_title"
-             android:icon="@drawable/ic_about"
              android:exported="true">
              <meta-data
                  android:name="com.android.settings.FRAGMENT_CLASS"

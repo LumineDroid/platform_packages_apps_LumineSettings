@@ -17,14 +17,12 @@
     <string name="luminedroid_project_name">LumineDroid</string>
     <string name="luminedroid_project_tagline">Light up your Android experience</string>
     <string name="luminedroid_project_desc">LumineDroid is an open-source project that aims to create a custom Android operating system based on the Android Open Source Project (AOSP). Our goal is to deliver a fast, stable, and user friendly Android experience while maintaining a clean and modifiable codebase for the community.</string>
-    <string name="luminedroid_version_label">Version</string>
-    <string name="luminedroid_version_value">Bellflower</string>
     <string name="luminedroid_social_github">GitHub</string>
     <string name="luminedroid_social_telegram">Telegram</string>
     <string name="luminedroid_social_website">Website</string>
     <string name="luminedroid_url_github">https://github.com/LumineDroid</string>
     <string name="luminedroid_url_telegram">https://t.me/LumineDroidChat</string>
-    <string name="luminedroid_url_website">https://luminedroid.pages.dev</string>
+    <string name="luminedroid_url_website">https://luminedroid.org</string>
     <string name="luminedroid_meet_the_team">Meet the Team</string>
     <string name="luminedroid_page_subtitle">
         Passionate developers building the future of Android customization
@@ -33,13 +31,7 @@
     <string name="luminedroid_tab_devs">Developers</string>
     <string name="luminedroid_tab_contribs">Contributors</string>
     <string name="luminedroid_dev_section_title">Core Developers</string>
-    <string name="luminedroid_dev_section_subtitle">
-        The people who build and maintain LumineDroid.
-    </string>
-    <string name="luminedroid_contrib_section_title">Device Contributors</string>
-    <string name="luminedroid_contrib_section_subtitle">
-        Maintainers who bring LumineDroid to your device.
-    </string>
+    <string name="luminedroid_contrib_section_title">Contributors</string>
     <string name="luminedroid_badge_core_dev">Core Dev</string>
     <string name="luminedroid_badge_contributor">Contributor</string>
     <string name="luminedroid_avatar_desc">Profile picture</string>

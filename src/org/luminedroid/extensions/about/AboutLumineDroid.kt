@@ -11,12 +11,14 @@ import android.net.Uri
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.*
 import androidx.compose.material3.*
@@ -107,23 +109,24 @@ private fun AboutContent(
             modifier =
                 Modifier.fillMaxWidth()
                     .padding(horizontal = 6.dp)
-                    .padding(top = 12.dp, bottom = 4.dp),
+                    .padding(top = 16.dp, bottom = 8.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             Text(
                 text = stringResource(R.string.luminedroid_meet_the_team),
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.ExtraBold,
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center,
+                letterSpacing = (-0.5).sp,
             )
             Text(
                 text = stringResource(R.string.luminedroid_page_subtitle),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.padding(horizontal = 8.dp),
+                modifier = Modifier.padding(horizontal = 12.dp),
             )
         }
 
@@ -151,80 +154,126 @@ private fun HeroCard(onSocialClick: (String) -> Unit) {
     val urlTelegram = stringResource(R.string.luminedroid_url_telegram)
     val urlWebsite = stringResource(R.string.luminedroid_url_website)
 
+    val primaryColor = MaterialTheme.colorScheme.primary
+    val secondaryColor = MaterialTheme.colorScheme.secondary
+    val containerColor = MaterialTheme.colorScheme.secondaryContainer
+
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(28.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
         colors =
-            CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+            CardDefaults.cardColors(containerColor = containerColor),
     ) {
-        Column(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 32.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            IconPill(painter = painterResource(R.drawable.ic_luminedroid_logo), size = 86.dp)
-
-            Spacer(Modifier.height(16.dp))
-
-            Text(
-                text = stringResource(R.string.luminedroid_project_name),
-                style = MaterialTheme.typography.headlineMedium,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                textAlign = TextAlign.Center,
+        Box(modifier = Modifier.fillMaxWidth()) {
+            // Subtle gradient overlay for depth
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(180.dp)
+                    .background(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(
+                                primaryColor.copy(alpha = 0.08f),
+                                containerColor.copy(alpha = 0f),
+                            )
+                        )
+                    )
             )
 
-            Spacer(Modifier.height(4.dp))
-
-            Text(
-                text = stringResource(R.string.luminedroid_project_tagline),
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.alpha(0.70f),
-            )
-
-            Spacer(Modifier.height(14.dp))
-
-            Text(
-                text = stringResource(R.string.luminedroid_project_desc),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                textAlign = TextAlign.Center,
-                lineHeight = 18.sp,
-                modifier = Modifier.alpha(0.70f),
-            )
-
-            Spacer(Modifier.height(20.dp))
-
-            HorizontalDivider(
-                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.10f)
-            )
-
-            Spacer(Modifier.height(16.dp))
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            Column(
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp, vertical = 36.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                SocialButton(
-                    labelRes = R.string.luminedroid_social_github,
-                    icon = painterResource(R.drawable.ic_github),
-                    modifier = Modifier.weight(1f),
-                    onClick = { onSocialClick(urlGithub) },
+                // Icon with enhanced styling
+                Box(
+                    modifier = Modifier
+                        .size(96.dp)
+                        .background(
+                            brush = Brush.linearGradient(
+                                colors = listOf(
+                                    primaryColor,
+                                    secondaryColor,
+                                )
+                            ),
+                            shape = RoundedCornerShape(50),
+                        )
+                        .padding(20.dp),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_luminedroid_logo),
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onPrimary,
+                        modifier = Modifier.fillMaxSize(),
+                    )
+                }
+
+                Spacer(Modifier.height(20.dp))
+
+                Text(
+                    text = stringResource(R.string.luminedroid_project_name),
+                    style = MaterialTheme.typography.headlineLarge,
+                    fontWeight = FontWeight.ExtraBold,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    textAlign = TextAlign.Center,
+                    letterSpacing = (-0.5).sp,
                 )
-                SocialButton(
-                    labelRes = R.string.luminedroid_social_telegram,
-                    icon = rememberVectorPainter(Icons.Rounded.Send),
-                    modifier = Modifier.weight(1f),
-                    onClick = { onSocialClick(urlTelegram) },
+
+                Spacer(Modifier.height(6.dp))
+
+                Text(
+                    text = stringResource(R.string.luminedroid_project_tagline),
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Medium,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.alpha(0.75f),
                 )
-                SocialButton(
-                    labelRes = R.string.luminedroid_social_website,
-                    icon = rememberVectorPainter(Icons.Rounded.Language),
-                    modifier = Modifier.weight(1f),
-                    onClick = { onSocialClick(urlWebsite) },
+
+                Spacer(Modifier.height(16.dp))
+
+                Text(
+                    text = stringResource(R.string.luminedroid_project_desc),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    textAlign = TextAlign.Center,
+                    lineHeight = 20.sp,
+                    modifier = Modifier.alpha(0.65f).padding(horizontal = 8.dp),
                 )
+
+                Spacer(Modifier.height(24.dp))
+
+                HorizontalDivider(
+                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.12f),
+                    thickness = 1.dp,
+                )
+
+                Spacer(Modifier.height(20.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                ) {
+                    SocialButton(
+                        labelRes = R.string.luminedroid_social_github,
+                        icon = painterResource(R.drawable.ic_github),
+                        modifier = Modifier.weight(1f),
+                        onClick = { onSocialClick(urlGithub) },
+                    )
+                    SocialButton(
+                        labelRes = R.string.luminedroid_social_telegram,
+                        icon = rememberVectorPainter(Icons.Rounded.Send),
+                        modifier = Modifier.weight(1f),
+                        onClick = { onSocialClick(urlTelegram) },
+                    )
+                    SocialButton(
+                        labelRes = R.string.luminedroid_social_website,
+                        icon = rememberVectorPainter(Icons.Rounded.Language),
+                        modifier = Modifier.weight(1f),
+                        onClick = { onSocialClick(urlWebsite) },
+                    )
+                }
             }
         }
     }
@@ -239,27 +288,27 @@ private fun SocialButton(
 ) {
     Surface(
         modifier =
-            modifier.height(42.dp).clip(RoundedCornerShape(14.dp)).clickable(onClick = onClick),
-        shape = RoundedCornerShape(14.dp),
-        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.08f),
+            modifier.height(48.dp).clip(RoundedCornerShape(16.dp)).clickable(onClick = onClick),
+        shape = RoundedCornerShape(16.dp),
+        color = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f),
     ) {
         Row(
-            modifier = Modifier.fillMaxSize().padding(horizontal = 6.dp),
+            modifier = Modifier.fillMaxSize().padding(horizontal = 8.dp),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
                 painter = icon,
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                modifier = Modifier.size(14.dp),
+                tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(16.dp),
             )
-            Spacer(Modifier.width(5.dp))
+            Spacer(Modifier.width(6.dp))
             Text(
                 text = stringResource(labelRes),
-                style = MaterialTheme.typography.labelMedium,
+                style = MaterialTheme.typography.labelLarge,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                color = MaterialTheme.colorScheme.primary,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
@@ -303,17 +352,17 @@ private fun TeamTabChip(
     val alpha by animateFloatAsState(if (selected) 1f else 0.75f, label = "tabAlpha")
 
     val containerColor =
-        if (selected) MaterialTheme.colorScheme.primaryContainer
+        if (selected) MaterialTheme.colorScheme.secondaryContainer
         else MaterialTheme.colorScheme.surfaceVariant
 
     val contentColor =
-        if (selected) MaterialTheme.colorScheme.onPrimaryContainer
+        if (selected) MaterialTheme.colorScheme.onSecondaryContainer
         else MaterialTheme.colorScheme.onSurfaceVariant
 
     Surface(
         modifier =
             modifier
-                .height(40.dp)
+                .height(44.dp)
                 .clip(RoundedCornerShape(50))
                 .clickable(onClick = onClick)
                 .alpha(alpha),
@@ -321,16 +370,16 @@ private fun TeamTabChip(
         color = containerColor,
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 18.dp),
+            modifier = Modifier.padding(horizontal = 20.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(
                 painter = icon,
                 contentDescription = null,
                 tint = contentColor,
-                modifier = Modifier.size(15.dp),
+                modifier = Modifier.size(16.dp),
             )
-            Spacer(Modifier.width(6.dp))
+            Spacer(Modifier.width(7.dp))
             Text(
                 text = label,
                 style = MaterialTheme.typography.labelLarge,
@@ -344,26 +393,26 @@ private fun TeamTabChip(
 @Composable
 private fun SectionHeader(label: String, count: Int) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 4.dp),
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 4.dp).padding(top = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
             text = label,
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.weight(1f),
         )
         Surface(
             shape = RoundedCornerShape(50),
-            color = MaterialTheme.colorScheme.primaryContainer,
+            color = MaterialTheme.colorScheme.secondaryContainer,
         ) {
             Text(
                 text = count.toString(),
-                style = MaterialTheme.typography.labelSmall,
-                fontWeight = FontWeight.SemiBold,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                modifier = Modifier.padding(horizontal = 10.dp, vertical = 3.dp),
+                style = MaterialTheme.typography.labelMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                modifier = Modifier.padding(horizontal = 12.dp, vertical = 5.dp),
             )
         }
     }
@@ -424,62 +473,78 @@ private fun PersonCard(
         shape = RoundedCornerShape(24.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
         colors =
-            CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+            CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
     ) {
         Column(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 18.dp),
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 20.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            GithubAvatar(
-                username = person.username,
-                modifier = Modifier.size(72.dp).clip(CircleShape),
-            )
+            Box(
+                modifier = Modifier
+                    .size(80.dp)
+                    .background(
+                        color = MaterialTheme.colorScheme.surface,
+                        shape = CircleShape,
+                    )
+                    .border(
+                        width = 2.dp,
+                        color = MaterialTheme.colorScheme.primary.copy(alpha = 0.1f),
+                        shape = CircleShape,
+                    ),
+                contentAlignment = Alignment.Center,
+            ) {
+                GithubAvatar(
+                    username = person.username,
+                    modifier = Modifier.size(76.dp).clip(CircleShape),
+                )
+            }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(14.dp))
 
             Text(
                 text = person.name,
-                style = MaterialTheme.typography.labelLarge,
+                style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Center,
             )
 
-            Spacer(Modifier.height(2.dp))
+            Spacer(Modifier.height(4.dp))
 
             Text(
                 text = person.role,
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
                 maxLines = 2,
-                lineHeight = 15.sp,
+                lineHeight = 16.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.alpha(0.70f),
             )
 
-            Spacer(Modifier.height(2.dp))
+            Spacer(Modifier.height(3.dp))
 
             Text(
                 text = "@${person.username}",
                 style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.alpha(0.45f),
             )
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(14.dp))
 
             HorizontalDivider(
-                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.10f)
+                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.12f),
+                thickness = 1.dp,
             )
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(14.dp))
 
-            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 SocialIconButton(
                     icon = painterResource(R.drawable.ic_github),
                     contentDescRes = R.string.luminedroid_github_desc,
@@ -494,7 +559,7 @@ private fun PersonCard(
                 }
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(14.dp))
 
             Surface(
                 shape = RoundedCornerShape(50),
@@ -504,9 +569,9 @@ private fun PersonCard(
                     text = person.badgeLabel.uppercase(),
                     style = MaterialTheme.typography.labelSmall,
                     fontWeight = FontWeight.Bold,
-                    letterSpacing = 0.5.sp,
+                    letterSpacing = 0.8.sp,
                     color = badgeContentColor,
-                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 3.dp),
+                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp),
                 )
             }
         }
@@ -521,16 +586,16 @@ private fun SocialIconButton(
 ) {
     Surface(
         modifier =
-            Modifier.size(34.dp).clip(RoundedCornerShape(10.dp)).clickable(onClick = onClick),
-        shape = RoundedCornerShape(10.dp),
-        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.08f),
+            Modifier.size(38.dp).clip(RoundedCornerShape(12.dp)).clickable(onClick = onClick),
+        shape = RoundedCornerShape(12.dp),
+        color = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f),
     ) {
         Box(contentAlignment = Alignment.Center) {
             Icon(
                 painter = icon,
                 contentDescription = stringResource(contentDescRes),
-                tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                modifier = Modifier.size(16.dp).alpha(0.75f),
+                tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(18.dp),
             )
         }
     }
@@ -571,7 +636,7 @@ private fun GithubAvatar(username: String, modifier: Modifier = Modifier) {
     Box(
         modifier =
             modifier.background(
-                color = MaterialTheme.colorScheme.primaryContainer,
+                color = MaterialTheme.colorScheme.secondaryContainer,
                 shape = CircleShape,
             ),
         contentAlignment = Alignment.Center,
@@ -581,7 +646,7 @@ private fun GithubAvatar(username: String, modifier: Modifier = Modifier) {
                 Icon(
                     imageVector = Icons.Rounded.Person,
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
                     modifier = Modifier.size(36.dp).alpha(0.3f),
                 )
             is AvatarState.Success ->
@@ -595,7 +660,7 @@ private fun GithubAvatar(username: String, modifier: Modifier = Modifier) {
                 Icon(
                     imageVector = Icons.Rounded.Person,
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
                     modifier = Modifier.size(36.dp),
                 )
         }

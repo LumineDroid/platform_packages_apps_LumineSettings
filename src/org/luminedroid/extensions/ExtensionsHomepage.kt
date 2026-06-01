@@ -125,22 +125,22 @@ fun ExtensionsHomepage(onItemClick: (String) -> Unit) {
 
     Column(
         modifier =
-            Modifier.fillMaxWidth().padding(horizontal = 10.dp).padding(top = 6.dp, bottom = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+            Modifier.fillMaxWidth().padding(horizontal = 12.dp).padding(top = 8.dp, bottom = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         HeaderCard(
             wallpaperBmp = wallpaperBmp,
-            modifier = Modifier.fillMaxWidth().height(140.dp),
+            modifier = Modifier.fillMaxWidth().height(170.dp),
         )
 
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             extensionItems.take(2).forEach { item ->
                 VerticalExtensionCard(
                     item = item,
-                    modifier = Modifier.weight(1f).height(130.dp),
+                    modifier = Modifier.weight(1f).height(152.dp),
                     onClick = { onItemClick(item.id) },
                 )
             }
@@ -148,16 +148,16 @@ fun ExtensionsHomepage(onItemClick: (String) -> Unit) {
 
         Row(
             modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             Column(
                 modifier = Modifier.weight(1f).fillMaxHeight(),
-                verticalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(10.dp),
             ) {
                 extensionItems.drop(2).take(2).forEach { item ->
                     VerticalExtensionCard(
                         item = item,
-                        modifier = Modifier.fillMaxWidth().height(120.dp),
+                        modifier = Modifier.fillMaxWidth().height(140.dp),
                         onClick = { onItemClick(item.id) },
                     )
                 }
@@ -206,26 +206,26 @@ private fun HeaderCard(wallpaperBmp: Bitmap?, modifier: Modifier) {
             Box(modifier = Modifier.matchParentSize().background(headerBg.copy(alpha = 0.45f)))
 
             Column(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 16.dp),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 22.dp, vertical = 18.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
                     text = stringResource(R.string.extensions_title),
                     color = headerText,
-                    fontSize = 30.sp,
+                    fontSize = 34.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
-                Spacer(Modifier.height(4.dp))
+                Spacer(Modifier.height(6.dp))
                 Text(
                     text = stringResource(R.string.extensions_homepage_summary),
                     color = headerText,
-                    fontSize = 12.sp,
+                    fontSize = 13.sp,
                     fontWeight = FontWeight.SemiBold,
                     textAlign = TextAlign.Center,
-                    lineHeight = 16.sp,
+                    lineHeight = 17.sp,
                     maxLines = 2,
                     modifier = Modifier.alpha(0.90f),
                 )
@@ -248,7 +248,7 @@ private fun VerticalExtensionCard(
             CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
     ) {
         Column(
-            modifier = Modifier.fillMaxSize().padding(12.dp),
+            modifier = Modifier.fillMaxSize().padding(14.dp),
             verticalArrangement = Arrangement.SpaceBetween,
         ) {
             Row(
@@ -256,19 +256,19 @@ private fun VerticalExtensionCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.Top,
             ) {
-                IconPill(icon = item.icon, size = 36.dp)
+                IconPill(icon = item.icon, size = 42.dp)
                 Icon(
                     imageVector = Icons.AutoMirrored.Rounded.KeyboardArrowRight,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.45f),
-                    modifier = Modifier.size(22.dp).padding(top = 2.dp),
+                    modifier = Modifier.size(24.dp).padding(top = 2.dp),
                 )
             }
             Column {
                 Text(
                     text = stringResource(item.titleRes),
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    fontSize = 14.sp,
+                    fontSize = 15.sp,
                     fontWeight = FontWeight.Bold,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
@@ -276,9 +276,9 @@ private fun VerticalExtensionCard(
                 Text(
                     text = stringResource(item.summaryRes),
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    fontSize = 11.sp,
+                    fontSize = 12.sp,
                     fontWeight = FontWeight.SemiBold,
-                    lineHeight = 15.sp,
+                    lineHeight = 16.sp,
                     maxLines = 2,
                     modifier = Modifier.alpha(0.70f),
                 )
@@ -301,29 +301,29 @@ private fun AboutCard(
             CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
     ) {
         Column(
-            modifier = Modifier.fillMaxSize().padding(12.dp),
+            modifier = Modifier.fillMaxSize().padding(14.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            IconPill(icon = item.icon, size = 56.dp)
-            Spacer(Modifier.height(8.dp))
+            IconPill(icon = item.icon, size = 64.dp)
+            Spacer(Modifier.height(10.dp))
             Text(
                 text = stringResource(item.titleRes),
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
-                fontSize = 17.sp,
+                fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
-            Spacer(Modifier.height(2.dp))
+            Spacer(Modifier.height(3.dp))
             Text(
                 text = stringResource(item.summaryRes),
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
-                fontSize = 11.sp,
+                fontSize = 12.sp,
                 fontWeight = FontWeight.SemiBold,
                 textAlign = TextAlign.Center,
-                lineHeight = 15.sp,
+                lineHeight = 16.sp,
                 maxLines = 4,
                 modifier = Modifier.alpha(0.70f),
             )
@@ -345,14 +345,14 @@ private fun MiscCard(
             CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(14.dp),
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Column(modifier = Modifier.weight(1f).padding(end = 10.dp)) {
+            Column(modifier = Modifier.weight(1f).padding(end = 12.dp)) {
                 Text(
                     text = stringResource(item.titleRes),
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    fontSize = 15.sp,
+                    fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
@@ -360,14 +360,14 @@ private fun MiscCard(
                 Text(
                     text = stringResource(item.summaryRes),
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    fontSize = 11.sp,
+                    fontSize = 12.sp,
                     fontWeight = FontWeight.SemiBold,
-                    lineHeight = 15.sp,
+                    lineHeight = 16.sp,
                     maxLines = 2,
                     modifier = Modifier.alpha(0.70f),
                 )
             }
-            IconPill(icon = item.icon, size = 38.dp)
+            IconPill(icon = item.icon, size = 44.dp)
         }
     }
 }

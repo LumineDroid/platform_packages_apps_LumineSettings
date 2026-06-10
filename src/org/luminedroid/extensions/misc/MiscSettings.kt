@@ -21,6 +21,17 @@ class MiscSettings :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addPreferencesFromResource(R.xml.extensions_misc)
+
+        val prefScreen = preferenceScreen
+        val res = resources
+
+        val pocketJudge = prefScreen.findPreference<Preference>(POCKET_JUDGE)
+        val isPocketJudgeSupported = res.getBoolean(
+            com.android.internal.R.bool.config_pocketModeSupported
+        )
+        if (!isPocketJudgeSupported) {
+            pocketJudge?.let { prefScreen.removePreference(it) }
+        }
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean = false
@@ -28,11 +39,19 @@ class MiscSettings :
     override fun getMetricsCategory(): Int = MetricsEvent.LUMINEDROID
 
     companion object {
+        private const val POCKET_JUDGE = "pocket_judge"
+
         @JvmField
         val SEARCH_INDEX_DATA_PROVIDER =
             object : BaseSearchIndexProvider(R.xml.extensions_misc) {
                 override fun getNonIndexableKeys(context: Context): List<String> {
-                    val keys = super.getNonIndexableKeys(context)
+                    val keys = super.getNonIndexableKeys(context).toMutableList()
+                    val isPocketJudgeSupported = context.resources.getBoolean(
+                        com.android.internal.R.bool.config_pocketModeSupported
+                    )
+                    if (!isPocketJudgeSupported) {
+                        keys.add(POCKET_JUDGE)
+                    }
                     return keys
                 }
             }

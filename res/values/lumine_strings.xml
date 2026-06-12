@@ -71,6 +71,9 @@
     <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
     <string name="spoofing_snap_title">Snapchat</string>
     <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
+    <string name="spoofing_applying_changes">Applying spoof changes\u2026</string>
+    <string name="spoofing_tensor_enabled">Tensor features enabled</string>
+    <string name="spoofing_tensor_disabled">Tensor features disabled</string>
 
     <!-- Bluetooth status -->
     <string name="bluetooth_battery_title">Bluetooth battery status</string>
@@ -585,7 +588,7 @@
     <string name="app_spoofing_no_apps_configured">No apps configured</string>
     <string name="app_spoofing_spoof_model">Spoof model</string>
     <string name="app_spoofing_select_spoof_model">Select spoof model</string>
-    <string name="app_spoofing_change_app">Change app</string> 
+    <string name="app_spoofing_change_app">Change app</string>
 
     <!-- Custom App Spoofing Profiles -->
     <string name="add_new_spoof_profile">Add new</string>

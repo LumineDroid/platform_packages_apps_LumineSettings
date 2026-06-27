@@ -50,8 +50,6 @@ class StatusBarSettings :
 
         fun reset(context: Context) {
             val resolver: ContentResolver = context.contentResolver
-
-            DynamicBar.Companion.reset(context)
         }
 
         @JvmField

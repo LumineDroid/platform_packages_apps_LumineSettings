@@ -607,4 +607,10 @@
     <string name="app_spoofing_longpress_hint">Long press to quickly reassign profile</string>
     <string name="app_spoofing_remove_title">Remove app?</string>
     <string name="app_spoofing_remove_confirm">Remove %1$s from the spoofing list?</string>
+
+    <!-- Screen Off animation -->
+    <string name="screen_off_animation_title">Screen off animation</string>
+    <string name="screen_off_animation_default">Default</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Scale</string>
 </resources>

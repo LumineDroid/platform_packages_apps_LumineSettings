@@ -133,13 +133,6 @@ class LockScreenSettings :
                 0,
                 UserHandle.USER_CURRENT,
             )
-
-            Settings.System.putIntForUser(
-                resolver,
-                Settings.System.LOCKSCREEN_BATTERY_INFO,
-                1,
-                UserHandle.USER_CURRENT,
-            )
         }
 
         @JvmField

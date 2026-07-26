@@ -569,10 +569,6 @@
     <string name="disable_flash_sms_title">Disable Flash SMS</string>
     <string name="disable_flash_sms_summary">Converts full-screen flash messages into standard text SMS.</string>
 
-    <!-- Notification bubbles -->
-    <string name="notification_bubble_apps_title">Bubble Notifications</string>
-    <string name="notification_bubble_apps_summary">Launch apps in a bubble when clicking their notifications</string>
-
     <!-- App Spoofing -->
     <string name="user_selectable_app_spoofing_title">App Spoofing</string>
     <string name="user_selectable_app_spoofing_summary">Choose which apps to spoof device properties for</string>

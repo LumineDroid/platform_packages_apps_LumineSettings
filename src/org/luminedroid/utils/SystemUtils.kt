@@ -20,7 +20,7 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.android.internal.util.luminedroid.LumineUtils
+import com.android.internal.util.lumine.Utils
 import com.android.settings.R
 
 object SystemUtils {
@@ -46,7 +46,7 @@ object SystemUtils {
             ).show()
 
         Handler(Looper.getMainLooper()).postDelayed({
-            LumineUtils.restartSystemUI()
+            Utils.restartSystemUI()
         }, 2000) // 2-second delay
     }
 }

@@ -12,7 +12,7 @@ import android.os.UserManager;
 
 import com.android.settings.core.BasePreferenceController;
 
-import com.android.internal.util.luminedroid.HideDeveloperStatusUtils;
+import com.android.internal.util.lumine.HideDeveloperStatusUtils;
 
 import java.util.List;
 

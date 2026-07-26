@@ -14,7 +14,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceScreen
 import androidx.preference.SwitchPreferenceCompat
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent
-import com.android.internal.util.luminedroid.OmniJawsClient
+import com.android.internal.util.lumine.OmniJawsClient
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
 import com.android.settings.search.BaseSearchIndexProvider
